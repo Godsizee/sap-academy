@@ -1,32 +1,21 @@
 # Basis-Image
 FROM php:8.2-apache
 
-# 1. mod_rewrite aktivieren
-RUN a2enmod rewrite
-
-# 2. DocumentRoot Variablen setzen
+# DocumentRoot auf den "public"-Ordner ändern
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 
-# 3. VirtualHost mit fest integrierten Rewrite-Regeln erstellen (ersetzt die .htaccess)
-RUN echo "<VirtualHost *:80>\n\
-    DocumentRoot ${APACHE_DOCUMENT_ROOT}\n\
-    <Directory ${APACHE_DOCUMENT_ROOT}>\n\
-        Options Indexes FollowSymLinks\n\
-        AllowOverride None\n\
-        Require all granted\n\
-        \n\
-        # Routing-Logik direkt im Server-Kern\n\
-        RewriteEngine On\n\
-        RewriteCond %{REQUEST_FILENAME} !-f\n\
-        RewriteCond %{REQUEST_FILENAME} !-d\n\
-        RewriteRule ^(.*)$ index.php [QSA,L]\n\
-    </Directory>\n\
-    ErrorLog \${APACHE_LOG_DIR}/error.log\n\
-    CustomLog \${APACHE_LOG_DIR}/access.log combined\n\
-</VirtualHost>" > /etc/apache2/sites-available/000-default.conf
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
-# 4. Projektdateien kopieren
+# Kugelsicheres Routing ohne .htaccess:
+# FallbackResource leitet alle Anfragen, die keine echten Dateien sind, auf index.php um.
+RUN echo "<Directory ${APACHE_DOCUMENT_ROOT}>\n\
+    FallbackResource /index.php\n\
+</Directory>" > /etc/apache2/conf-available/routing.conf \
+    && a2enconf routing
+
+# Projektdateien kopieren (Fallback für Systeme ohne Volumes)
 COPY . /var/www/html/
 
-# 5. Berechtigungen setzen
+# Berechtigungen setzen
 RUN chown -R www-data:www-data /var/www/html/

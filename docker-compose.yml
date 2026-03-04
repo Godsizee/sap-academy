@@ -2,14 +2,14 @@ version: '3.8'
 
 services:
   sap-academy-app:
-    # Baut das Image aus dem Dockerfile im gleichen Verzeichnis
     build: .
     container_name: sap-academy-web
     ports:
-      # Mappt den Port 8080 deines Servers auf den Port 80 des Containers
-      # Du erreichst die Seite dann unter http://dein-server-ip:8080
       - "8080:80"
     restart: unless-stopped
     environment:
-      # Wir setzen die Umgebungsvariable, die unsere index.php ausliest, auf Livebetrieb
       - ENVIRONMENT=production
+    volumes:
+      # Spiegelt den Portainer-Git-Ordner live in den Container.
+      # Künftige Webhook-Updates sind sofort aktiv, ohne Rebuild.
+      - .:/var/www/html
