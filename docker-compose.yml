@@ -9,5 +9,3 @@ services:
     restart: unless-stopped
     environment:
       - ENVIRONMENT=production
-    volumes:
-      - .:/var/www/html
