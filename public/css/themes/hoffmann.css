@@ -1,0 +1,239 @@
+﻿/* --- START FILE: C:\xampp\htdocs\files\sap-academy\public\css\themes\hoffmann.css --- */
+
+/* Theme für: Hoffmann
+   Keywords: Internet Security, Triathlon
+   Optimiert für: Lesbarkeit, angepasste Triathlon-Farben im Light/Focus-Modus
+*/
+
+/* --- Basis-Definitionen für das Hoffmann-Theme --- */
+body.theme-hoffmann {
+    --firewall-black: #121418; /* Etwas weicher als pures Schwarz */
+    --data-grey: #2C3E50;
+    --terminal-text: #E2E4EB; /* Weiches Grauweiß */
+    
+    /* Die drei Farben des Triathlons */
+    --swim-blue: #00A9E0;   /* Wasserblau */
+    --bike-yellow: #E6C200; /* Gelb etwas abgedunkelt für besseren Kontrast */
+    --run-red: #E33B45;     /* Rot leicht aufgehellt für Dark Mode */
+
+    --font-family: 'Oswald', sans-serif; /* Sportliche, kondensierte Schrift */
+}
+
+/* Container mit scharfen, abgeschrägten Kanten (gilt für alle Modi) */
+body.theme-hoffmann .card,
+body.theme-hoffmann .diagram-item,
+body.theme-hoffmann .page-with-sidebar .content-page,
+body.theme-hoffmann .user-selection-modal {
+    border-radius: 0;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+/* --- DEFAULT MODE (DARK) --- */
+body.theme-hoffmann {
+    --primary-color: var(--swim-blue);
+    --secondary-color: var(--bike-yellow);
+    --accent-color: var(--run-red);
+    --bg-dark: var(--firewall-black);
+    --bg-light: var(--data-grey);
+    --text-color: var(--terminal-text);
+    
+    /* Subtiles Hexagon-Gitter wie eine digitale Firewall */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%232c3e50' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.99-7.5L26 15v18.5l-13 7.5L0 33.5V15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-color: var(--bg-dark); /* Fallback */
+}
+
+body.theme-hoffmann .card,
+body.theme-hoffmann .diagram-item,
+body.theme-hoffmann .page-with-sidebar .content-page,
+body.theme-hoffmann .user-selection-modal {
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 169, 224, 0.15); /* Reduzierter Glow */
+}
+
+body.theme-hoffmann header {
+    background-color: rgba(18, 20, 24, 0.9);
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+body.theme-hoffmann .hero-text h1,
+body.theme-hoffmann .logo,
+body.theme-hoffmann .content-page h1,
+body.theme-hoffmann .learning-content h2,
+body.theme-hoffmann .card h3 {
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: var(--terminal-text);
+    text-shadow: 0 0 4px rgba(0, 169, 224, 0.5); /* Entschärfter Schatten */
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 5px;
+}
+
+body.theme-hoffmann .takeaway-box {
+    border-left: 4px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom, var(--swim-blue), var(--bike-yellow), var(--run-red));
+}
+
+body.theme-hoffmann .learning-content strong { color: var(--bike-yellow); }
+body.theme-hoffmann a { color: var(--swim-blue); }
+
+body.theme-hoffmann .cta-button,
+body.theme-hoffmann .submit-btn {
+    border-radius: 0;
+    background: transparent;
+    border: 2px solid var(--bike-yellow);
+    color: var(--bike-yellow);
+    font-family: 'Share Tech Mono', monospace;
+    transition: all 0.2s ease-in-out;
+}
+body.theme-hoffmann .cta-button:hover,
+body.theme-hoffmann .submit-btn:hover {
+    background-color: var(--bike-yellow);
+    color: var(--firewall-black);
+    box-shadow: 0 0 10px rgba(230, 194, 0, 0.5);
+}
+
+body.theme-hoffmann .logo::after {
+    content: 'SAP Academy 🛡️';
+    font-size: 1.8rem;
+    color: var(--terminal-text);
+    text-shadow: 0 0 4px rgba(0, 169, 224, 0.5);
+}
+
+/* --- LIGHT MODE --- */
+body.theme-hoffmann.light-mode {
+    --primary-color: #007A9E; /* Dunkleres Wasserblau für Textlesbarkeit */
+    --secondary-color: #A37A00; /* Sehr dunkles Gelb/Gold */
+    --accent-color: #B3121C; /* Dunkleres Rot */
+    --bg-dark: #F4F5F7;
+    --bg-light: #FFFFFF;
+    --text-color: #1E2A38; /* Anthrazit statt Schwarz */
+    
+    background-image: none; /* Kein Muster im hellen Modus */
+}
+
+body.theme-hoffmann.light-mode .card,
+body.theme-hoffmann.light-mode .diagram-item,
+body.theme-hoffmann.light-mode .page-with-sidebar .content-page,
+body.theme-hoffmann.light-mode .user-selection-modal {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+body.theme-hoffmann.light-mode header {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom-color: var(--primary-color);
+}
+
+body.theme-hoffmann.light-mode .hero-text h1,
+body.theme-hoffmann.light-mode .logo,
+body.theme-hoffmann.light-mode .content-page h1,
+body.theme-hoffmann.light-mode .learning-content h2,
+body.theme-hoffmann.light-mode .card h3 {
+    color: var(--primary-color);
+    text-shadow: none; /* Kein Schatten auf Weiß */
+    border-bottom-color: var(--secondary-color);
+}
+
+body.theme-hoffmann.light-mode .takeaway-box {
+    border-left-color: var(--primary-color);
+    border-image-source: none;
+}
+
+body.theme-hoffmann.light-mode .learning-content strong { color: var(--secondary-color); }
+body.theme-hoffmann.light-mode a { color: var(--primary-color); }
+
+body.theme-hoffmann.light-mode .cta-button,
+body.theme-hoffmann.light-mode .submit-btn {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+body.theme-hoffmann.light-mode .cta-button:hover,
+body.theme-hoffmann.light-mode .submit-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-light);
+    box-shadow: none;
+}
+
+body.theme-hoffmann.light-mode .logo::after {
+    color: var(--text-color);
+    text-shadow: none;
+}
+
+/* --- FOCUS MODE (LESEMODUS) --- */
+body.theme-hoffmann.focus-mode {
+    --primary-color: #4A7B8C; /* Komplett entsättigtes, dunkles Blau */
+    --secondary-color: #8C7343; /* Komplett entsättigtes Gold/Braun */
+    --accent-color: #8C4A4A; /* Entsättigtes, mattes Rot */
+    --bg-dark: #FDF6E3; /* Solarized Light */
+    --bg-light: #F6EED5; /* Abgesetzter Papierton */
+    --text-color: #4A4437; /* Weiches Sepia-Dunkelgrau */
+    
+    background-image: none;
+}
+
+body.theme-hoffmann.focus-mode .card,
+body.theme-hoffmann.focus-mode .diagram-item,
+body.theme-hoffmann.focus-mode .page-with-sidebar .content-page,
+body.theme-hoffmann.focus-mode .user-selection-modal {
+    border: 1px solid rgba(74, 68, 55, 0.2);
+    box-shadow: none; /* Voller Fokus ohne 3D-Effekte */
+}
+
+body.theme-hoffmann.focus-mode header {
+    background-color: rgba(253, 246, 227, 0.95);
+    border-bottom-color: rgba(74, 68, 55, 0.2);
+}
+
+body.theme-hoffmann.focus-mode .hero-text h1,
+body.theme-hoffmann.focus-mode .logo,
+body.theme-hoffmann.focus-mode .content-page h1,
+body.theme-hoffmann.focus-mode .learning-content h2,
+body.theme-hoffmann.focus-mode .card h3 {
+    color: var(--text-color); /* Überschriften in Fließtext-Farbe für absolute Ruhe */
+    text-shadow: none;
+    border-bottom-color: rgba(74, 68, 55, 0.2);
+}
+
+body.theme-hoffmann.focus-mode .takeaway-box {
+    border-left-color: var(--primary-color);
+    border-image-source: none;
+}
+
+body.theme-hoffmann.focus-mode .learning-content strong { color: var(--secondary-color); }
+body.theme-hoffmann.focus-mode a { color: var(--primary-color); text-decoration: underline; }
+
+body.theme-hoffmann.focus-mode .cta-button,
+body.theme-hoffmann.focus-mode .submit-btn {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+body.theme-hoffmann.focus-mode .cta-button:hover,
+body.theme-hoffmann.focus-mode .submit-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-dark);
+}
+
+body.theme-hoffmann.focus-mode .logo::after {
+    color: var(--text-color);
+    text-shadow: none;
+}
+
+/* Versteckt das originale Logo-Text in allen Modi dieses Themes */
+body.theme-hoffmann .logo {
+    font-size: 0;
+    color: transparent;
+}
+
+body.theme-hoffmann .hero {
+    background-image: url('../../img/hoffmann.png');
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* --- END FILE: C:\xampp\htdocs\files\sap-academy\public\css\themes\hoffmann.css --- */

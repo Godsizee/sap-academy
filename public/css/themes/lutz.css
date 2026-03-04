@@ -1,0 +1,200 @@
+﻿/* Theme für: Lutz
+   Keywords: Wandern, Berge, Natur
+*/
+
+/* --- Basis-Definitionen für das Lutz-Theme --- */
+body.theme-lutz {
+    --forest-green: #3d4f3a;
+    --summit-sky: #f8f9fa;
+    --stone-grey: #6c757d;
+    --wood-brown: #8a6a4f;
+    --dark-wood: #5a412a;
+    --beer-amber: #ffca3a;
+    --font-family: 'Open Sans', sans-serif;
+}
+
+/* --- DEFAULT MODE (DARK) --- OPTIMIERT FÜR LESBARKEIT --- */
+body.theme-lutz {
+    --primary-color: var(--summit-sky);
+    --secondary-color: var(--wood-brown);
+    --accent-color: var(--beer-amber);
+    --bg-dark: var(--forest-green);
+    --bg-light: #4a5b47; /* Dunkleres, erdiges Grün für Container */
+    --text-color: var(--summit-sky);
+
+    /* ENTFERNT: Das ablenkende Hintergrundmuster wurde für einen ruhigen, lesbaren Hintergrund entfernt. */
+    background-image: none;
+    background-color: var(--bg-dark);
+}
+
+body.theme-lutz header {
+    background-color: var(--dark-wood);
+    border-bottom: 2px solid var(--wood-brown);
+}
+
+body.theme-lutz .card,
+body.theme-lutz .diagram-item,
+body.theme-lutz .platform-card,
+body.theme-lutz .accordion-item,
+body.theme-lutz .page-with-sidebar .content-page,
+body.theme-lutz .user-selection-modal,
+body.theme-lutz .dropdown-content {
+    border: 1px solid var(--wood-brown);
+    /* ENTFERNT: Der innere Schatten wurde entfernt, um den Kontrast im Inhaltsbereich zu maximieren. */
+    box-shadow: none;
+    border-radius: 8px;
+}
+
+body.theme-lutz .hero-text h1,
+body.theme-lutz .content-page h1,
+body.theme-lutz .learning-content h2,
+body.theme-lutz .card h3,
+body.theme-lutz .logo {
+    font-family: 'Bitter', serif;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: var(--summit-sky);
+    /* VEREINFACHT: Der Textschatten wurde entfernt, um die Schrift schärfer und klarer lesbar zu machen. */
+    text-shadow: none;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+body.theme-lutz .cta-button,
+body.theme-lutz .submit-btn {
+    border-radius: 50px;
+    background-color: var(--beer-amber);
+    color: #000;
+    font-weight: 700;
+    border: 2px solid var(--beer-amber);
+    text-shadow: none;
+}
+body.theme-lutz .cta-button:hover,
+body.theme-lutz .submit-btn:hover {
+    background-color: var(--dark-wood);
+    color: var(--beer-amber);
+    border-color: var(--beer-amber);
+}
+
+body.theme-lutz .logo::after {
+    content: 'SAP Academy ⛰️';
+    font-size: 1.8rem;
+    color: var(--summit-sky);
+    /* VEREINFACHT: Textschatten entfernt. */
+    text-shadow: none;
+}
+
+/* --- LIGHT MODE --- */
+body.theme-lutz.light-mode {
+    --primary-color: var(--forest-green);
+    --secondary-color: var(--wood-brown);
+    --accent-color: var(--beer-amber);
+    --bg-dark: #f0f2f5; 
+    --bg-light: var(--summit-sky);
+    --text-color: #212529;
+
+    background-image: none;
+}
+
+body.theme-lutz.light-mode header {
+    background-color: var(--wood-brown);
+    border-bottom: 4px solid var(--dark-wood);
+}
+
+body.theme-lutz.light-mode .card,
+body.theme-lutz.light-mode .diagram-item,
+body.theme-lutz.light-mode .platform-card,
+body.theme-lutz.light-mode .accordion-item,
+body.theme-lutz.light-mode .page-with-sidebar .content-page,
+body.theme-lutz.light-mode .user-selection-modal,
+body.theme-lutz.light-mode .dropdown-content {
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+body.theme-lutz.light-mode .hero-text h1,
+body.theme-lutz.light-mode .content-page h1,
+body.theme-lutz.light-mode .learning-content h2,
+body.theme-lutz.light-mode .card h3 {
+    color: var(--forest-green);
+    text-shadow: none;
+    border-bottom: 2px solid var(--wood-brown);
+}
+
+body.theme-lutz.light-mode .cta-button:hover,
+body.theme-lutz.light-mode .submit-btn:hover {
+    background-color: var(--forest-green);
+    color: var(--summit-sky);
+    border-color: var(--forest-green);
+}
+
+/* --- FOCUS MODE --- */
+body.theme-lutz.focus-mode {
+    --primary-color: #5a6657; 
+    --secondary-color: #9c836f;
+    --accent-color: #e0b434;
+    --bg-dark: #fdf6e3;
+    --bg-light: #fff;
+    --text-color: #3c382e;
+    
+    background-image: none;
+}
+
+body.theme-lutz.focus-mode header {
+    background-color: var(--secondary-color);
+    border-bottom: 2px solid var(--text-color);
+}
+
+body.theme-lutz.focus-mode .card,
+body.theme-lutz.focus-mode .diagram-item,
+body.theme-lutz.focus-mode .platform-card,
+body.theme-lutz.focus-mode .accordion-item,
+body.theme-lutz.focus-mode .page-with-sidebar .content-page,
+body.theme-lutz.focus-mode .user-selection-modal,
+body.theme-lutz.focus-mode .dropdown-content {
+    border: 1px solid #ddd;
+    box-shadow: none;
+}
+
+body.theme-lutz.focus-mode .hero-text h1,
+body.theme-lutz.focus-mode .content-page h1,
+body.theme-lutz.focus-mode .learning-content h2,
+body.theme-lutz.focus-mode .card h3 {
+    color: var(--primary-color);
+    text-shadow: none;
+    border-bottom-color: #ccc;
+}
+
+body.theme-lutz.focus-mode .cta-button,
+body.theme-lutz.focus-mode .submit-btn {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--text-color);
+}
+body.theme-lutz.focus-mode .cta-button:hover,
+body.theme-lutz.focus-mode .submit-btn:hover {
+    background-color: transparent;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+body.theme-lutz.focus-mode .logo::after {
+    color: var(--summit-sky);
+    text-shadow: none;
+}
+
+/* Versteckt das originale Logo-Text in allen Modi dieses Themes */
+body.theme-lutz .logo {
+    font-size: 0;
+    color: transparent;
+}
+
+
+body.theme-lutz .hero {
+    background-image: url('../../img/lutz.png');
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}

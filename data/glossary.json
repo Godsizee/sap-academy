@@ -1,0 +1,9 @@
+{
+    "ACDOCA": "Die zentrale Tabelle im Universal Journal von SAP S/4HANA, die alle Buchungsbelege für FI, CO und andere Komponenten vereint.",
+    "Buchungskreis": "Die kleinste Organisationseinheit des externen Rechnungswesens, für die eine vollständige Bilanz und Gewinn- und Verlustrechnung erstellt werden kann.",
+    "Customizing": "Die Anpassung des SAP-Systems an spezifische Unternehmensanforderungen durch Parameter-Einstellungen im IMG, ohne Programmierung.",
+    "GuV": "Gewinn- und Verlustrechnung. Eine Gegenüberstellung von Aufwendungen und Erträgen zur Ermittlung des Unternehmenserfolgs.",
+    "IMG": "Einführungsleitfaden (Implementation Guide). Die hierarchische Struktur aller Customizing-Aktivitäten im SAP-System.",
+    "SPRO": "Die zentrale Transaktion (SAP Project Reference Object), um den Einführungsleitfaden (IMG) aufzurufen und das System zu konfigurieren.",
+    "Universal Journal": "Das revolutionäre Datenmodell in S/4HANA, das Finanzwesen und Controlling in einer einzigen Datenquelle (Single Source of Truth) vereint."
+}

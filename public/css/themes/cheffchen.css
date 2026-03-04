@@ -1,0 +1,90 @@
+﻿/* Theme für: Cheffchen
+   Keywords: Neon Rainbow Unicorn, farbexplosion
+*/
+
+
+
+/* Keyframe-Animation für den Regenbogen-Farbverlauf */
+@keyframes rainbow-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Keyframe-Animation für den Sternenhimmel */
+@keyframes move-twink-back {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+/* --- Basis-Definitionen --- */
+body.theme-cheffchen {
+    --neon-red: #ff3366;
+    --neon-orange: #ff9933;
+    --neon-yellow: #e6e600; /* Abgedunkelt für besseren Kontrast auf Weiß */
+    --neon-green: #00e673;
+    --neon-blue: #3399ff;
+    --neon-purple: #9933ff;
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* --- DEFAULT MODE (DARK) --- */
+body.theme-cheffchen {
+    --primary-color: var(--neon-red);
+    --secondary-color: var(--neon-green);
+    --accent-color: var(--neon-blue);
+    --bg-dark: #0D001A; /* Tiefes Void Purple */
+    --bg-light: #1A0033; /* Darker Purple */
+    --text-color: #E6E6E6; /* Off-White für weniger Augenschmerzen bei Neon */
+
+
+}
+
+/* --- LIGHT MODE --- */
+body.theme-cheffchen.light-mode {
+    --primary-color: var(--neon-red);
+    --secondary-color: var(--neon-blue);
+    --accent-color: var(--neon-green);
+    --bg-dark: #f8f9fa;      /* Off-white */
+    --bg-light: #ffffff;     /* Pure white */
+    --text-color: #10002b;   /* Dark purple text */
+
+    background-image: none;
+    animation: none;
+}
+
+/* Spezifische Light-Mode Anpassungen für den Regenbogen-Effekt */
+body.theme-cheffchen.light-mode header,
+body.theme-cheffchen.light-mode .card,
+body.theme-cheffchen.light-mode .page-with-sidebar .content-page,
+body.theme-cheffchen.light-mode .quiz-container {
+    border-width: 2px;
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, var(--neon-red), var(--neon-orange), var(--neon-yellow), var(--neon-green), var(--neon-blue), var(--neon-purple));
+}
+
+body.theme-cheffchen.light-mode .cta-button,
+body.theme-cheffchen.light-mode .submit-btn {
+    color: #fff; /* Stellt sicher, dass der Text auf dem Neon-Button lesbar ist */
+}
+
+/* --- FOCUS MODE --- */
+body.theme-cheffchen.focus-mode {
+    --primary-color: #cc2952;    /* Desaturated Neon Red */
+    --secondary-color: #297acc;  /* Desaturated Neon Blue */
+    --accent-color: #29cc7a;     /* Desaturated Neon Green */
+    --bg-dark: #fdf6e3;          /* Sepia background */
+    --bg-light: #ffffff;         /* White paper */
+    --text-color: #3c382e;       /* Dark sepia text */
+
+    background-image: none;
+    animation: none;
+}
+
+body.theme-cheffchen .hero {
+    background-image: url('../../img/cheffchen.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* --- END FILE: C:\xampp\htdocs\files\sap-academy\public\css\themes\cheffchen.css --- */

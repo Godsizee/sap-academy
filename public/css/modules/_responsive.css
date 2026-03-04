@@ -1,0 +1,105 @@
+﻿/* ====== RESPONSIVENESS (MEDIA QUERIES) ====== */
+@media screen and (max-width: 1100px) {
+    .page-with-sidebar {
+        grid-template-columns: minmax(200px, 240px) 1fr;
+        gap: var(--space-m);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .page-with-sidebar {
+        grid-template-columns: 1fr;
+    }
+    .sidebar-nav {
+        display: none;
+    }
+    .fiori-flow-container {
+        flex-direction: column;
+    }
+    .flow-arrow {
+        margin: -0.5rem 0;
+        transform: rotate(90deg);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    
+    .nav-cluster-right {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-l);
+        padding: var(--space-xxl) var(--space-l);
+        background: var(--bg-dark);
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    
+    body.nav-active .nav-cluster-right {
+        transform: translateX(0%);
+    }
+    
+    .header-search,
+    .nav-cluster-right .dropdown-toggle {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .burger {
+        display: block;
+    }
+    
+    body.nav-active .burger {
+        position: fixed;
+        top: 22px;
+        right: 5%;
+    }
+    
+    body.nav-active .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    body.nav-active .toggle .line2 {
+        opacity: 0;
+    }
+    
+    body.nav-active .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    .content-page,
+    .quiz-container {
+        padding: var(--space-l) var(--space-m);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content-page,
+    .quiz-container {
+        padding: var(--space-m) var(--space-s);
+    }
+    
+    .glossary-list dl {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+    }
+    
+    .glossary-list dt {
+        padding-bottom: var(--space-xs);
+        margin-bottom: var(--space-xs);
+        border-bottom: 1px solid var(--secondary-color);
+    }
+    
+    .user-selection-modal {
+        width: 95%;
+        height: 95%;
+        padding: var(--space-m);
+    }
+}

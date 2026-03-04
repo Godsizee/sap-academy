@@ -1,0 +1,75 @@
+{
+    "id": "S4550",
+    "headline": "S4550: SAP Customizing (Materialwirtschaft & Einkauf)",
+    "description": "Erlerne die Grundlagen des SAP Customizings. Dieser Kurs führt dich durch den SAP Referenz-IMG (Einführungsleitfaden) und zeigt dir, wie du Unternehmensstrukturen und Prozesse im Einkauf (MM) konfigurierst.",
+    "chapters": [
+        {
+            "id": "kapitel-1",
+            "title": "Kapitel 1: Die Unternehmensstruktur",
+            "lessons": [
+                {
+                    "id": "l1-1",
+                    "title": "Grundlagen und Transaktion SPRO",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Customizing vs. Entwicklung</strong><p>Customizing bedeutet, das System durch Parameter einzustellen (ohne Programmierung von ABAP-Code). Die zentrale Transaktion dafür ist <strong>SPRO</strong>.</p></div><p>Das Customizing einer Unternehmensstruktur erfolgt in SAP immer in zwei strikt getrennten Schritten:</p><div class=\"platform-grid\"><div class=\"platform-card\"><h5>1. Definition</h5><p>Die physische Anlage einer Organisationseinheit (z. B. das Anlegen des Werks '1000' mit Name und Adresse).</p></div><div class=\"platform-card\"><h5>2. Zuordnung</h5><p>Die logische Verknüpfung der Einheiten in der Hierarchie (z. B. das definierte Werk '1000' wird dem Buchungskreis '1000' zugeordnet).</p></div></div>"
+                },
+                {
+                    "id": "l1-2",
+                    "title": "Einkaufsorganisation und Lagerorte",
+                    "content": "<p>In der Materialwirtschaft (MM) spielen Einkaufsorganisationen eine zentrale Rolle bei der Beschaffung. Sie verhandeln rechtlich bindende Konditionen mit Lieferanten.</p><ul><li><strong>Werksspezifischer Einkauf:</strong> Eine Einkaufsorganisation ist genau einem Werk zugeordnet.</li><li><strong>Werksübergreifender Einkauf:</strong> Eine Einkaufsorganisation beschafft für mehrere Werke innerhalb eines Buchungskreises.</li><li><strong>Konzernweiter Einkauf:</strong> Eine Einkaufsorganisation ist nicht an einen spezifischen Buchungskreis gebunden.</li></ul><p><strong>Lagerorte</strong> werden immer direkt unterhalb eines spezifischen Werkes definiert und spiegeln die physischen Aufbewahrungsorte wider.</p>"
+                }
+            ]
+        },
+        {
+            "id": "kapitel-2",
+            "title": "Kapitel 2: Stammdaten und Prozesse",
+            "lessons": [
+                {
+                    "id": "l2-1",
+                    "title": "Steuerung durch Materialarten",
+                    "content": "<p>Jedes Material in SAP muss beim Anlegen einer <strong>Materialart</strong> zugeordnet werden. Diese Materialart steuert maßgeblich das Verhalten des Materials im System (z. B. die Nummernvergabe, die erlaubte Beschaffungsart und welche Fachbereiche Daten pflegen müssen).</p><p>Die häufigsten Standard-Materialarten sind:</p><ul><li><strong>ROH (Rohstoffe):</strong> Werden extern beschafft, gehen in die Fertigung ein und haben typischerweise keine Vertriebssicht.</li><li><strong>HALB (Halbfabrikate):</strong> Können extern beschafft oder im Haus gefertigt werden.</li><li><strong>FERT (Fertigerzeugnisse):</strong> Werden im eigenen Haus produziert und an Kunden verkauft.</li><li><strong>HAWA (Handelswaren):</strong> Werden eingekauft und ohne weitere Verarbeitung direkt weiterverkauft.</li></ul>"
+                }
+            ]
+        }
+    ],
+    "quiz": [
+        {
+            "chapter": "Kapitel 1",
+            "question": "Mit welcher Transaktion ruft man in SAP standardmäßig den Einführungsleitfaden (IMG) für das Customizing auf?",
+            "type": "radio",
+            "options": {
+                "A": "SE80",
+                "B": "SM30",
+                "C": "SPRO",
+                "D": "MM01"
+            },
+            "correct": ["C"],
+            "link": "/module?id=s4550#l1-1"
+        },
+        {
+            "chapter": "Kapitel 1",
+            "question": "In welche zwei elementaren Schritte unterteilt sich das Customizing von Organisationseinheiten zwingend?",
+            "type": "checkbox",
+            "options": {
+                "A": "Definition",
+                "B": "Aktivierung",
+                "C": "Programmierung",
+                "D": "Zuordnung"
+            },
+            "correct": ["A", "D"],
+            "link": "/module?id=s4550#l1-1"
+        },
+        {
+            "chapter": "Kapitel 2",
+            "question": "Welche Materialart wird im SAP-Standard typischerweise für Rohstoffe verwendet?",
+            "type": "radio",
+            "options": {
+                "A": "FERT",
+                "B": "ROH",
+                "C": "HAWA",
+                "D": "DIEN"
+            },
+            "correct": ["B"],
+            "link": "/module?id=s4550#l2-1"
+        }
+    ]
+}

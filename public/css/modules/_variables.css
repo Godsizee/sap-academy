@@ -1,0 +1,31 @@
+﻿/* ====== CSS VARIABLES ====== */
+:root {
+    /* Theme-Variables (werden von theme.css überschrieben) */
+    --primary-color: #F8B4D9;
+    --secondary-color: #A8E6CF;
+    --accent-color: #A3D9E9;
+    --bg-dark: #2A2C3A;
+    --bg-light: #3A3D4E;
+    --text-color: #f0f0f0;
+    --font-family: 'Poppins', sans-serif;
+
+    /* Fluid Typography (Skaliert mit dem Viewport) */
+    --fs-900: clamp(2.5rem, 5vw + 1rem, 3.5rem);      /* h1 */
+    --fs-800: clamp(2rem, 4vw + 1rem, 3rem);        /* h2 auf Content-Seiten */
+    --fs-700: clamp(1.5rem, 3vw + 1rem, 2rem);        /* h3 */
+    --fs-600: clamp(1.2rem, 2vw + 1rem, 1.6rem);      /* h4 in manchen Komponenten */
+    --fs-500: clamp(1.1rem, 1.5vw + 0.8rem, 1.25rem); /* Kleinere h4 */
+    --fs-400: 1rem;                                   /* base / body */
+    --fs-300: 0.9rem;                                 /* breadcrumb, etc. */
+    --fs-200: 0.85rem;                                /* sidebar links */
+
+    /* Spacing System (Next Level: Fluid Spacing mit clamp) 
+       Atmet sanft mit der Bildschirmbreite mit, statt hart bei Breakpoints umzubrechen.
+    */
+    --space-xs: clamp(0.5rem, 1vw + 0.1rem, 0.75rem);
+    --space-s: clamp(0.875rem, 1.5vw + 0.3rem, 1.25rem);
+    --space-m: clamp(1.25rem, 2.5vw + 0.5rem, 1.75rem);
+    --space-l: clamp(1.5rem, 3.5vw + 0.8rem, 2.5rem);
+    --space-xl: clamp(2rem, 5vw + 1rem, 3.5rem);
+    --space-xxl: clamp(3rem, 7vw + 1.5rem, 5rem);
+}

@@ -1,0 +1,7 @@
+    RewriteEngine On
+    # Wenn die angefragte Datei oder der Ordner nicht physisch existiert...
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # ...leite die komplette Anfrage an die index.php weiter (wo unser Router übernimmt)
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>

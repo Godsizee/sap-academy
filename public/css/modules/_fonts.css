@@ -1,0 +1,205 @@
+/*
+==============================================
+FONTS (Lokal & DSGVO konform)
+==============================================
+Dieses Modul ist die Single Source of Truth (SRP) für alle Schriftarten.
+Alle Dateien liegen lokal im Ordner "public/fonts/".
+*/
+
+/* --- 1. POPPINS (Default, Cheffchen) --- */
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''), url('../../fonts/poppins-v24-latin-300.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/poppins-v24-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    src: local(''), url('../../fonts/poppins-v24-latin-600.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('../../fonts/poppins-v24-latin-700.woff2') format('woff2');
+}
+
+/* --- 2. CINZEL (Hinze, Schoelch) --- */
+@font-face {
+    font-family: 'Cinzel';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/cinzel-v26-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Cinzel';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('../../fonts/cinzel-v26-latin-700.woff2') format('woff2');
+}
+
+/* --- 3. SHARE TECH MONO (Hoffmann) --- */
+@font-face {
+    font-family: 'Share Tech Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/share-tech-mono-v16-latin-regular.woff2') format('woff2');
+}
+
+/* --- 4. OSWALD (Hoffmann, Wolf) --- */
+@font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/oswald-v57-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('../../fonts/oswald-v57-latin-700.woff2') format('woff2');
+}
+
+/* --- 5. NUNITO SANS (Kowalsky) --- */
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/nunito-sans-v19-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('../../fonts/nunito-sans-v19-latin-700.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 900;
+    src: local(''), url('../../fonts/nunito-sans-v19-latin-900.woff2') format('woff2');
+}
+
+/* --- 6. SOURCE CODE PRO (Kraft) --- */
+@font-face {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/source-code-pro-v31-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('../../fonts/source-code-pro-v31-latin-700.woff2') format('woff2');
+}
+
+/* --- 7. BITTER (Lutz) --- */
+@font-face {
+    font-family: 'Bitter';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/bitter-v40-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Bitter';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('../../fonts/bitter-v40-latin-700.woff2') format('woff2');
+}
+
+/* --- 8. OPEN SANS (Lutz) --- */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/open-sans-v44-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('../../fonts/open-sans-v44-latin-700.woff2') format('woff2');
+}
+
+/* --- 9. METAL MANIA (Roell) --- */
+@font-face {
+    font-family: 'Metal Mania';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/metal-mania-v23-latin-regular.woff2') format('woff2');
+}
+
+/* --- 10. ROBOTO (Roell) --- */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/roboto-v51-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('../../fonts/roboto-v51-latin-700.woff2') format('woff2');
+}
+
+/* --- 11. UNCIAL ANTIQUA (Schoelch) --- */
+@font-face {
+    font-family: 'Uncial Antiqua';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/uncial-antiqua-v22-latin-regular.woff2') format('woff2');
+}
+
+/* --- 12. BANGERS (Seitz) --- */
+@font-face {
+    font-family: 'Bangers';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/bangers-v25-latin-regular.woff2') format('woff2');
+}
+
+/* --- 13. LATO (Seitz) --- */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/lato-v25-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('../../fonts/lato-v25-latin-700.woff2') format('woff2');
+}
+
+/* --- 14. SPACE GROTESK (Wehner) --- */
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/space-grotesk-v22-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('../../fonts/space-grotesk-v22-latin-700.woff2') format('woff2');
+}
+
+/* --- 15. ANTON (Wolf) --- */
+@font-face {
+    font-family: 'Anton';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../../fonts/anton-v27-latin-regular.woff2') format('woff2');
+}

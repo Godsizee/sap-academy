@@ -1,0 +1,40 @@
+﻿/* ====== MODES (LIGHT, FOCUS) & THEME TOGGLE ====== */
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+}
+
+.toggle-button {
+    width: 50px;
+    height: 26px;
+    padding: 3px;
+    background-color: var(--bg-light);
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.toggle-circle {
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-color);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+body.light-mode .toggle-circle {
+    background-color: var(--secondary-color);
+    transform: translateX(12px);
+}
+
+body.light-mode .toggle-button {
+    border-color: var(--secondary-color);
+}
+
+body.focus-mode .toggle-circle {
+    background-color: var(--accent-color);
+    transform: translateX(24px);
+}
+
+body.focus-mode .toggle-button {
+    border-color: var(--accent-color);
+}

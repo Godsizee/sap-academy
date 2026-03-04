@@ -1,0 +1,72 @@
+﻿/* --- START FILE: C:\xampp\htdocs\files\SAP\css\themes\default.css (ÜBERARBEITET) --- */
+
+/* Theme: Default
+   Keywords: Standard, Pastell, Dark, Light, Focus
+*/
+
+/* --- Basis-Definitionen für das Default-Theme --- */
+body.theme-default {
+    --pastel-pink: #F8B4D9;
+    --powder-blue: #A3D9E9;
+    --mint-green: #A8E6CF;
+    --lavender: #C3B1E1;
+    --dark-slate-blue: #2A2C3A;
+    --lighter-slate: #3A3D4E;
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* --- DEFAULT MODE (DARK PASTEL) --- */
+body.theme-default {
+    --primary-color: var(--pastel-pink);
+    --secondary-color: var(--mint-green);
+    --accent-color: var(--powder-blue);
+    --bg-dark: var(--dark-slate-blue);
+    --bg-light: var(--lighter-slate);
+    --text-color: #f0f0f0;
+}
+body.theme-default .logo::after {
+    color: var(--accent-color);
+}
+
+/* --- LIGHT MODE --- */
+body.theme-default.light-mode {
+    --primary-color: #D65A8D;
+    --secondary-color: #5A9DD6;
+    --accent-color: var(--lavender);
+    --bg-dark: #f5f5fa;
+    --bg-light: #ffffff;
+    --text-color: var(--dark-slate-blue);
+}
+body.theme-default.light-mode .logo::after {
+    color: var(--primary-color);
+}
+
+/* --- FOCUS MODE (SEPIA) --- */
+body.theme-default.focus-mode {
+    --primary-color: #d95f02;
+    --secondary-color: #7570b3;
+    --accent-color: #1b9e77;
+    --bg-dark: #fdf6e3;
+    --bg-light: #fbf1d5;
+    --text-color: #3c382e;
+}
+body.theme-default.focus-mode .logo::after {
+    color: var(--accent-color);
+}
+
+
+/* Logo Anpassung */
+body.theme-default .logo {
+    font-size: 0;
+    color: transparent;
+}
+body.theme-default .logo::after {
+    content: 'SAP Academy 🦄';
+    font-size: 1.8rem;
+}
+
+body.theme-default .hero {
+background-image: url('../../img/hero-banner.png');
+background-repeat: no-repeat;
+background-position: center;
+}

@@ -1,0 +1,127 @@
+﻿/* --- START FILE: C:\xampp\htdocs/files/SAP/css/themes/kraft.css (ÜBERARBEITET) --- */
+
+/* Theme für: Kraft
+   Keywords: Nicht da, Abwesenheit, Wireframe, Blaupause
+*/
+
+/* --- Basis-Definitionen für das Kraft-Theme --- */
+body.theme-kraft {
+    --paper-white: #ffffff;
+    --ink-black: #000000;
+    --wire-grey: #888888;
+    --wire-grey-dark: #555;
+    --highlight-blue: #007bff;
+    --font-family: 'Source Code Pro', monospace;
+}
+
+/* Alle Elemente werden transparent, nur die Ränder bleiben (gilt für alle Modi) */
+body.theme-kraft .card, body.theme-kraft .diagram-item, body.theme-kraft .platform-card,
+body.theme-kraft .accordion-item, body.theme-kraft .page-with-sidebar .content-page,
+body.theme-kraft .user-selection-modal, body.theme-kraft .dropdown-content,
+body.theme-kraft .sidebar-nav, body.theme-kraft .cta-button, body.theme-kraft .submit-btn,
+body.theme-kraft header, body.theme-kraft footer {
+    background: transparent !important;
+    border: 1px dashed var(--secondary-color) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Interaktions-Feedback durch soliden, blauen Rand (gilt für alle Modi) */
+body.theme-kraft .card:hover, body.theme-kraft .diagram-item:hover, body.theme-kraft .cta-button:hover,
+body.theme-kraft .submit-btn:hover, body.theme-kraft .dropdown-toggle:hover {
+    border-color: var(--accent-color) !important;
+    border-style: solid !important;
+}
+
+/* Das Hero-Hintergrundbild ist ebenfalls "nicht da" (gilt für alle Modi) */
+body.theme-kraft .hero {
+    background-image: none !important;
+    border-bottom: 1px dashed var(--secondary-color);
+}
+body.theme-kraft .hero::before {
+    background: none !important;
+}
+
+/* Alle Texte sind rein funktional (gilt für alle Modi) */
+body.theme-kraft .hero-text h1, body.theme-kraft .logo, body.theme-kraft .content-page h1,
+body.theme-kraft .learning-content h2, body.theme-kraft .card h3 {
+    font-family: 'Source Code Pro', monospace;
+    text-transform: uppercase;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    color: var(--text-color) !important;
+    text-shadow: none !important;
+    border-bottom: 1px dashed var(--secondary-color);
+    padding-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* Links sind die einzige farbige Ausnahme zur Orientierung (gilt für alle Modi) */
+body.theme-kraft a, body.theme-kraft .learning-content strong, body.theme-kraft .solution-link,
+body.theme-kraft .breadcrumb a {
+    color: var(--accent-color) !important;
+    text-decoration: none;
+}
+body.theme-kraft a:hover {
+    text-decoration: underline;
+}
+body.theme-kraft .sidebar-nav a.active {
+    border-left-color: var(--accent-color) !important;
+}
+
+/* --- DEFAULT MODE (DARK) --- */
+body.theme-kraft {
+    --primary-color: var(--paper-white);
+    --secondary-color: var(--wire-grey-dark);
+    --accent-color: var(--highlight-blue);
+    --bg-dark: var(--ink-black);
+    --bg-light: #1a1a1a;
+    --text-color: var(--paper-white);
+}
+
+body.theme-kraft .logo::after {
+    content: '[SAP Academy]';
+    font-size: 1.8rem;
+    color: var(--paper-white);
+    text-shadow: none;
+}
+
+/* --- LIGHT MODE --- */
+body.theme-kraft.light-mode {
+    --primary-color: var(--ink-black);
+    --secondary-color: var(--wire-grey);
+    --accent-color: var(--highlight-blue);
+    --bg-dark: var(--paper-white);
+    --bg-light: var(--paper-white);
+    --text-color: var(--ink-black);
+}
+
+body.theme-kraft.light-mode .logo::after {
+    color: var(--ink-black);
+}
+
+/* --- FOCUS MODE --- */
+body.theme-kraft.focus-mode {
+    --primary-color: #3c382e;
+    --secondary-color: #b8b8b8;
+    --accent-color: #0056b3; /* Dunkleres Blau für besseren Kontrast */
+    --bg-dark: #fdf6e3;
+    --bg-light: #fdf6e3;
+    --text-color: #3c382e;
+}
+
+body.theme-kraft.focus-mode .logo::after {
+    color: var(--text-color);
+}
+
+/* Versteckt das originale Logo-Text in allen Modi dieses Themes */
+body.theme-kraft .logo {
+    font-size: 0;
+    color: transparent;
+}
+
+body.theme-kraft .hero {
+background-image: none !important;
+}

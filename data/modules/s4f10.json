@@ -1,0 +1,80 @@
+{
+    "id": "S4F10",
+    "headline": "S4F10: Geschäftsprozesse in der SAP Finanzbuchhaltung",
+    "description": "Dieser Kurs vermittelt dir die grundlegenden Geschäftsprozesse der SAP Finanzbuchhaltung (FI) im S/4HANA-Umfeld. Du lernst die Architektur des Universal Journals kennen und verstehst die Integration von Hauptbuch, Kreditoren und Debitoren.",
+    "chapters": [
+        {
+            "id": "kapitel-1",
+            "title": "Kapitel 1: Das Universal Journal",
+            "lessons": [
+                {
+                    "id": "l1-1",
+                    "title": "Single Source of Truth (Tabelle ACDOCA)",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Revolution in S/4HANA</strong><p>Früher waren FI (Finanzwesen) und CO (Controlling) getrennt. Heute fließen alle Daten in eine einzige Tabelle: die ACDOCA.</p></div><p>Das Universal Journal ist das Herzstück von SAP S/4HANA Finance. Es vereint alle relevanten Komponenten (Hauptbuchbuchhaltung, Anlagenbuchhaltung, Controlling, Material-Ledger) in einem einzigen Beleg. Dies beseitigt die Notwendigkeit von Abstimmungsarbeiten zwischen FI und CO am Monatsende.</p><ul><li>Schnellere Periodenabschlüsse (Continuous Accounting)</li><li>Echtzeit-Reporting ohne Datenreplikation</li><li>Reduzierter Speicherbedarf durch Wegfall von Aggregat- und Indextabellen</li></ul>"
+                },
+                {
+                    "id": "l1-2",
+                    "title": "Der Buchungsbeleg",
+                    "content": "<p>Jeder Geschäftsvorfall in SAP wird durch einen Beleg dokumentiert. Ein SAP-Buchungsbeleg besteht immer aus zwei Teilen:</p><div class=\"platform-grid\"><div class=\"platform-card\"><h5>1. Belegkopf (Tabelle BKPF)</h5><p>Enthält allgemeine Informationen, die für den gesamten Beleg gelten, wie Belegdatum, Buchungsdatum und Belegart.</p></div><div class=\"platform-card\"><h5>2. Belegpositionen (Tabelle BSEG/ACDOCA)</h5><p>Enthält die spezifischen Zeilen des Belegs (Soll und Haben), Beträge, Kontonummern und Zusatzkontierungen (wie Kostenstellen).</p></div></div>"
+                }
+            ]
+        },
+        {
+            "id": "kapitel-2",
+            "title": "Kapitel 2: Stammdaten im Finanzwesen",
+            "lessons": [
+                {
+                    "id": "l2-1",
+                    "title": "Der Business Partner (Geschäftspartner)",
+                    "content": "<p>In S/4HANA gibt es die klassischen Transaktionen für Debitoren (Kunden) und Kreditoren (Lieferanten) wie FK01 oder FD01 nicht mehr. Alles läuft zentral über die Transaktion <strong>BP (Business Partner)</strong>.</p><p>Ein Geschäftspartner wird zentral angelegt und erhält dann verschiedene <em>Rollen</em>. Beispielsweise kann ein Unternehmen gleichzeitig die Rolle 'Debitor' (wir verkaufen an sie) und 'Kreditor' (wir kaufen von ihnen) haben. Die grundlegenden Adressdaten müssen so nur ein einziges Mal gepflegt werden.</p>"
+                },
+                {
+                    "id": "l2-2",
+                    "title": "Das Sachkonto",
+                    "content": "<p>Das Hauptbuch (General Ledger) ist nach dem Kontenplan gegliedert. Jedes Sachkonto hat in S/4HANA nun auch eine Kontoart. Die wichtigsten sind:</p><ul><li><strong>Bilanzkonten:</strong> Für Vermögenswerte und Schulden (z.B. Bank, Verbindlichkeiten).</li><li><strong>Nichtbetriebliche Aufwendungen/Erträge:</strong> Aufwands- oder Ertragskonten, die nicht ins Controlling fließen.</li><li><strong>Primärkosten/-erlöse:</strong> Aufwendungen/Erträge, die direkt mit einer CO-Kontierung (z.B. Kostenstelle) gebucht werden müssen.</li></ul>"
+                }
+            ]
+        }
+    ],
+    "quiz": [
+        {
+            "chapter": "Kapitel 1",
+            "question": "Wie heißt die zentrale Tabelle des Universal Journals in SAP S/4HANA?",
+            "type": "radio",
+            "options": {
+                "A": "BSEG",
+                "B": "BKPF",
+                "C": "ACDOCA",
+                "D": "MARA"
+            },
+            "correct": ["C"],
+            "link": "/module?id=s4f10#l1-1"
+        },
+        {
+            "chapter": "Kapitel 1",
+            "question": "Welche Vorteile bietet das Universal Journal? (Mehrere Antworten möglich)",
+            "type": "checkbox",
+            "options": {
+                "A": "Keine Abstimmung zwischen FI und CO mehr nötig.",
+                "B": "Jeder User benötigt nun eine spezielle ABAP-Lizenz.",
+                "C": "Echtzeit-Reporting ohne Aggregat-Tabellen.",
+                "D": "Kreditoren müssen in einem separaten System gepflegt werden."
+            },
+            "correct": ["A", "C"],
+            "link": "/module?id=s4f10#l1-1"
+        },
+        {
+            "chapter": "Kapitel 2",
+            "question": "Welche Transaktion wird in S/4HANA zwingend verwendet, um Kunden und Lieferanten anzulegen?",
+            "type": "radio",
+            "options": {
+                "A": "FK01",
+                "B": "BP",
+                "C": "XD01",
+                "D": "MM01"
+            },
+            "correct": ["B"],
+            "link": "/module?id=s4f10#l2-1"
+        }
+    ]
+}

@@ -1,0 +1,202 @@
+﻿/* --- START FILE: C:\xampp\htdocs\files\SAP\css\themes\seitz.css (ÜBERARBEITET) --- */
+
+/* Theme für: Seitz
+   Keywords: One Piece Anime, Piraten, Abenteuer
+*/
+
+/* --- Basis-Definitionen für das Seitz-Theme --- */
+body.theme-seitz {
+    --ocean-blue: #0055a4;
+    --parchment-bg: #f4e8c1;
+    --straw-hat-red: #d90429;
+    --ship-wood: #8c5e3c;
+    --ink-black: #3d2b1f;
+    --font-family: 'Lato', sans-serif;
+}
+
+/* Übergroße, knallige Anime-Schriftart für Überschriften (gilt für alle Modi) */
+body.theme-seitz .hero-text h1, body.theme-seitz .logo, body.theme-seitz .content-page h1,
+body.theme-seitz .learning-content h2, body.theme-seitz .card h3 {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+}
+
+/* --- DEFAULT MODE (NIGHT AT SEA) --- */
+body.theme-seitz {
+    --primary-color: var(--straw-hat-red);
+    --secondary-color: var(--ship-wood);
+    --accent-color: var(--parchment-bg);
+    --bg-dark: var(--ocean-blue);
+    --bg-light: #4a3b2c; /* Dunkles Schiffsholz */
+    --text-color: var(--parchment-bg);
+}
+
+body.theme-seitz .card, body.theme-seitz .diagram-item, body.theme-seitz .platform-card,
+body.theme-seitz .accordion-item, body.theme-seitz .page-with-sidebar .content-page,
+body.theme-seitz .user-selection-modal, body.theme-seitz .dropdown-content, body.theme-seitz .sidebar-nav {
+    border: 2px solid var(--ship-wood);
+    box-shadow: inset 0 0 15px #000;
+}
+
+body.theme-seitz header {
+    background-color: rgba(61, 43, 31, 0.8); /* Semi-transparentes dunkles Holz */
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid var(--ship-wood);
+}
+
+body.theme-seitz .hero-text h1, body.theme-seitz .content-page h1,
+body.theme-seitz .learning-content h2, body.theme-seitz .card h3 {
+    color: var(--parchment-bg);
+    text-shadow: 2px 2px 0px var(--straw-hat-red), 4px 4px 0px var(--ink-black);
+}
+
+body.theme-seitz .cta-button, body.theme-seitz .submit-btn {
+    background-color: var(--straw-hat-red);
+    color: var(--parchment-bg);
+    text-shadow: 1px 1px 2px #000;
+    border-radius: 5px;
+}
+body.theme-seitz .cta-button:hover, body.theme-seitz .submit-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--straw-hat-red);
+    background-color: var(--ocean-blue);
+    border-color: var(--straw-hat-red);
+}
+
+body.theme-seitz .learning-content strong, body.theme-seitz .breadcrumb a, body.theme-seitz .solution-link, body.theme-seitz a {
+    color: var(--parchment-bg);
+    font-weight: 700;
+}
+body.theme-seitz .hero::after { display: none; } /* Keine Welle im Dark Mode */
+
+body.theme-seitz .logo::after {
+    color: var(--parchment-bg);
+    text-shadow: 2px 2px 0px var(--straw-hat-red);
+}
+
+/* --- LIGHT MODE (TREASURE MAP) --- */
+/* Dies ist der originale Stil */
+body.theme-seitz.light-mode {
+    --primary-color: var(--straw-hat-red);
+    --secondary-color: var(--ship-wood);
+    --accent-color: var(--ocean-blue);
+    --bg-dark: var(--ocean-blue);
+    --bg-light: var(--parchment-bg);
+    --text-color: var(--ink-black);
+}
+
+body.theme-seitz.light-mode .card, body.theme-seitz.light-mode .diagram-item, body.theme-seitz.light-mode .platform-card,
+body.theme-seitz.light-mode .accordion-item, body.theme-seitz.light-mode .page-with-sidebar .content-page,
+body.theme-seitz.light-mode .user-selection-modal, body.theme-seitz.light-mode .dropdown-content, body.theme-seitz.light-mode .sidebar-nav {
+    border: 2px solid var(--ship-wood);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+body.theme-seitz.light-mode header {
+    background-color: rgba(244, 232, 193, 0.8); /* Semi-transparentes Pergament */
+    border-bottom-color: var(--ship-wood);
+}
+
+body.theme-seitz.light-mode .hero-text h1, body.theme-seitz.light-mode .content-page h1,
+body.theme-seitz.light-mode .learning-content h2, body.theme-seitz.light-mode .card h3 {
+    color: var(--straw-hat-red);
+    text-shadow: 2px 2px 0px var(--ink-black);
+}
+
+body.theme-seitz.light-mode .cta-button, body.theme-seitz.light-mode .submit-btn {
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    border-radius: 5px;
+    background-color: var(--straw-hat-red);
+}
+
+body.theme-seitz.light-mode .learning-content strong, body.theme-seitz.light-mode .breadcrumb a,
+body.theme-seitz.light-mode .solution-link, body.theme-seitz.light-mode a {
+    color: var(--ocean-blue);
+}
+
+body.theme-seitz.light-mode .hero { position: relative; overflow: hidden; }
+body.theme-seitz.light-mode .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; width: 100%; height: 50px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z' class='shape-fill' fill='%23f4e8c1' fill-opacity='1'%3E%3C/path%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+body.theme-seitz.light-mode .logo::after {
+    color: var(--ink-black);
+    text-shadow: 2px 2px 0px #fff;
+}
+
+/* --- FOCUS MODE (OLD MAP) --- */
+body.theme-seitz.focus-mode {
+    --primary-color: #a03d4e; /* Desaturated Red */
+    --secondary-color: #8a7b6a; /* Desaturated Wood */
+    --accent-color: #5a7d9a; /* Desaturated Blue */
+    --bg-dark: #fdf6e3;
+    --bg-light: #fff;
+    --text-color: #3c382e;
+}
+
+body.theme-seitz.focus-mode .card, body.theme-seitz.focus-mode .diagram-item,
+body.theme-seitz.focus-mode .platform-card, body.theme-seitz.focus-mode .accordion-item,
+body.theme-seitz.focus-mode .page-with-sidebar .content-page, body.theme-seitz.focus-mode .user-selection-modal,
+body.theme-seitz.focus-mode .dropdown-content, body.theme-seitz.focus-mode .sidebar-nav {
+    border: 1px solid #ccc;
+    box-shadow: none;
+}
+
+body.theme-seitz.focus-mode header {
+    background-color: var(--bg-dark);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+body.theme-seitz.focus-mode .hero-text h1, body.theme-seitz.focus-mode .content-page h1,
+body.theme-seitz.focus-mode .learning-content h2, body.theme-seitz.focus-mode .card h3 {
+    color: var(--text-color);
+    text-shadow: none;
+}
+
+body.theme-seitz.focus-mode .cta-button, body.theme-seitz.focus-mode .submit-btn {
+    background: var(--primary-color);
+    color: #fff;
+    text-shadow: none;
+    border-radius: 5px;
+}
+body.theme-seitz.focus-mode .cta-button:hover, body.theme-seitz.focus-mode .submit-btn:hover {
+    transform: scale(1.05);
+    background: var(--accent-color);
+    box-shadow: none;
+}
+
+body.theme-seitz.focus-mode .hero::after { display: none; }
+
+body.theme-seitz.focus-mode .logo::after {
+    color: var(--text-color);
+    text-shadow: none;
+}
+
+/* Logo Anpassung */
+body.theme-seitz .logo {
+    font-size: 0;
+    color: transparent;
+}
+body.theme-seitz .logo::after {
+    content: 'SAP Academy 👒'; /* Passendes Emoji für One Piece */
+    font-size: 1.8rem;
+}
+
+body.theme-seitz .hero {
+background-image: url('../../img/seitz.png');
+background-size: 80% auto;
+background-repeat: no-repeat;
+background-position: center;
+}
