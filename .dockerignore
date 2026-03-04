@@ -1,0 +1,14 @@
+
+.git
+.github
+node_modules
+dist
+.env
+cache/*.cache
+*.log
+README.md
+dateiliste.txt
+dateinamen.ps1
+zusammenfassung.ps1
+.DS_Store
+Thumbs.db
