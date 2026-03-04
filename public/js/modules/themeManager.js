@@ -1,22 +1,11 @@
-/**
- * Theme Manager
- * Kümmert sich ausschließlich um das Laden und Umschalten von Themes und Modi.
- * DSGVO-Hinweis: Speichert ausschließlich anonyme Design-Präferenzen im LocalStorage.
- */
-
 export function initThemeManager() {
-    const head = document.head;
-    const themeLink = document.createElement('link');
-    themeLink.rel = 'stylesheet';
-    themeLink.id = 'dynamic-theme';
-    head.appendChild(themeLink);
+    // Greife auf das bereits vom Inline-Skript erstellte Link-Tag zu
+    const themeLink = document.getElementById('dynamic-theme');
 
-    // Lädt eine CSS-Datei für ein bestimmtes Theme
     const loadThemeFile = (themeFile) => {
-        themeLink.href = `/css/themes/${themeFile}.css`;
+        if (themeLink) themeLink.href = `/css/themes/${themeFile}.css`;
     };
 
-    // Wendet den aktuellen Modus (default, light, focus) an
     const applyThemeMode = (mode) => {
         document.body.classList.remove('light-mode', 'focus-mode');
         if (mode === 'light') {
@@ -26,7 +15,6 @@ export function initThemeManager() {
         }
     };
 
-    // Initialisiert das Theme und den Modus beim Laden der Seite
     const initializeTheme = () => {
         const savedTheme = localStorage.getItem('selectedTheme') || 'default';
         const savedMode = localStorage.getItem('themeMode') || 'default';
@@ -35,9 +23,6 @@ export function initThemeManager() {
         loadThemeFile(savedTheme);
         applyThemeMode(savedMode);
     };
-
-    // Initiale Ausführung
-    initializeTheme();
 
     // --- Event Listener: Header-Theme-Umschalter ---
     const themeToggle = document.getElementById('theme-toggle');
