@@ -1,5 +1,5 @@
-<main class="searchable-block">
-    <section class="hero">
+<main>
+    <section class="hero searchable-block">
         <div class="hero-text">
             <h1><?= htmlspecialchars($pageHeadline) ?></h1>
             <p>Deine moderne, modulare Lernplattform. Refaktorisiert nach KISS, SRP und OCP.</p>
@@ -7,7 +7,7 @@
         </div>
     </section>
 
-    <section id="kurse" class="content-section">
+    <section id="kurse" class="content-section searchable-block">
         <h2>Unsere aktuellen Lernmodule</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.1rem;">
             Wir haben den Fokus geschärft. Hier findest du unsere beiden hochspezialisierten SAP-Module.
