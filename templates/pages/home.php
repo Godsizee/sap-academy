@@ -7,7 +7,7 @@
         </div>
     </section>
 
-    <section id="kurse" class="content-section searchable-block">
+ 
         <h2>Unsere aktuellen Lernmodule</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.1rem;">
             Wir haben den Fokus geschärft. Hier findest du unsere beiden hochspezialisierten SAP-Module.
@@ -26,5 +26,4 @@
                 <a href="<?= BASE_URL ?>/module?id=s4550">Kurs starten →</a>
             </div>
         </div>
-    </section>
 </main>
