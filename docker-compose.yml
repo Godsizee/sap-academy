@@ -10,6 +10,7 @@ services:
     environment:
       - ENVIRONMENT=production
     volumes:
-      # Spiegelt den Portainer-Git-Ordner live in den Container.
-      # Künftige Webhook-Updates sind sofort aktiv, ohne Rebuild.
+      # Mountet den Projektordner live in den Container
       - .:/var/www/html
+      # Überschreibt die Apache-Konfiguration zwingend mit der lokalen Datei
+      - ./vhost.conf:/etc/apache2/sites-enabled/000-default.conf
