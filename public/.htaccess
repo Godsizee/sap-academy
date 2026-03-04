@@ -1,4 +1,3 @@
-HALLOWELT
 RewriteEngine On
 
 # Leite Anfragen auf index.php um, wenn es sich nicht um eine existierende Datei (-f) handelt

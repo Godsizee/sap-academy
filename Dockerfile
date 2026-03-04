@@ -1,21 +1,26 @@
-# Basis-Image: Ein offizielles, schlankes PHP 8.2 Image mit integriertem Apache-Webserver
+# Basis-Image
 FROM php:8.2-apache
 
-# 1. Apache mod_rewrite aktivieren (Zwingend notwendig für unser index.php Routing!)
+# 1. mod_rewrite aktivieren
 RUN a2enmod rewrite
 
-# 2. DocumentRoot auf den "public"-Ordner ändern (Sicherheits-Best-Practice!)
-# So sind /src, /templates und /data niemals direkt über den Browser erreichbar.
+# 2. DocumentRoot Variablen setzen
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
-RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+# 3. Wir erstellen eine komplett neue VirtualHost-Konfiguration
+RUN echo "<VirtualHost *:80>\n\
+    DocumentRoot ${APACHE_DOCUMENT_ROOT}\n\
+    <Directory ${APACHE_DOCUMENT_ROOT}>\n\
+        Options Indexes FollowSymLinks\n\
+        AllowOverride All\n\
+        Require all granted\n\
+    </Directory>\n\
+    ErrorLog \${APACHE_LOG_DIR}/error.log\n\
+    CustomLog \${APACHE_LOG_DIR}/access.log combined\n\
+</VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
-# 3. AllowOverride All setzen, damit die .htaccess im public-Ordner verarbeitet wird
-RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
-
-# 4. Das gesamte lokale Projekt in den Container kopieren
+# 4. Projektdateien kopieren
 COPY . /var/www/html/
 
-# 5. Berechtigungen setzen, damit der Webserver die Dateien lesen (und ggf. schreiben) kann
+# 5. Berechtigungen setzen
 RUN chown -R www-data:www-data /var/www/html/
