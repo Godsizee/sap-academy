@@ -1,0 +1,28 @@
+# Name des Workflows
+name: Automatisiertes Deployment zu Portainer
+
+# Auslöser: Bei jedem Push in den 'main' Branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    # Wir nutzen ein schlankes Linux-Image für den Runner
+    runs-on: ubuntu-latest
+
+    steps:
+      # Schritt 1: Den Code aus dem Repository auschecken
+      - name: Code auschecken
+        uses: actions/checkout@v4
+
+      # Schritt 2: Den Portainer Webhook aufrufen
+      # Wir nutzen hier das GitHub Secret 'PORTAINER_WEBHOOK_URL'
+      - name: Portainer Webhook auslösen
+        run: |
+          curl -X POST "${{ secrets.PORTAINER_WEBHOOK_URL }}"
+        
+      # Optional: Erfolgsmeldung in der Konsole ausgeben
+      - name: Statusbericht
+        run: echo "Deployment-Signal wurde erfolgreich an Portainer gesendet."
