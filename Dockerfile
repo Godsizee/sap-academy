@@ -1,20 +1,16 @@
 # Basis-Image
 FROM php:8.2-apache
 
-# DocumentRoot auf den "public"-Ordner ändern
+# Modul aktivieren
+RUN a2enmod rewrite
+
+# DocumentRoot setzen
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
-RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+# Die Konfiguration direkt ins Image kopieren
+COPY vhost.conf /etc/apache2/sites-available/000-default.conf
 
-# Kugelsicheres Routing ohne .htaccess:
-# FallbackResource leitet alle Anfragen, die keine echten Dateien sind, auf index.php um.
-RUN echo "<Directory ${APACHE_DOCUMENT_ROOT}>\n\
-    FallbackResource /index.php\n\
-</Directory>" > /etc/apache2/conf-available/routing.conf \
-    && a2enconf routing
-
-# Projektdateien kopieren (Fallback für Systeme ohne Volumes)
+# Projektdateien kopieren
 COPY . /var/www/html/
 
 # Berechtigungen setzen
