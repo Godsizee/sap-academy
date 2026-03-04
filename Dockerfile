@@ -11,8 +11,11 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
-# 3. Das gesamte lokale Projekt in den Container kopieren
+# 3. AllowOverride All setzen, damit die .htaccess im public-Ordner verarbeitet wird
+RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
+
+# 4. Das gesamte lokale Projekt in den Container kopieren
 COPY . /var/www/html/
 
-# 4. Berechtigungen setzen, damit der Webserver die Dateien lesen (und ggf. schreiben) kann
+# 5. Berechtigungen setzen, damit der Webserver die Dateien lesen (und ggf. schreiben) kann
 RUN chown -R www-data:www-data /var/www/html/
