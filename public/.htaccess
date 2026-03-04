@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Leite Anfragen auf index.php um, wenn es sich nicht um eine existierende Datei (-f) handelt
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Leite Anfragen auf index.php um, wenn es sich nicht um ein existierendes Verzeichnis (-d) handelt
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Führe die Umleitung aus und hänge bestehende GET-Parameter an (QSA)
+RewriteRule ^(.*)$ index.php [QSA,L]
