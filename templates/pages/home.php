@@ -2,7 +2,7 @@
     <section class="hero">
         <div class="hero-text">
             <h1><?= htmlspecialchars($pageHeadline) ?></h1>
-            <p>Deine moderne, modulare Lernplattform. Refaktorisiert nach KISS, SRP und OCP.</p>
+            <p>Deine moderne, modulare Lernplattform.</p>
             <a href="#kurse" class="cta-button">Entdecke die Kurse</a>
         </div>
     </section>
