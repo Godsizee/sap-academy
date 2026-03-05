@@ -450,6 +450,298 @@
             },
             "correct": ["A", "B", "C"],
             "link": "/module?id=s4f10"
+        },
+                {
+            "chapter": "Kapitel 5",
+            "question": "Der Bereich für die allgemeinen Daten des Geschäftspartnerstammsatzes muss für jeden Buchungskreis, der Geschäfte mit diesem Debitor tätigt, separat angelegt werden. Entscheiden Sie, ob diese Aussage richtig oder falsch ist.",
+            "type": "radio",
+            "options": {
+                "A": "Richtig",
+                "B": "Falsch"
+            },
+            "correct": ["B"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 5",
+            "question": "Wodurch wird die Buchung für einen Debitor mit dem Hauptbuch verknüpft?",
+            "type": "radio",
+            "options": {
+                "A": "Abstimmkonto",
+                "B": "Belegart",
+                "C": "Buchungsschlüssel",
+                "D": "Kontengruppe"
+            },
+            "correct": ["A"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 5",
+            "question": "Wenn eine Teilzahlung für einen Zahlungseingang mit der Methode \"Teilzahlung\" verarbeitet wird, wird die Rechnung beglichen und ein neuer offener Posten in Höhe der Zahlungsdifferenz angelegt. Entscheiden Sie, ob diese Aussage richtig oder falsch ist.",
+            "type": "radio",
+            "options": {
+                "A": "Richtig",
+                "B": "Falsch"
+            },
+            "correct": ["B"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 5",
+            "question": "Verschiedene Ausgangsrechnungen, die nicht zu einem Kundenauftrag gehören, können nur über herkömmliche SAP-GUI-Transaktionen in der Komponente für die Debitorenbuchhaltung erfasst werden. Entscheiden Sie, ob diese Aussage richtig oder falsch ist.",
+            "type": "radio",
+            "options": {
+                "A": "Richtig",
+                "B": "Falsch"
+            },
+            "correct": ["B"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 5",
+            "question": "Wie kann eingesehen werden, ob ein Debitor gemahnt wurde? Wählen Sie die richtige Antwort.",
+            "type": "radio",
+            "options": {
+                "A": "Sie sehen im Korrespondenzbereich des Debitorenstammsatzes nach.",
+                "B": "Sie prüfen die Einzelpostendetails im Debitorenkonto.",
+                "C": "Sowohl A als auch B.",
+                "D": "Keine der genannten Möglichkeiten."
+            },
+            "correct": ["C"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 5",
+            "question": "Mit der transaktionalen App \"Klärungsfälle bearbeiten\" können Sie Folgendes tun: (Mehrere Antworten möglich)",
+            "type": "checkbox",
+            "options": {
+                "A": "Klärungsfälle anhand verschiedener Kriterien suchen und filtern.",
+                "B": "Die Details eines Klärungsfalls anzeigen, wie z.B. Textnotizen und verknüpfte Rechnungen.",
+                "C": "Klärungsfallattribute bearbeiten, wie z.B. den Bearbeiter.",
+                "D": "Textnotizen zu einem Klärungsfall hinzufügen.",
+                "E": "Dateianhänge zu einem Klärungsfall hinzufügen."
+            },
+            "correct": ["A", "B", "C", "D", "E"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 5",
+            "question": "Wie lauten die drei Elemente, die zusammen einen Vertriebsbereich ergeben?",
+            "type": "checkbox",
+            "options": {
+                "A": "Verkaufsorganisation",
+                "B": "Vertriebsweg",
+                "C": "Sparte",
+                "D": "Werk",
+                "E": "Buchungskreis"
+            },
+            "correct": ["A", "B", "C"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 5",
+            "question": "Wenn eine Lieferung angelegt wird, werden automatisch Buchhaltungsvorgänge generiert. Entscheiden Sie, ob diese Aussage richtig oder falsch ist.",
+            "type": "radio",
+            "options": {
+                "A": "Richtig",
+                "B": "Falsch"
+            },
+            "correct": ["B"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 5",
+            "question": "Wenn die Faktura in der Kundenauftragsbearbeitung angelegt wird, wird automatisch ein Buchhaltungsbeleg generiert, der das Konto des Kunden belastet und den Erlös bucht. Entscheiden Sie, ob diese Aussage richtig oder falsch ist.",
+            "type": "radio",
+            "options": {
+                "A": "Richtig",
+                "B": "Falsch"
+            },
+            "correct": ["A"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 5",
+            "question": "Welcher Schlüssel muss in den Stammsatz eines Debitors eingetragen werden, damit dieser Debitor in das Bewertungsprogramm für überfällige Forderungen einbezogen werden kann?",
+            "type": "radio",
+            "options": {
+                "A": "Wertberichtigungsschlüssel",
+                "B": "Mahnschlüssel",
+                "C": "Zahlungsbedingungsschlüssel",
+                "D": "Feldstatusgruppe"
+            },
+            "correct": ["A"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 5",
+            "question": "Das Wertberichtigungsprogramm führt eine Buchung durch, die zu Beginn des nächsten Monats storniert wird. Welche Konten werden mit der Buchung be- und entlastet?",
+            "type": "radio",
+            "options": {
+                "A": "Soll: Einzelwertberichtigung; Haben: Wertberichtigung Forderungen",
+                "B": "Soll: Wertberichtigung Forderungen; Haben: Einzelwertberichtigung",
+                "C": "Soll: Debitorenkonto; Haben: Abstimmkonto",
+                "D": "Soll: Bankkonto; Haben: Wertberichtigung Forderungen"
+            },
+            "correct": ["A"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 6",
+            "question": "Wie wird beim Anlegen eines Anlagenstammsatzes die Anlagennummer zugeordnet?",
+            "type": "radio",
+            "options": {
+                "A": "Die Anlagennummer wird über die Anlagenklasse zugeordnet.",
+                "B": "Die Anlagennummer wird manuell vergeben.",
+                "C": "Die Anlagennummer wird über den Buchungskreis zugeordnet.",
+                "D": "Die Anlagennummer wird über das Sachkonto abgeleitet."
+            },
+            "correct": ["A"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 6",
+            "question": "Wozu dient der Kontenfindungsschlüssel für die Anlage?",
+            "type": "radio",
+            "options": {
+                "A": "Er verbindet die Anlage mit dem Sachkonto (Abstimmkonto).",
+                "B": "Er berechnet die monatliche Abschreibung.",
+                "C": "Er definiert die voraussichtliche Nutzungsdauer.",
+                "D": "Er verknüpft die Anlage zwingend mit einer Kostenstelle."
+            },
+            "correct": ["A"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 6",
+            "question": "Jede Anlage gehört einem Buchungskreis an. Entscheiden Sie, ob diese Aussage richtig oder falsch ist.",
+            "type": "radio",
+            "options": {
+                "A": "Richtig",
+                "B": "Falsch"
+            },
+            "correct": ["A"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 6",
+            "question": "Eine Bewegungsart gibt an, an welcher Stelle im Anlagengitter die Buchung aufgeführt wird. Entscheiden Sie, ob diese Aussage richtig oder falsch ist.",
+            "type": "radio",
+            "options": {
+                "A": "Richtig",
+                "B": "Falsch"
+            },
+            "correct": ["A"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 6",
+            "question": "Welche Methoden stehen für das Buchen von Zugängen in der Anlagenbuchhaltung zur Verfügung? (Mehrere Antworten möglich)",
+            "type": "checkbox",
+            "options": {
+                "A": "Ein Anlagenzugang aus einem Kauf gegen Kreditor.",
+                "B": "Ein Anlagenkauf mit automatischer Gegenbuchung.",
+                "C": "Abrechnung ausschließlich über das Kassenbuch.",
+                "D": "Automatische Buchung bei der Warenausgabe im Vertrieb."
+            },
+            "correct": ["A", "B"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 6",
+            "question": "Wozu dient der Asset Explorer?",
+            "type": "radio",
+            "options": {
+                "A": "Er bietet eine Übersicht über die Aktivitäten für eine Anlage nach Bewertungsbereich und Geschäftsjahr (Planwerte, gebuchte Bewegungen, Abschreibungen etc.).",
+                "B": "Er dient ausschließlich zur Anlage und Löschung neuer Buchungskreise in der Anlagenbuchhaltung.",
+                "C": "Er ist ein Tool zur Verwaltung von Mitarbeiterzugriffen auf Anlagegüter.",
+                "D": "Er berechnet automatisch den Verkaufspreis einer Anlage für den externen Markt."
+            },
+            "correct": ["A"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 6",
+            "question": "Welche Art von Informationen liefert das Anlagengitter?",
+            "type": "radio",
+            "options": {
+                "A": "Ausschließlich geplante Wartungsintervalle von Maschinen.",
+                "B": "Eine umfassende Übersicht für den Abschluss (Buchwerte zu Beginn/Ende des Jahres, Zugänge, Abgänge, Abschreibungen).",
+                "C": "Eine Liste aller Debitoren und deren offener Posten.",
+                "D": "Echtzeitdaten zu Mitarbeiterstunden, die an Maschinen gearbeitet wurden."
+            },
+            "correct": ["B"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 7",
+            "question": "Alle Hausbankkonten werden in SAP durch Sachkonten dargestellt. Entscheiden Sie, ob diese Aussage richtig oder falsch ist.",
+            "type": "radio",
+            "options": {
+                "A": "Richtig",
+                "B": "Falsch"
+            },
+            "correct": ["A"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 7",
+            "question": "Bevor die Details einer Bank in einem Geschäftspartner-Stammsatz erfasst werden können, muss diese Bank in das Bankenverzeichnis aufgenommen werden. Entscheiden Sie, ob diese Aussage richtig oder falsch ist.",
+            "type": "radio",
+            "options": {
+                "A": "Richtig",
+                "B": "Falsch"
+            },
+            "correct": ["B"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 7",
+            "question": "Wenn Sie einen Geschäftsvorfall auf der Registerkarte \"Ausgaben bar\" des Kassenbuchs erfassen, wird das Handkassenkonto automatisch im Soll bebucht. Entscheiden Sie, ob diese Aussage richtig oder falsch ist.",
+            "type": "radio",
+            "options": {
+                "A": "Richtig",
+                "B": "Falsch"
+            },
+            "correct": ["B"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 8",
+            "question": "Mit dem Financial Closing Cockpit können Sie Ihre Abschlussarbeiten auf verschiedenen Organisationsebenen organisieren. Entscheiden Sie, ob diese Aussage richtig oder falsch ist.",
+            "type": "radio",
+            "options": {
+                "A": "Richtig",
+                "B": "Falsch"
+            },
+            "correct": ["A"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 8",
+            "question": "Erlöse und Kosten, die in einer bestimmten Buchungsperiode gebucht wurden, stammen oft aus einer anderen Periode und müssen abgegrenzt werden. Was bedeutet das?",
+            "type": "radio",
+            "options": {
+                "A": "Sie müssen sofort in voller Höhe storniert werden.",
+                "B": "Sie dürfen erst im Folgejahr gebucht werden.",
+                "C": "Sie müssen über die Perioden verteilt werden, in denen sie entstehen.",
+                "D": "Sie werden auf ein Sperrkonto überwiesen, bis das Geschäftsjahr endet."
+            },
+            "correct": ["C"],
+            "link": "/module?id=s4f10"
+        },
+        {
+            "chapter": "Kapitel 8",
+            "question": "Auf welches Konto überträgt das Programm zur WE/RE-Umgliederung den Saldo, wenn es im WE/RE-Konto beim Abschluss der Bücher einen Habensaldo für eine Einkaufstransaktion gibt?",
+            "type": "radio",
+            "options": {
+                "A": "Gelieferte, aber nicht berechnete Waren",
+                "B": "Berechnete, aber nicht gelieferte Waren",
+                "C": "Skontoerträge",
+                "D": "Rückstellungen für drohende Verluste"
+            },
+            "correct": ["A"],
+            "link": "/module?id=s4f10"
         }
     ]
 }
