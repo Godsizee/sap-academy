@@ -1,31 +1,56 @@
-﻿/* ====== CSS VARIABLES ====== */
+﻿/* ====== NEUE ZENTRALE VARIABLEN V4.0 ====== */
 :root {
-    /* Theme-Variables (werden von theme.css überschrieben) */
-    --primary-color: #F8B4D9;
-    --secondary-color: #A8E6CF;
-    --accent-color: #A3D9E9;
-    --bg-dark: #2A2C3A;
-    --bg-light: #3A3D4E;
-    --text-color: #f0f0f0;
-    --font-family: 'Poppins', sans-serif;
+    /* --- BRAND COLORS (Konstanten) --- */
+    --brand-primary: #390099;
+    --brand-secondary: #9e0059;
+    --brand-danger: #ff0054;
+    --brand-success: #28a745;
+    --brand-warning: #ffbd00;
 
-    /* Fluid Typography (Skaliert mit dem Viewport) */
-    --fs-900: clamp(2.5rem, 5vw + 1rem, 3.5rem);      /* h1 */
-    --fs-800: clamp(2rem, 4vw + 1rem, 3rem);        /* h2 auf Content-Seiten */
-    --fs-700: clamp(1.5rem, 3vw + 1rem, 2rem);        /* h3 */
-    --fs-600: clamp(1.2rem, 2vw + 1rem, 1.6rem);      /* h4 in manchen Komponenten */
-    --fs-500: clamp(1.1rem, 1.5vw + 0.8rem, 1.25rem); /* Kleinere h4 */
-    --fs-400: 1rem;                                   /* base / body */
-    --fs-300: 0.9rem;                                 /* breadcrumb, etc. */
-    --fs-200: 0.85rem;                                /* sidebar links */
+    /* --- TYPOGRAPHY --- */
+    --font-display: 'Oswald', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-    /* Spacing System (Next Level: Fluid Spacing mit clamp) 
-       Atmet sanft mit der Bildschirmbreite mit, statt hart bei Breakpoints umzubrechen.
-    */
-    --space-xs: clamp(0.5rem, 1vw + 0.1rem, 0.75rem);
+    /* --- FLUID SIZES --- */
+    --fs-900: clamp(2.5rem, 5vw + 1rem, 3.5rem);
+    --fs-800: clamp(2rem, 4vw + 1rem, 3rem);
+    --fs-300: 0.9rem;
+    
     --space-s: clamp(0.875rem, 1.5vw + 0.3rem, 1.25rem);
     --space-m: clamp(1.25rem, 2.5vw + 0.5rem, 1.75rem);
     --space-l: clamp(1.5rem, 3.5vw + 0.8rem, 2.5rem);
-    --space-xl: clamp(2rem, 5vw + 1rem, 3.5rem);
-    --space-xxl: clamp(3rem, 7vw + 1.5rem, 5rem);
+
+    /* --- THEME DEFAULT (LIGHT MODE) --- */
+    --primary-color: var(--brand-primary);
+    --secondary-color: var(--brand-secondary);
+    --accent-color: var(--brand-secondary);
+    --bg-dark: #f4f7f6;     /* Background */
+    --bg-light: #ffffff;    /* Surface */
+    --text-color: #333333;
+    --border-color: #dddddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* --- DARK MODE --- */
+body.dark-mode {
+    --primary-color: #8a55ff; /* Etwas heller für Kontrast auf Schwarz */
+    --secondary-color: #ff4d94;
+    --accent-color: #ff4d94;
+    --bg-dark: #0f111a;     /* Deep Void */
+    --bg-light: #1a1c26;    /* Dark Surface */
+    --text-color: #e2e8f0;
+    --border-color: #2d3142;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* --- FOCUS MODE (Sepia / Augenschonend) --- */
+body.focus-mode {
+    --primary-color: #5c4033; /* Dunkles Braun statt Blau */
+    --secondary-color: #8b0000;
+    --accent-color: #8b0000;
+    --bg-dark: #fdf6e3;     /* Warmer Hintergrund */
+    --bg-light: #f5eed5;    /* Sanfte Oberfläche */
+    --text-color: #433422;
+    --border-color: #d6ccad;
+    --shadow-color: rgba(67, 52, 34, 0.1);
 }

@@ -5,42 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($pageTitle ?? 'SAP Academy') ?></title>
     
-    <link rel="stylesheet" href="/css/modules/_variables.css">
-    <link rel="stylesheet" href="/css/modules/_fonts.css">
-    <link rel="stylesheet" href="/css/modules/_base.css">
-    <link rel="stylesheet" href="/css/modules/_layout.css">
-    <link rel="stylesheet" href="/css/modules/_components.css">
-    <link rel="stylesheet" href="/css/modules/_utilities.css">
-    <link rel="stylesheet" href="/css/modules/_modes.css">
-    <link rel="stylesheet" href="/css/modules/_responsive.css">
-    <link rel="stylesheet" href="/css/modules/_animations.css">
+    <!-- Haupt-CSS importiert alle Module inklusive der neuen Variablen -->
+    <link rel="stylesheet" href="/css/main.css">
 
+    <!-- Anti-Flash-Script: Setzt die Klasse vor dem ersten Rendern -->
     <script>
         (function() {
-            const savedTheme = localStorage.getItem('selectedTheme') || 'default';
             const savedMode = localStorage.getItem('themeMode') || 'default';
-            
-            // Theme CSS synchron injizieren
-            document.write('<link rel="stylesheet" id="dynamic-theme" href="/css/themes/' + savedTheme + '.css">');
-            
-            // Klassen temporär auf dem <html> Tag speichern
-            document.documentElement.className = 'theme-' + savedTheme + (savedMode !== 'default' ? ' ' + savedMode + '-mode' : '');
+            if (savedMode !== 'default') {
+                document.documentElement.classList.add(savedMode + '-mode');
+            }
         })();
     </script>
 </head>
 <body>
     <script>
-        // Vorbereitete Klassen auf den <body> übertragen, sobald er existiert
+        /**
+         * Da wir im Head nur das <html> Tag mit Klassen versehen konnten,
+         * übertragen wir diese beim Laden auf den <body> für konsistentes Styling.
+         */
         document.body.className = document.documentElement.className;
         document.documentElement.className = '';
     </script>
 
-    <?php require BASE_PATH . '/templates/partials/header.php'; ?>
+    <?php 
+    // Header einbinden (Modularer Teil)
+    require BASE_PATH . '/templates/partials/header.php'; 
+    ?>
 
-    <?= $content ?? '' ?>
+    <!-- Zentraler Inhaltsbereich -->
+    <div id="app-content">
+        <?= $content ?? '' ?>
+    </div>
 
-    <?php require BASE_PATH . '/templates/partials/footer.php'; ?>
+    <?php 
+    // Footer einbinden (Modularer Teil)
+    require BASE_PATH . '/templates/partials/footer.php'; 
+    ?>
 
+    <!-- Haupt-Logik als Modul -->
     <script src="/js/main.js" type="module"></script>
 </body>
 </html>

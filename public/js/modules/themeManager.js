@@ -1,64 +1,38 @@
 export function initThemeManager() {
-    // Greife auf das bereits vom Inline-Skript erstellte Link-Tag zu
-    const themeLink = document.getElementById('dynamic-theme');
-
-    const loadThemeFile = (themeFile) => {
-        if (themeLink) themeLink.href = `/css/themes/${themeFile}.css`;
-    };
-
     const applyThemeMode = (mode) => {
-        document.body.classList.remove('light-mode', 'focus-mode');
-        if (mode === 'light') {
-            document.body.classList.add('light-mode');
+        document.body.classList.remove('light-mode', 'dark-mode', 'focus-mode');
+        // 'default' ist bei uns der Light-Mode, wir setzen aber explizit Klassen
+        if (mode === 'dark') {
+            document.body.classList.add('dark-mode');
         } else if (mode === 'focus') {
             document.body.classList.add('focus-mode');
         }
+        localStorage.setItem('themeMode', mode);
     };
 
-    const initializeTheme = () => {
-        const savedTheme = localStorage.getItem('selectedTheme') || 'default';
-        const savedMode = localStorage.getItem('themeMode') || 'default';
+    // Initialisierung beim Laden
+    const savedMode = localStorage.getItem('themeMode') || 'default';
+    applyThemeMode(savedMode);
 
-        document.body.className = `theme-${savedTheme}`; 
-        loadThemeFile(savedTheme);
-        applyThemeMode(savedMode);
-    };
-
-    // --- Event Listener: Header-Theme-Umschalter ---
+    // Toggle-Logik (Header Schalter)
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             const currentMode = localStorage.getItem('themeMode') || 'default';
-            let newMode = currentMode === 'default' ? 'light' : (currentMode === 'light' ? 'focus' : 'default');
-
-            localStorage.setItem('themeMode', newMode);
-            applyThemeMode(newMode);
+            let nextMode;
+            if (currentMode === 'default') nextMode = 'dark';
+            else if (currentMode === 'dark') nextMode = 'focus';
+            else nextMode = 'default';
+            
+            applyThemeMode(nextMode);
         });
     }
 
-    // --- Event Listener: Theme-Auswahlfenster (Modal) ---
-    const themeSelectionOverlay = document.getElementById('themeSelectionOverlay');
-    const themeSelectionForm = document.getElementById('themeSelectionForm');
+    // Theme-Auswahl Modal (Wir entfernen den Theme-Wechsel und lassen nur noch den Modus-Wechsel)
     const changeThemeBtn = document.getElementById('changeThemeBtn');
-
-    if (changeThemeBtn && themeSelectionOverlay) {
-        changeThemeBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            themeSelectionOverlay.classList.add('visible');
-        });
-    }
-
-    if (themeSelectionOverlay && themeSelectionForm) {
-        themeSelectionForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const selectedThemeInput = themeSelectionForm.querySelector('input[name="theme"]:checked');
-            if (selectedThemeInput) {
-                const themeName = selectedThemeInput.value;
-                localStorage.setItem('selectedTheme', themeName);
-                localStorage.setItem('themeMode', 'default');
-                initializeTheme(); 
-                themeSelectionOverlay.classList.remove('visible');
-            }
-        });
+    if (changeThemeBtn) {
+        // Da wir nur noch ein Theme haben, können wir diesen Button 
+        // entweder entfernen oder für die Modus-Wahl (Hell/Dunkel/Fokus) nutzen.
+        changeThemeBtn.style.display = 'none'; 
     }
 }
