@@ -18,9 +18,8 @@
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    padding: 0 5%;
-    max-width: 1400px;
-    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
 }
 
 /* Flex-Container für Dropdown, Suche und Theme-Toggle auf dem Desktop */
