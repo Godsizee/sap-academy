@@ -1,58 +1,56 @@
-﻿/* ====== SAP ACADEMY BRANDING V5.0 ====== */
+﻿/* ====== NEUE ZENTRALE VARIABLEN V4.0 ====== */
 :root {
-    /* --- BRAND CORE --- */
-    --brand-primary: #390099;   /* Duke Blue */
-    --brand-secondary: #9e0059; /* Murrey */
-    --brand-danger: #ff0054;    /* Folly */
-    --brand-success: #28a745;   /* Success Green */
-    --brand-warning: #ffbd00;   /* Amber */
+    /* --- BRAND COLORS (Konstanten) --- */
+    --brand-primary: #390099;
+    --brand-secondary: #9e0059;
+    --brand-danger: #ff0054;
+    --brand-success: #28a745;
+    --brand-warning: #ffbd00;
 
     /* --- TYPOGRAPHY --- */
     --font-display: 'Oswald', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
     /* --- FLUID SIZES --- */
-    --fs-900: clamp(2.5rem, 5vw + 1rem, 4rem);
-    --fs-800: clamp(1.8rem, 3vw + 1rem, 2.8rem);
-    --radius-l: 16px;
-    --radius-m: 8px;
+    --fs-900: clamp(2.5rem, 5vw + 1rem, 3.5rem);
+    --fs-800: clamp(2rem, 4vw + 1rem, 3rem);
+    --fs-300: 0.9rem;
+    
+    --space-s: clamp(0.875rem, 1.5vw + 0.3rem, 1.25rem);
+    --space-m: clamp(1.25rem, 2.5vw + 0.5rem, 1.75rem);
+    --space-l: clamp(1.5rem, 3.5vw + 0.8rem, 2.5rem);
 
-    /* --- MODE: LIGHT (DEFAULT) --- */
+    /* --- THEME DEFAULT (LIGHT MODE) --- */
     --primary-color: var(--brand-primary);
     --secondary-color: var(--brand-secondary);
-    --bg-page: #f4f7f6;
-    --bg-surface: #ffffff;
-    --text-main: #333333;
-    --text-muted: #666666;
+    --accent-color: var(--brand-secondary);
+    --bg-dark: #f4f7f6;     /* Background */
+    --bg-light: #ffffff;    /* Surface */
+    --text-color: #333333;
     --border-color: #dddddd;
-    --nav-bg: rgba(255, 255, 255, 0.85);
-    --shadow-main: 0 10px 30px -10px rgba(57, 0, 153, 0.15);
-    --shadow-hover: 0 20px 40px -15px rgba(57, 0, 153, 0.25);
+    --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-/* --- MODE: DARK --- */
+/* --- DARK MODE --- */
 body.dark-mode {
-    --primary-color: #a370ff; /* Aufgehellt für Kontrast */
-    --secondary-color: #ff4da6;
-    --bg-page: #0f111a;
-    --bg-surface: #1a1c26;
-    --text-main: #e2e8f0;
-    --text-muted: #94a3b8;
+    --primary-color: #8a55ff; /* Etwas heller für Kontrast auf Schwarz */
+    --secondary-color: #ff4d94;
+    --accent-color: #ff4d94;
+    --bg-dark: #0f111a;     /* Deep Void */
+    --bg-light: #1a1c26;    /* Dark Surface */
+    --text-color: #e2e8f0;
     --border-color: #2d3142;
-    --nav-bg: rgba(15, 17, 26, 0.9);
-    --shadow-main: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-    --shadow-hover: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
-/* --- MODE: FOCUS (Augenschonend) --- */
+/* --- FOCUS MODE (Sepia / Augenschonend) --- */
 body.focus-mode {
-    --primary-color: #5c4033;
+    --primary-color: #5c4033; /* Dunkles Braun statt Blau */
     --secondary-color: #8b0000;
-    --bg-page: #fdf6e3;
-    --bg-surface: #f5eed5;
-    --text-main: #433422;
-    --text-muted: #655b4a;
+    --accent-color: #8b0000;
+    --bg-dark: #fdf6e3;     /* Warmer Hintergrund */
+    --bg-light: #f5eed5;    /* Sanfte Oberfläche */
+    --text-color: #433422;
     --border-color: #d6ccad;
-    --nav-bg: rgba(253, 246, 227, 0.95);
-    --shadow-main: 0 4px 12px rgba(67, 52, 34, 0.08);
+    --shadow-color: rgba(67, 52, 34, 0.1);
 }
