@@ -23,11 +23,16 @@
     margin: 0 auto;
 }
 
-/* Hoher Kontrast für Navbar-Links im hellen Modus */
-.header-actions {
+/* Flex-Container für Dropdown, Suche und Theme-Toggle auf dem Desktop */
+.nav-cluster-right {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
+}
+
+.burger {
+    display: none; /* Auf dem Desktop ausblenden, wird via _responsive.css aktiviert */
+    cursor: pointer;
 }
 
 .dropdown-btn, .dropdown-link-simple {
