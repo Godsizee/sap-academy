@@ -1,8 +1,5 @@
 <footer>
     <div class="footer-actions">
-        <!-- DSGVO-Anpassung: Wording von "Nutzer" auf "Design/Theme" geändert -->
-        <a href="#" id="changeThemeBtn">Lern-Design anpassen</a>
-        <span class="footer-divider">|</span>
         <a href="/quiz?id=s4f10">S4F10 Quiz-Übersicht</a>
         <span class="footer-divider">|</span>
         <a href="/quiz?id=s4550">S4550 Quiz-Übersicht</a>

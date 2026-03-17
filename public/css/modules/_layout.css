@@ -243,3 +243,25 @@ body.focus-mode .main-header {
 .fabulous-card:hover .card-link .arrow {
     transform: translateX(5px);
 }
+
+/* --- FOOTER --- */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.footer-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
