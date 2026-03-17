@@ -5,7 +5,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: var(--nav-bg);
+    background-color: var(--nav-bg, rgba(255, 255, 255, 0.8));
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
@@ -13,41 +13,35 @@
     transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
+body.dark-mode .main-header {
+    background-color: rgba(15, 17, 26, 0.8);
+}
+
+body.focus-mode .main-header {
+    background-color: rgba(253, 246, 227, 0.8);
+}
+
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    padding: 0 1rem;
+    padding: 0 1.5rem; /* Absolut an den Rändern, mit einem kleinen optischen Sicherheitsabstand */
+    max-width: 100%; /* Hebt das alte 1400px Limit auf */
     width: 100%;
+    margin: 0;
 }
 
 /* Flex-Container für Dropdown, Suche und Theme-Toggle auf dem Desktop */
 .nav-cluster-right {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem; /* Schön viel Platz zwischen den neuen, runden Elementen */
 }
 
 .burger {
     display: none; /* Auf dem Desktop ausblenden, wird via _responsive.css aktiviert */
     cursor: pointer;
-}
-
-.dropdown-btn, .dropdown-link-simple {
-    color: var(--text-main);
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 1rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.dropdown-btn:hover, .dropdown-link-simple:hover {
-    color: var(--brand-secondary);
-    transform: translateY(-1px);
 }
 
 /* --- FABULOUS HERO SECTION --- */
@@ -127,12 +121,13 @@
     font-size: var(--fs-900);
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    color: var(--text-main);
+    color: var(--text-color);
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--text-muted);
+    color: var(--text-color);
+    opacity: 0.8;
     margin-bottom: 2.5rem;
     max-width: 600px;
     margin-inline: auto;
@@ -156,7 +151,8 @@
 }
 
 .section-header p {
-    color: var(--text-muted);
+    color: var(--text-color);
+    opacity: 0.8;
     font-size: 1.1rem;
 }
 
@@ -167,12 +163,12 @@
 }
 
 .fabulous-card {
-    background: var(--bg-surface);
+    background: var(--bg-light);
     border: 1px solid var(--border-color);
     border-radius: 24px;
     padding: 3rem 2rem;
     text-align: center;
-    box-shadow: var(--shadow-main);
+    box-shadow: 0 10px 30px var(--shadow-color);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
     position: relative;
     z-index: 1;
@@ -184,7 +180,7 @@
     position: absolute;
     inset: 0;
     border-radius: 24px;
-    padding: 3px; /* Border thickness */
+    padding: 3px; 
     background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -196,7 +192,7 @@
 
 .fabulous-card:hover {
     transform: translateY(-15px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 20px 40px var(--shadow-color);
 }
 
 .fabulous-card:hover::before {
@@ -215,7 +211,7 @@
 .fabulous-card h3 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: var(--text-main);
+    color: var(--text-color);
 }
 
 .fabulous-card h4 {
@@ -225,7 +221,8 @@
 }
 
 .fabulous-card p {
-    color: var(--text-muted);
+    color: var(--text-color);
+    opacity: 0.8;
     margin-bottom: 2rem;
 }
 
