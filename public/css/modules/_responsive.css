@@ -22,58 +22,189 @@
     }
 }
 
+/* --- FABULOUS MOBILE NAVBAR --- */
 @media screen and (max-width: 768px) {
     body {
         font-size: 16px;
     }
     
+    /* Body-Scroll blockieren, wenn das Mobile-Menü offen ist (Kugelsicher) */
+    body.nav-active {
+        overflow: hidden;
+    }
+
+    /* Logo und Burger bleiben sicher über dem Overlay */
+    .logo {
+        position: relative;
+        z-index: 1001;
+    }
+    
+    /* Sexy animierter Burger-Button */
+    .burger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 32px;
+        height: 22px;
+        cursor: pointer;
+        position: relative;
+        z-index: 1001;
+    }
+    
+    .burger div {
+        width: 100%;
+        height: 3px;
+        background-color: var(--primary-color);
+        border-radius: 4px;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform-origin: left center;
+    }
+    
+    body.nav-active .burger .line1 {
+        transform: rotate(45deg) translate(1px, -2px);
+    }
+    
+    body.nav-active .burger .line2 {
+        width: 0%;
+        opacity: 0;
+    }
+    
+    body.nav-active .burger .line3 {
+        transform: rotate(-45deg) translate(1px, 2px);
+    }
+
+    /* Das Overlay / Mobile Menü - Glassmorphism Effekt */
     .nav-cluster-right {
         position: fixed;
-        inset: 0;
-        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100dvh;
+        z-index: 1000;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: var(--space-l);
-        padding: var(--space-xxl) var(--space-l);
-        background: var(--bg-dark);
+        justify-content: flex-start;
+        gap: 2rem;
+        padding: 100px 2rem 3rem 2rem;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        overflow-y: auto;
+    }
+
+    body.dark-mode .nav-cluster-right {
+        background: rgba(15, 17, 26, 0.9);
+    }
+
+    body.focus-mode .nav-cluster-right {
+        background: rgba(253, 246, 227, 0.95);
     }
     
     body.nav-active .nav-cluster-right {
         transform: translateX(0%);
     }
     
+    /* Versetzte Animation (Staggered Fade-in) für Kind-Elemente */
     .header-search,
-    .nav-cluster-right .dropdown-toggle {
+    .dropdown,
+    .theme-toggle-container {
         width: 100%;
         max-width: 400px;
-    }
-    
-    .burger {
-        display: block;
-    }
-    
-    body.nav-active .burger {
-        position: fixed;
-        top: 22px;
-        right: 5%;
-    }
-    
-    body.nav-active .toggle .line1 {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    
-    body.nav-active .toggle .line2 {
         opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+    }
+
+    body.nav-active .header-search {
+        transition-delay: 0.1s;
+        opacity: 1;
+        transform: translateY(0);
     }
     
-    body.nav-active .toggle .line3 {
-        transform: rotate(45deg) translate(-5px, -6px);
+    body.nav-active .dropdown {
+        transition-delay: 0.2s;
+        opacity: 1;
+        transform: translateY(0);
     }
     
+    body.nav-active .theme-toggle-container {
+        transition-delay: 0.3s;
+        opacity: 1;
+        transform: translateY(0);
+        margin-top: auto; /* Pusht den Schalter elegant nach unten */
+    }
+    
+    /* Search Bar Mobile Anpassung */
+    #siteSearchInput {
+        padding: 1rem 1.5rem 1rem 45px;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .search-icon {
+        font-size: 1.3rem;
+        left: 18px;
+    }
+    
+    /* Dropdown Anpassung Mobile - Verhält sich wie ein Akkordeon */
+    .dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+        padding: 1.2rem 2rem;
+        font-size: 1.2rem;
+        border-radius: 16px;
+    }
+
+    .dropdown-content {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none !important;
+        width: 100%;
+        box-shadow: none;
+        background: transparent;
+        border: none;
+        margin-top: 1rem;
+        padding: 0;
+        display: none;
+    }
+
+    .dropdown-content.show {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        opacity: 1;
+    }
+
+    .dropdown-content a {
+        background: rgba(0,0,0,0.03);
+        border-radius: 12px;
+        padding: 1rem 1.5rem;
+        margin-bottom: 0.3rem;
+        text-align: center;
+        font-size: 1.1rem;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    
+    .dropdown-content a:active {
+        transform: scale(0.98);
+    }
+
+    body.dark-mode .dropdown-content a {
+        background: rgba(255,255,255,0.05);
+    }
+
+    .dropdown-section-label,
+    .dropdown-quiz-header {
+        text-align: center;
+        margin-top: 1rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Content Page Mobile Paddings */
     .content-page,
     .quiz-container {
         padding: var(--space-l) var(--space-m);

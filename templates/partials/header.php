@@ -1,7 +1,7 @@
 <?php
 /**
- * Header Partial V4.0
- * Fokus: Neues Branding, SRP-Prinzip, optimierte Suche und Modus-Schalter.
+ * Header Partial V4.1
+ * Fokus: Kugelsicher für Laptops, fabelhaft und responsive für Smartphones.
  */
 ?>
 <header class="main-header">
@@ -14,8 +14,8 @@
         <div class="nav-cluster-right">
             <!-- Modulares Dropdown für Kurs-Navigation -->
             <div class="dropdown">
-                <button class="dropdown-toggle" aria-haspopup="true">
-                    <span>Akademie</span> ▼
+                <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    <span>Akademie</span> <span class="dropdown-arrow" style="transition: transform 0.3s ease;">▼</span>
                 </button>
                 <div class="dropdown-content">
                     <div class="dropdown-section-label">Lernmodule</div>
@@ -58,8 +58,8 @@
             </div>
         </div>
 
-        <!-- Burger Menü für mobile Endgeräte -->
-        <div class="burger" aria-label="Menü öffnen" role="button">
+        <!-- Burger Menü für mobile Endgeräte (Aria-unterstützt) -->
+        <div class="burger" aria-label="Menü öffnen" role="button" aria-expanded="false">
             <div class="line1"></div>
             <div class="line2"></div>
             <div class="line3"></div>

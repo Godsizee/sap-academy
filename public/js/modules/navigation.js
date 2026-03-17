@@ -9,25 +9,33 @@ export function initNavigation() {
     if (burger) {
         burger.addEventListener('click', (e) => {
             e.stopPropagation();
-            document.body.classList.toggle('nav-active');
-            burger.classList.toggle('toggle');
+            const isActive = document.body.classList.toggle('nav-active');
+            burger.setAttribute('aria-expanded', isActive);
         });
     }
 
     // --- Dropdown-Logik ---
     const dropdownToggle = document.querySelector('.dropdown-toggle');
     const dropdownContent = document.querySelector('.dropdown-content');
+    const dropdownArrow = document.querySelector('.dropdown-arrow');
 
     if (dropdownToggle && dropdownContent) {
         dropdownToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            dropdownContent.classList.toggle('show');
+            const isShowing = dropdownContent.classList.toggle('show');
+            dropdownToggle.setAttribute('aria-expanded', isShowing);
+            
+            if(dropdownArrow) {
+                dropdownArrow.style.transform = isShowing ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
         });
 
         // Schließt das Dropdown, wenn außerhalb geklickt wird
         document.addEventListener('click', () => {
             if (dropdownContent.classList.contains('show')) {
                 dropdownContent.classList.remove('show');
+                dropdownToggle.setAttribute('aria-expanded', 'false');
+                if(dropdownArrow) dropdownArrow.style.transform = 'rotate(0deg)';
             }
         });
     }
