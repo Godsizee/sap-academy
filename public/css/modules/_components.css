@@ -344,50 +344,50 @@ COMPONENTS (Buttons, Cards, Forms, Quiz, etc.)
     border-top: 1px solid var(--border-color);
 }
 
-/* --- QUIZ --- */
+/* --- QUIZ (15% kleiner skaliert) --- */
 .quiz-container {
     width: 90%;
-    max-width: 1020px;
-    margin: 4rem auto; /* Deutlich mehr Außenabstand oben/unten */
-    padding: 3.5rem clamp(1.5rem, 5vw, 4rem); /* Erheblich mehr Innenabstand */
+    max-width: 867px; /* 1020px - 15% */
+    margin: 3.4rem auto; 
+    padding: 3rem clamp(1.2rem, 4vw, 3.4rem); 
     background: var(--bg-light);
     border: 1px solid var(--border-color);
-    border-radius: 24px;
-    box-shadow: 0 15px 35px var(--shadow-color);
-    font-size: 1rem; /* Basisgröße wiederhergestellt */
+    border-radius: 20px;
+    box-shadow: 0 12px 30px var(--shadow-color);
+    font-size: 0.85rem; /* Basisgröße */
 }
 
 .quiz-container h1 {
-    font-size: var(--fs-800); 
-    margin-bottom: 2.5rem; /* Mehr Platz unter der H1 */
+    font-size: calc(var(--fs-800) * 0.85); 
+    margin-bottom: 2.1rem; 
     color: var(--brand-primary);
     text-align: center;
 }
 
 #chapter-selection-screen {
-    text-align: center; /* Zentriert den Auswahlbildschirm */
+    text-align: center; 
 }
 
 #chapter-selection-screen p {
-    font-size: 1.15rem;
-    margin-bottom: 3rem; /* Viel mehr Abstand zum Grid */
+    font-size: 0.98rem; /* 1.15rem - 15% */
+    margin-bottom: 2.5rem; 
     opacity: 0.8;
 }
 
 .chapter-selection-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem; /* Mehr Luft zwischen den Chapter-Boxen */
-    margin-bottom: 3rem; /* Abstand zum Start-Button */
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1.7rem; 
+    margin-bottom: 2.5rem; 
     text-align: left;
 }
 
 .chapter-card {
     position: relative;
-    padding: var(--space-m);
+    padding: calc(var(--space-m) * 0.85);
     background-color: var(--bg-light);
     border: 2px solid var(--border-color);
-    border-radius: 16px;
+    border-radius: 14px;
     cursor: pointer;
     text-align: center;
     transition: all 0.2s ease-in-out;
@@ -399,23 +399,23 @@ COMPONENTS (Buttons, Cards, Forms, Quiz, etc.)
 
 .chapter-card .chapter-title {
     color: var(--text-color);
-    font-size: 1.25rem;
+    font-size: 1.06rem; 
     font-weight: 700;
     transition: color 0.2s ease-in-out;
 }
 
 .chapter-card .chapter-icon {
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
     color: var(--brand-secondary);
-    font-size: 2.5rem;
+    font-size: 2.1rem; 
     transition: transform 0.2s ease-in-out;
 }
 
 .chapter-card.selected {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(57, 0, 153, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(57, 0, 153, 0.2);
 }
 
 .chapter-card.selected .chapter-title,
@@ -428,27 +428,27 @@ COMPONENTS (Buttons, Cards, Forms, Quiz, etc.)
 }
 
 .question-block {
-    padding-bottom: var(--space-m);
-    margin-bottom: var(--space-m);
+    padding-bottom: calc(var(--space-m) * 0.85);
+    margin-bottom: calc(var(--space-m) * 0.85);
     border-bottom: 1px solid var(--border-color);
 }
 
 .question-block p {
-    margin-bottom: var(--space-m);
+    margin-bottom: calc(var(--space-m) * 0.85);
     color: var(--accent-color);
-    font-size: 1.2rem;
+    font-size: 1.02rem; 
     font-weight: 600;
 }
 
 .options div {
-    margin-bottom: var(--space-s);
+    margin-bottom: calc(var(--space-s) * 0.85);
 }
 
 .options label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.2rem; 
+    padding: 0.85rem 1rem; 
     border-left: 4px solid transparent;
     border-radius: 0 8px 8px 0;
     cursor: pointer;
@@ -463,17 +463,17 @@ COMPONENTS (Buttons, Cards, Forms, Quiz, etc.)
 
 input[type="radio"],
 input[type="checkbox"] {
-    margin-right: 12px;
-    transform: scale(1.3);
+    margin-right: 10px;
+    transform: scale(1.1);
     accent-color: var(--primary-color);
     cursor: pointer;
 }
 
 .result-box {
-    padding: var(--space-m);
-    margin-bottom: var(--space-l);
+    padding: calc(var(--space-m) * 0.85);
+    margin-bottom: calc(var(--space-l) * 0.85);
     border: 2px solid;
-    border-radius: 12px;
+    border-radius: 10px;
     text-align: center;
 }
 
@@ -483,6 +483,7 @@ input[type="checkbox"] {
 .result-box h2 {
     margin-top: 0;
     color: var(--brand-success);
+    font-size: calc(var(--fs-800) * 0.85);
 }
 
 .result-box.fail h2 { color: var(--brand-danger); }
@@ -498,10 +499,10 @@ input[type="checkbox"] {
 }
 
 .solution-wrapper {
-    margin-top: 15px;
-    padding: 1rem;
+    margin-top: 12px;
+    padding: 0.85rem;
     background: rgba(40, 167, 69, 0.08);
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 .solution {
@@ -513,35 +514,35 @@ input[type="checkbox"] {
 /* --- DRAG & DROP QUIZ STYLES --- */
 .matching-question-container {
     display: flex;
-    gap: var(--space-xl);
+    gap: calc(var(--space-xl) * 0.85);
     align-items: start;
-    margin-top: var(--space-m);
+    margin-top: calc(var(--space-m) * 0.85);
 }
 
 .stems-container {
     flex: 1 1 33%;
     display: flex;
     flex-direction: column;
-    gap: var(--space-m);
+    gap: calc(var(--space-m) * 0.85);
     border: 2px dashed var(--border-color);
-    min-height: 150px;
-    border-radius: 12px;
-    padding: 15px;
+    min-height: 127px;
+    border-radius: 10px;
+    padding: 12px;
 }
 
 .responses-container {
     flex: 1 1 67%;
     display: flex;
     flex-direction: column;
-    gap: var(--space-m);
+    gap: calc(var(--space-m) * 0.85);
 }
 
 .draggable-option {
-    padding: var(--space-s);
+    padding: calc(var(--space-s) * 0.85);
     background-color: var(--bg-light);
     border: 2px solid var(--secondary-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
     cursor: grab;
     transition: all 0.2s ease;
     text-align: center;
@@ -549,7 +550,7 @@ input[type="checkbox"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 70px;
+    min-height: 60px;
     word-break: break-word;
 }
 
@@ -557,22 +558,22 @@ input[type="checkbox"] {
     opacity: 0.5;
     transform: scale(1.05);
     cursor: grabbing;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 .response-item {
     display: flex;
     align-items: center;
-    gap: var(--space-l);
+    gap: calc(var(--space-l) * 0.85);
 }
 
 .drop-zone {
     flex-shrink: 0;
-    flex-basis: 250px;
-    min-height: 70px;
-    padding: var(--space-xs);
+    flex-basis: 212px;
+    min-height: 60px;
+    padding: calc(var(--space-xs) * 0.85);
     border: 2px dashed var(--accent-color);
-    border-radius: 8px;
+    border-radius: 6px;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     display: flex;
     justify-content: center;
@@ -602,29 +603,29 @@ input[type="checkbox"] {
 .ordering-question-container {
     display: flex;
     flex-direction: column;
-    gap: var(--space-s);
+    gap: calc(var(--space-s) * 0.85);
     border: 2px dashed var(--border-color);
-    padding: var(--space-m);
-    border-radius: 12px;
+    padding: calc(var(--space-m) * 0.85);
+    border-radius: 10px;
 }
 
 .orderable-item {
-    padding: var(--space-s);
+    padding: calc(var(--space-s) * 0.85);
     background-color: var(--bg-light);
     border: 2px solid var(--secondary-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
     cursor: grab;
     transition: all 0.2s ease;
     font-weight: 700;
     display: flex;
     align-items: center;
-    gap: var(--space-m);
+    gap: calc(var(--space-m) * 0.85);
 }
 
 .orderable-item::before {
     content: '☰';
-    font-size: 1.5rem;
+    font-size: 1.27rem;
     opacity: 0.5;
 }
 
@@ -642,9 +643,9 @@ input[type="checkbox"] {
 
 .quiz-progress-bar-container {
     width: 100%;
-    height: 8px;
-    border-radius: 4px;
-    margin-bottom: 0.5rem;
+    height: 6px; 
+    border-radius: 3px;
+    margin-bottom: 0.4rem;
     background-color: var(--border-color);
     overflow: hidden;
 }
@@ -657,9 +658,9 @@ input[type="checkbox"] {
 }
 
 #quiz-progress-text {
-    margin-bottom: var(--space-l);
+    margin-bottom: calc(var(--space-l) * 0.85);
     color: var(--accent-color);
-    font-size: 0.9rem;
+    font-size: 0.76rem;
     font-weight: 600;
     text-align: right;
 }
