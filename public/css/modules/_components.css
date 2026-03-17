@@ -348,58 +348,125 @@ COMPONENTS (Buttons, Cards, Forms, Quiz, etc.)
 .quiz-container {
     width: 90%;
     max-width: 1020px;
-    margin: var(--space-l) auto;
-    padding: calc(var(--space-l) * 0.85) calc(var(--space-xl) * 0.85);
+    margin: 4rem auto; /* Deutlich mehr Außenabstand oben/unten */
+    padding: 3.5rem clamp(1.5rem, 5vw, 4rem); /* Erheblich mehr Innenabstand */
     background: var(--bg-light);
     border: 1px solid var(--border-color);
     border-radius: 24px;
-    box-shadow: 0 10px 30px var(--shadow-color);
-    font-size: 0.85em; 
+    box-shadow: 0 15px 35px var(--shadow-color);
+    font-size: 1rem; /* Basisgröße wiederhergestellt */
 }
 
 .quiz-container h1 {
-    font-size: calc(var(--fs-800) * 0.85); 
-    margin-bottom: calc(var(--space-l) * 0.85);
+    font-size: var(--fs-800); 
+    margin-bottom: 2.5rem; /* Mehr Platz unter der H1 */
+    color: var(--brand-primary);
+    text-align: center;
+}
+
+#chapter-selection-screen {
+    text-align: center; /* Zentriert den Auswahlbildschirm */
+}
+
+#chapter-selection-screen p {
+    font-size: 1.15rem;
+    margin-bottom: 3rem; /* Viel mehr Abstand zum Grid */
+    opacity: 0.8;
+}
+
+.chapter-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem; /* Mehr Luft zwischen den Chapter-Boxen */
+    margin-bottom: 3rem; /* Abstand zum Start-Button */
+    text-align: left;
+}
+
+.chapter-card {
+    position: relative;
+    padding: var(--space-m);
+    background-color: var(--bg-light);
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.chapter-card input[type="checkbox"] {
+    display: none;
+}
+
+.chapter-card .chapter-title {
+    color: var(--text-color);
+    font-size: 1.25rem;
+    font-weight: 700;
+    transition: color 0.2s ease-in-out;
+}
+
+.chapter-card .chapter-icon {
+    margin-bottom: 1rem;
+    color: var(--brand-secondary);
+    font-size: 2.5rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.chapter-card.selected {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(57, 0, 153, 0.2);
+}
+
+.chapter-card.selected .chapter-title,
+.chapter-card.selected .chapter-icon {
+    color: #fff;
+}
+
+.chapter-card.selected .chapter-icon {
+    transform: scale(1.1);
 }
 
 .question-block {
-    padding-bottom: calc(var(--space-m) * 0.85);
-    margin-bottom: calc(var(--space-m) * 0.85);
+    padding-bottom: var(--space-m);
+    margin-bottom: var(--space-m);
     border-bottom: 1px solid var(--border-color);
 }
 
 .question-block p {
-    margin-bottom: calc(var(--space-s) * 0.85);
+    margin-bottom: var(--space-m);
     color: var(--accent-color);
-    font-size: 1.02rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
 .options div {
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-s);
 }
 
 .options label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.68rem 0.85rem; 
-    border-left: 3px solid transparent;
+    padding: 1rem 1.2rem; 
+    border-left: 4px solid transparent;
     border-radius: 0 8px 8px 0;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    background-color: transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .options label:hover {
     background-color: rgba(0, 0, 0, 0.03);
-    border-left: 3px solid var(--accent-color);
+    border-left: 4px solid var(--accent-color);
 }
 
 input[type="radio"],
 input[type="checkbox"] {
-    margin-right: 10px;
-    transform: scale(1.2);
+    margin-right: 12px;
+    transform: scale(1.3);
     accent-color: var(--primary-color);
+    cursor: pointer;
 }
 
 .result-box {
@@ -422,17 +489,17 @@ input[type="checkbox"] {
 
 .correct-answer {
     background-color: rgba(40, 167, 69, 0.1);
-    border-left: 3px solid var(--brand-success) !important;
+    border-left: 4px solid var(--brand-success) !important;
 }
 
 .wrong-answer {
     background-color: rgba(255, 0, 84, 0.1);
-    border-left: 3px solid var(--brand-danger) !important;
+    border-left: 4px solid var(--brand-danger) !important;
 }
 
 .solution-wrapper {
     margin-top: 15px;
-    padding: 0.8rem;
+    padding: 1rem;
     background: rgba(40, 167, 69, 0.08);
     border-radius: 8px;
 }
@@ -459,7 +526,7 @@ input[type="checkbox"] {
     border: 2px dashed var(--border-color);
     min-height: 150px;
     border-radius: 12px;
-    padding: 10px;
+    padding: 15px;
 }
 
 .responses-container {
@@ -571,58 +638,6 @@ input[type="checkbox"] {
 
 .orderable-item.drag-over {
     border-top: 3px solid var(--primary-color);
-}
-
-.chapter-selection-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: var(--space-m);
-    margin-top: var(--space-l);
-}
-
-.chapter-card {
-    position: relative;
-    padding: var(--space-m);
-    background-color: var(--bg-light);
-    border: 2px solid var(--border-color);
-    border-radius: 16px;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.2s ease-in-out;
-}
-
-.chapter-card input[type="checkbox"] {
-    display: none;
-}
-
-.chapter-card .chapter-title {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    font-weight: 700;
-    transition: color 0.2s ease-in-out;
-}
-
-.chapter-card .chapter-icon {
-    margin-bottom: 1rem;
-    color: var(--brand-secondary);
-    font-size: 2.5rem;
-    transition: transform 0.2s ease-in-out;
-}
-
-.chapter-card.selected {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(57, 0, 153, 0.2);
-}
-
-.chapter-card.selected .chapter-title,
-.chapter-card.selected .chapter-icon {
-    color: #fff;
-}
-
-.chapter-card.selected .chapter-icon {
-    transform: scale(1.1);
 }
 
 .quiz-progress-bar-container {
