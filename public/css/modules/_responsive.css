@@ -229,6 +229,39 @@
         box-sizing: border-box;
     }
 
+    /* --- QUIZ ÜBERSICHT MOBILE --- */
+    .overview-hero-block {
+        padding: 2rem 1.2rem !important;
+        margin-bottom: 2rem !important;
+        border-radius: 20px !important;
+    }
+
+    .overview-hero-block h1 {
+        font-size: 1.8rem !important;
+    }
+
+    .fabulous-card {
+        padding: 1.5rem 1.2rem !important;
+        border-radius: 20px !important;
+    }
+
+    .fabulous-card h3 {
+        font-size: 1.15rem !important;
+        margin-bottom: 1.2rem !important;
+        line-height: 1.4 !important;
+    }
+
+    .quiz-overview-option {
+        padding: 0.8rem 1rem !important;
+        border-radius: 12px !important;
+        font-size: 1rem !important;
+    }
+
+    .quiz-overview-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.5rem !important;
+    }
+
     /* --- QUIZ MOBILE NATIVE APP-FEEL --- */
     .quiz-container {
         width: 100%;
@@ -260,12 +293,11 @@
         margin: 0 !important;
     }
 
-    /* WICHTIG: Kompaktere Option-Buttons für das Handy */
     .options label {
-        padding: 0.8rem 1rem; /* Vorher 1.2rem - spart enorm Platz! */
-        font-size: 1rem; /* Vorher 1.1rem */
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
         background: rgba(0,0,0,0.03);
-        border-radius: 12px; /* Etwas flacher passend zum Padding */
+        border-radius: 12px;
         margin-bottom: 0;
         border: 2px solid transparent;
         box-shadow: 0 4px 10px rgba(0,0,0,0.02);

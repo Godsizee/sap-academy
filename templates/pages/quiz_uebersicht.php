@@ -28,13 +28,13 @@ ksort($chapters);
     <section class="content-section">
         <div class="content-page searchable-block">
             
-<div class="breadcrumb" style="margin-bottom: 2rem;">
+            <div class="breadcrumb hide-on-mobile" style="margin-bottom: 2rem;">
                 <a href="/">Startseite</a> <span style="opacity: 0.5;">/</span> 
                 <a href="/module?id=<?= htmlspecialchars($moduleId) ?>">Modul <?= htmlspecialchars(strtoupper($moduleId)) ?></a> <span style="opacity: 0.5;">/</span> 
                 <span style="color: var(--primary-color); font-weight: 600;">Quiz-Übersicht</span>
             </div>
 
-            <div style="text-align: center; margin-bottom: 4rem; padding: 3rem 1.5rem; background: rgba(0,0,0,0.02); border-radius: 24px; border: 1px solid var(--border-color); position: relative; overflow: hidden;">
+            <div class="overview-hero-block" style="text-align: center; margin-bottom: 4rem; padding: 3rem 1.5rem; background: rgba(0,0,0,0.02); border-radius: 24px; border: 1px solid var(--border-color); position: relative; overflow: hidden;">
                 <div style="position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 100%; height: 100%; background: radial-gradient(circle, var(--brand-primary) 0%, transparent 70%); opacity: 0.05; pointer-events: none;"></div>
                 
                 <span class="hero-badge" style="border-color: var(--brand-secondary); color: var(--brand-secondary); background: transparent; margin-bottom: 1.5rem;">
@@ -84,7 +84,7 @@ ksort($chapters);
                                             $borderColor = $isCorrect ? 'var(--brand-success)' : 'transparent';
                                             $opacity = $isCorrect ? '1' : '0.5';
                                         ?>
-                                            <div style="padding: 1rem; border-radius: 8px; border-left: 4px solid <?= $borderColor ?>; background-color: <?= $bgColor ?>; opacity: <?= $opacity ?>; transition: opacity 0.3s; color: var(--text-color);">
+                                            <div class="quiz-overview-option" style="padding: 1rem; border-radius: 8px; border-left: 4px solid <?= $borderColor ?>; background-color: <?= $bgColor ?>; opacity: <?= $opacity ?>; transition: opacity 0.3s; color: var(--text-color);">
                                                 <strong style="margin-right: 0.5rem;"><?= htmlspecialchars($key) ?>:</strong> 
                                                 <?= htmlspecialchars($text) ?>
                                                 <?php if($isCorrect): ?>
@@ -94,7 +94,7 @@ ksort($chapters);
                                         <?php endforeach; ?>
 
                                     <?php elseif ($q['type'] === 'matching'): ?>
-                                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                                        <div class="quiz-overview-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
                                             <?php foreach ($q['options']['responses'] as $response): 
                                                 $correctStemId = $q['correct'][$response['id']];
                                                 $correctStemText = '';
@@ -105,7 +105,7 @@ ksort($chapters);
                                                     }
                                                 }
                                             ?>
-                                                <div style="padding: 1rem; background: rgba(40, 167, 69, 0.1); border-left: 4px solid var(--brand-success); border-radius: 8px;">
+                                                <div class="quiz-overview-option" style="padding: 1rem; background: rgba(40, 167, 69, 0.1); border-left: 4px solid var(--brand-success); border-radius: 8px;">
                                                     <strong style="display: block; margin-bottom: 0.5rem; color: var(--text-color);"><?= htmlspecialchars($response['text']) ?></strong>
                                                     <span style="color: var(--brand-success); font-weight: 600;">
                                                         ➡️ <?= htmlspecialchars($correctStemText) ?>
@@ -125,8 +125,8 @@ ksort($chapters);
                                                     }
                                                 }
                                             ?>
-                                                <div style="padding: 1rem; background: rgba(40, 167, 69, 0.1); border-left: 4px solid var(--brand-success); border-radius: 8px; display: flex; align-items: center; gap: 1rem;">
-                                                    <span style="background: var(--brand-success); color: #fff; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; font-size: 0.8rem;">
+                                                <div class="quiz-overview-option" style="padding: 1rem; background: rgba(40, 167, 69, 0.1); border-left: 4px solid var(--brand-success); border-radius: 8px; display: flex; align-items: center; gap: 1rem;">
+                                                    <span style="background: var(--brand-success); color: #fff; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; font-size: 0.8rem; flex-shrink: 0;">
                                                         <?= $stepIndex + 1 ?>
                                                     </span>
                                                     <span style="font-weight: 600; color: var(--brand-success);">
