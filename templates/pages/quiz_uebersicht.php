@@ -28,15 +28,28 @@ ksort($chapters);
     <section class="content-section">
         <div class="content-page searchable-block">
             
-            <div class="breadcrumb">
-                <a href="/">Startseite</a> / <a href="/module?id=<?= htmlspecialchars($moduleId) ?>">Module <?= htmlspecialchars(strtoupper($moduleId)) ?></a> / Quiz-Übersicht
+<div class="breadcrumb" style="margin-bottom: 2rem;">
+                <a href="/">Startseite</a> <span style="opacity: 0.5;">/</span> 
+                <a href="/module?id=<?= htmlspecialchars($moduleId) ?>">Modul <?= htmlspecialchars(strtoupper($moduleId)) ?></a> <span style="opacity: 0.5;">/</span> 
+                <span style="color: var(--primary-color); font-weight: 600;">Quiz-Übersicht</span>
             </div>
 
-            <h1 style="text-align: center; margin-bottom: 1rem;">Quiz-Übersicht: <?= htmlspecialchars($moduleData['headline']) ?></h1>
-            <p style="text-align: center; opacity: 0.8; margin-bottom: 4rem; max-width: 600px; margin-inline: auto;">
-                Nutze diese Übersicht als Nachschlagewerk. Über das Suchfeld oben rechts 
-                kannst du gezielt nach Begriffen, Konzepten oder Transaktionen suchen.
-            </p>
+            <div style="text-align: center; margin-bottom: 4rem; padding: 3rem 1.5rem; background: rgba(0,0,0,0.02); border-radius: 24px; border: 1px solid var(--border-color); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 100%; height: 100%; background: radial-gradient(circle, var(--brand-primary) 0%, transparent 70%); opacity: 0.05; pointer-events: none;"></div>
+                
+                <span class="hero-badge" style="border-color: var(--brand-secondary); color: var(--brand-secondary); background: transparent; margin-bottom: 1.5rem;">
+                    📚 Referenz-Modus
+                </span>
+                
+                <h1 style="font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1rem; color: var(--primary-color); line-height: 1.2;">
+                    <?= htmlspecialchars($moduleData['headline']) ?>
+                </h1>
+                
+                <p style="font-size: 1.15rem; opacity: 0.85; max-width: 650px; margin: 0 auto; line-height: 1.6; color: var(--text-color);">
+                    Nutze diese Übersicht als dein <strong>persönliches Nachschlagewerk</strong>. 
+                    Über das Suchfeld oben rechts kannst du blitzschnell gezielt nach Begriffen, Konzepten oder SAP-Transaktionen filtern.
+                </p>
+            </div>
 
             <?php if (empty($quizData)): ?>
                 <div class="fabulous-card">
