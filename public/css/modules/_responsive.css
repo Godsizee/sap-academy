@@ -244,42 +244,21 @@
         border-right: none;
         border-bottom: none;
         min-height: calc(100vh - 80px);
-        /* Padding unten extrem hochsetzen, damit der Button nicht den Text verdeckt */
-        padding: 2rem 1.2rem calc(160px + env(safe-area-inset-bottom, 0px)) 1.2rem; 
+        /* Padding unten wieder auf Normalmaß gesetzt */
+        padding: 2rem 1.2rem 2rem 1.2rem; 
         overflow-x: hidden;
     }
 
-    /* Fixierte Aktionsleiste unten für Buttons (Sticky Bottom Bar) */
+    /* Reguläre Positionierung im Textfluss wie auf dem Desktop */
     .sticky-mobile-action {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%; /* Exakt Viewport-Breite */
-        max-width: 100vw;
-        box-sizing: border-box; /* Zwingt Padding nach innen */
-        padding: 1.5rem 1.5rem calc(1.5rem + env(safe-area-inset-bottom, 0px)) 1.5rem; 
-        background: var(--nav-bg, rgba(255, 255, 255, 0.95));
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-top: 1px solid var(--border-color);
-        box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
-        z-index: 99999; /* Maximal hoch, definitiv über dem Footer */
-        margin: 0 !important;
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 0.8rem;
+        margin-top: 1.5rem !important;
     }
 
-    body.dark-mode .sticky-mobile-action {
-        background: rgba(15, 17, 26, 0.95);
-        box-shadow: 0 -10px 40px rgba(0,0,0,0.6);
-    }
-    
-    body.focus-mode .sticky-mobile-action {
-        background: rgba(253, 246, 227, 0.95);
-    }
-
-    /* Sicherheitsmaßnahme für Buttons in der Sticky Bar */
+    /* Sicherheitsmaßnahme für Buttons in der Action Bar */
     .sticky-mobile-action .submit-btn,
     .sticky-mobile-action .cta-button {
         width: 100% !important;
@@ -311,13 +290,6 @@
     }
     
     /* --- FOOTER MOBILE --- */
-    footer {
-        /* Gibt dem Footer massig Abstand nach unten, damit er ÜBER die Sticky Bar hinaus gescrollt werden kann */
-        padding-bottom: calc(180px + env(safe-area-inset-bottom, 0px)) !important;
-        position: relative;
-        z-index: 1; /* Bleibt sicher unter der Sticky Action Bar (z-index 99999) */
-    }
-
     .footer-actions {
         flex-direction: column;
         gap: 1rem;
@@ -345,7 +317,7 @@
     }
 
     .quiz-container {
-        padding: 1.5rem 1rem calc(160px + env(safe-area-inset-bottom, 0px)) 1rem;
+        padding: 1.5rem 1rem 2rem 1rem;
         border-radius: 20px 20px 0 0;
     }
     
