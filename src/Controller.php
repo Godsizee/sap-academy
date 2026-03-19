@@ -68,12 +68,25 @@ class Controller {
         ]);
     }
 
+    public function showQuizUebersicht($moduleId) {
+        if (!$moduleId) {
+            $this->notFound();
+            return;
+        }
+
+        $this->render('quiz_uebersicht', [
+            'pageTitle' => "Quiz-Übersicht " . strtoupper($moduleId) . " | SAP Academy",
+            'moduleId' => $moduleId
+        ]);
+    }
+
     public function showGlossary() {
         $this->render('glossary', [
             'pageTitle' => 'Glossar | SAP Academy'
         ]);
     }
-        public function showDatenschutz() {
+
+    public function showDatenschutz() {
         $this->render('datenschutz', [
             'pageTitle' => 'Datenschutz | SAP Academy'
         ]);

@@ -26,10 +26,14 @@ class Router {
                 $moduleId = $_GET['id'] ?? null;
                 $controller->showQuiz($moduleId);
                 break;
+            case '/quiz-uebersicht':
+                $moduleId = $_GET['id'] ?? null;
+                $controller->showQuizUebersicht($moduleId);
+                break;
             case '/glossar':
                 $controller->showGlossary();
                 break;
-                case '/datenschutz':
+            case '/datenschutz':
                 $controller->showDatenschutz();
                 break;
             default:

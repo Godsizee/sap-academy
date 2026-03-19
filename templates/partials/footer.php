@@ -1,8 +1,8 @@
 <footer>
     <div class="footer-actions">
-        <a href="/quiz?id=s4f10">S4F10 Quiz-Übersicht</a>
+        <a href="/quiz-uebersicht?id=s4f10">S4F10 Quiz-Übersicht</a>
         <span class="footer-divider">|</span>
-        <a href="/quiz?id=s4550">S4550 Quiz-Übersicht</a>
+        <a href="/quiz-uebersicht?id=s4550">S4550 Quiz-Übersicht</a>
         <span class="footer-divider">|</span>
         <a href="/datenschutz">Datenschutz</a>
     </div>
