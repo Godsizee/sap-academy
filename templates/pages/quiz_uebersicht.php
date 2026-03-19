@@ -45,15 +45,16 @@ ksort($chapters);
             <?php else: ?>
 
                 <?php foreach ($chapters as $chapterName => $questions): ?>
-                    <h2 style="color: var(--brand-secondary); margin-top: 3rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border-color);">
+                    <h2 style="color: var(--primary-color); margin-top: 3rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border-color);">
                         <?= htmlspecialchars($chapterName) ?>
                     </h2>
                     
                     <div class="card-container" style="display: flex; flex-direction: column; gap: 2rem;">
                         <?php foreach ($questions as $index => $q): ?>
                             <div class="fabulous-card animated-element" style="text-align: left; padding: 2rem;">
-                                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--brand-primary); line-height: 1.4;">
-                                    <span style="opacity: 0.5; margin-right: 0.5rem;">Frage <?= $index + 1 ?>:</span> 
+                                
+                                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; line-height: 1.4; color: var(--text-color);">
+                                    <span style="color: var(--primary-color); margin-right: 0.5rem;">Frage <?= $index + 1 ?>:</span> 
                                     <?= htmlspecialchars($q['question']) ?>
                                 </h3>
 
@@ -70,7 +71,7 @@ ksort($chapters);
                                             $borderColor = $isCorrect ? 'var(--brand-success)' : 'transparent';
                                             $opacity = $isCorrect ? '1' : '0.5';
                                         ?>
-                                            <div style="padding: 1rem; border-radius: 8px; border-left: 4px solid <?= $borderColor ?>; background-color: <?= $bgColor ?>; opacity: <?= $opacity ?>; transition: opacity 0.3s;">
+                                            <div style="padding: 1rem; border-radius: 8px; border-left: 4px solid <?= $borderColor ?>; background-color: <?= $bgColor ?>; opacity: <?= $opacity ?>; transition: opacity 0.3s; color: var(--text-color);">
                                                 <strong style="margin-right: 0.5rem;"><?= htmlspecialchars($key) ?>:</strong> 
                                                 <?= htmlspecialchars($text) ?>
                                                 <?php if($isCorrect): ?>
