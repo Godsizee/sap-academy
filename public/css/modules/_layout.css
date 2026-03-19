@@ -1,4 +1,4 @@
-﻿/* ====== LAYOUT & HERO V5.1 ====== */
+﻿/* ====== LAYOUT & HERO V5.2 ====== */
 
 /* --- HEADER / NAVBAR --- */
 .main-header {
@@ -26,28 +26,27 @@ body.focus-mode .main-header {
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    padding: 0 1.5rem; /* Absolut an den Rändern, mit einem kleinen optischen Sicherheitsabstand */
-    max-width: 100%; /* Hebt das alte 1400px Limit auf */
+    padding: 0 1.5rem;
+    max-width: 100%;
     width: 100%;
     margin: 0;
 }
 
-/* Flex-Container für Dropdown, Suche und Theme-Toggle auf dem Desktop */
 .nav-cluster-right {
     display: flex;
     align-items: center;
-    gap: 2rem; /* Schön viel Platz zwischen den neuen, runden Elementen */
+    gap: 2rem;
 }
 
 .burger {
-    display: none; /* Auf dem Desktop ausblenden, wird via _responsive.css aktiviert */
+    display: none;
     cursor: pointer;
 }
 
 /* --- FABULOUS HERO SECTION --- */
 .hero {
     position: relative;
-    min-height: 85vh;
+    min-height: 85vh; /* Standard für Desktop */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,13 +55,12 @@ body.focus-mode .main-header {
     overflow: hidden;
 }
 
-/* Animierte Hintergrund-Blobs */
 .hero-bg-shapes {
     position: absolute;
     inset: 0;
     z-index: -1;
     overflow: hidden;
-    background: var(--bg-page);
+    background: var(--bg-dark);
 }
 
 .shape {
@@ -96,7 +94,6 @@ body.focus-mode .main-header {
     100% { transform: translate(5%, 10%) scale(1.1); }
 }
 
-/* Hero Content */
 .hero-text {
     max-width: 800px;
     z-index: 1;
@@ -174,7 +171,6 @@ body.focus-mode .main-header {
     z-index: 1;
 }
 
-/* Gradient Border Effect on Hover */
 .fabulous-card::before {
     content: '';
     position: absolute;
@@ -251,9 +247,10 @@ footer {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 3rem 1.5rem;
+    padding: 4rem 1.5rem 2rem;
     border-top: 1px solid var(--border-color);
-    margin-top: 2rem;
+    margin-top: 4rem;
+    background: var(--bg-light); /* Setzt den Footer dezent vom Main-Content ab */
 }
 
 .footer-actions {
@@ -261,7 +258,24 @@ footer {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 1.5rem;
+    gap: 2rem; /* Modernes Spacing statt | */
+    margin-bottom: 2rem;
     width: 100%;
+}
+
+.footer-link {
+    font-weight: 600;
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: opacity 0.3s, color 0.3s;
+}
+
+.footer-link:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    opacity: 0.5;
 }

@@ -22,24 +22,32 @@
     }
 }
 
-/* --- FABULOUS MOBILE NAVBAR --- */
+/* --- FABULOUS MOBILE NAVBAR & LAYOUT --- */
 @media screen and (max-width: 768px) {
     body {
         font-size: 16px;
     }
     
-    /* Body-Scroll blockieren, wenn das Mobile-Menü offen ist (Kugelsicher) */
+    /* --- HERO MOBILE FIXES --- */
+    .hero {
+        min-height: 60vh; /* Nimmt nicht mehr den ganzen Screen ein */
+        padding: 6rem 5% 3rem; /* Etwas mehr Platz nach oben für den Header */
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem; /* Bessere Lesbarkeit auf schmalen Displays */
+    }
+
+    /* --- MOBILE MENU (BURGER & OVERLAY) --- */
     body.nav-active {
         overflow: hidden;
     }
 
-    /* Logo und Burger bleiben sicher über dem Overlay */
     .logo {
         position: relative;
         z-index: 1001;
     }
     
-    /* Sexy animierter Burger-Button */
     .burger {
         display: flex;
         flex-direction: column;
@@ -73,7 +81,6 @@
         transform: rotate(-45deg) translate(1px, 2px);
     }
 
-    /* Das Overlay / Mobile Menü - Glassmorphism Effekt */
     .nav-cluster-right {
         position: fixed;
         top: 0;
@@ -86,7 +93,7 @@
         align-items: center;
         justify-content: flex-start;
         gap: 2rem;
-        padding: 100px 2rem 3rem 2rem;
+        padding: 120px 2rem 3rem 2rem; /* Mehr Padding oben wegen Header */
         background: rgba(255, 255, 255, 0.85);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
@@ -107,12 +114,11 @@
         transform: translateX(0%);
     }
     
-    /* Versetzte Animation (Staggered Fade-in) für Kind-Elemente */
     .header-search,
     .dropdown,
     .theme-toggle-container {
-        width: 100%;
-        max-width: 400px;
+        width: 100%; /* Volle Breite im Mobile Menü! */
+        max-width: 100%; 
         opacity: 0;
         transform: translateY(20px);
         transition: all 0.4s ease;
@@ -134,21 +140,27 @@
         transition-delay: 0.3s;
         opacity: 1;
         transform: translateY(0);
-        margin-top: auto; /* Pusht den Schalter elegant nach unten */
+        margin-top: auto; 
     }
     
-    /* Search Bar Mobile Anpassung */
+    /* Search Bar Mobile (volle Breite erzwingen) */
+    .header-search:focus-within {
+        width: 100%; /* Verhindert das breiter-werden beim Klick auf Mobile */
+    }
+
     #siteSearchInput {
-        padding: 1rem 1.5rem 1rem 45px;
+        width: 100%;
+        padding: 1.2rem 1.5rem 1.2rem 45px; /* Größeres Tap-Target */
         font-size: 1.1rem;
         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        border-radius: 16px; /* Passt besser zu den Menüpunkten */
     }
 
     .search-icon {
         font-size: 1.3rem;
         left: 18px;
     }
-    
+
     /* Dropdown Anpassung Mobile - Verhält sich wie ein Akkordeon */
     .dropdown-toggle {
         width: 100%;
@@ -190,7 +202,7 @@
     }
     
     .dropdown-content a:active {
-        transform: scale(0.98);
+        transform: scale(0.98); /* Fühlbares Feedback beim Tippen */
     }
 
     body.dark-mode .dropdown-content a {
@@ -209,8 +221,28 @@
     .quiz-container {
         padding: var(--space-l) var(--space-m);
     }
+    
+    /* --- FOOTER MOBILE --- */
+    .footer-actions {
+        flex-direction: column; /* Stapelt die Links elegant untereinander */
+        gap: 1rem;
+    }
+    
+    .footer-link {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        background: rgba(0,0,0,0.03); /* Leichter "Pill"-Look */
+        border-radius: 12px;
+        opacity: 1; /* Volle Sichtbarkeit auf Mobile wichtig */
+    }
+    
+    body.dark-mode .footer-link {
+        background: rgba(255,255,255,0.05);
+    }
 }
 
+/* --- SEHR KLEINE SMARTPHONES --- */
 @media screen and (max-width: 480px) {
     .content-page,
     .quiz-container {
@@ -226,11 +258,5 @@
         padding-bottom: var(--space-xs);
         margin-bottom: var(--space-xs);
         border-bottom: 1px solid var(--secondary-color);
-    }
-    
-    .user-selection-modal {
-        width: 95%;
-        height: 95%;
-        padding: var(--space-m);
     }
 }

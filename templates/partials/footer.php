@@ -1,12 +1,10 @@
 <footer>
     <div class="footer-actions">
-        <a href="/quiz-uebersicht?id=s4f10">S4F10 Quiz-Übersicht</a>
-        <span class="footer-divider">|</span>
-        <a href="/quiz-uebersicht?id=s4550">S4550 Quiz-Übersicht</a>
-        <span class="footer-divider">|</span>
-        <a href="/datenschutz">Datenschutz</a>
+        <a href="/quiz-uebersicht?id=s4f10" class="footer-link">S4F10 Quiz-Übersicht</a>
+        <a href="/quiz-uebersicht?id=s4550" class="footer-link">S4550 Quiz-Übersicht</a>
+        <a href="/datenschutz" class="footer-link">Datenschutz</a>
     </div>
-    <p>&copy; <?= date('Y') ?> SAP Academy | Reine Lernplattform ohne User-Tracking.</p>
+    <p class="footer-copyright">&copy; <?= date('Y') ?> SAP Academy | Reine Lernplattform ohne User-Tracking.</p>
 </footer>
 
 <div class="progress-container">
