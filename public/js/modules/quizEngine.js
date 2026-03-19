@@ -1,13 +1,13 @@
 /**
  * Quiz Engine
- * Kapselt die komplette Quiz-Logik. Reagiert dynamisch auf bereitgestellte 'quizData'.
+ * Kapselt die komplette Quiz-Logik und nutzt SessionStorage, 
+ * um den Fortschritt bei einem versehentlichen Reload zu behalten.
  */
 
 export function initQuizEngine() {
     const quizScreen = document.getElementById('quiz-screen');
-    if (!quizScreen) return; // Beenden, wenn wir nicht auf einer Quiz-Seite sind
+    if (!quizScreen) return;
 
-    // Bezieht die Daten, die vom PHP-Controller als globales Window-Objekt bereitgestellt werden
     const rawQuizData = window.quizData || [];
     if (rawQuizData.length === 0) return;
 
@@ -17,11 +17,15 @@ export function initQuizEngine() {
     let score = 0;
     let draggedItem = null;
 
+    // Einzigartiger Schlüssel pro Quiz (z.B. "quizState_s4f10")
+    const searchParams = new URLSearchParams(window.location.search);
+    const sessionKey = 'quizState_' + (searchParams.get('id') || 'default');
+
     // DOM Elements
     const selectionScreen = document.getElementById('chapter-selection-screen');
     const resultScreen = document.getElementById('quiz-result-screen');
-    const introHeader = document.getElementById('quiz-intro-header'); // NEU: Header-Modus
-    const breadcrumb = document.getElementById('quiz-breadcrumb');   // NEU: Breadcrumb-Modus
+    const introHeader = document.getElementById('quiz-intro-header');
+    const breadcrumb = document.getElementById('quiz-breadcrumb');
     const form = document.getElementById('chapter-select-form');
     
     const progressBar = document.getElementById('quiz-progress-bar-inner');
@@ -40,7 +44,56 @@ export function initQuizEngine() {
     const restartBtn = document.getElementById('restart-quiz-btn');
     const retryIncorrectBtn = document.getElementById('retry-incorrect-btn');
 
-    // 1. Initialisierung der Kapitelauswahl
+    // --- STATE MANAGEMENT ---
+    function saveState() {
+        const state = {
+            questions: selectedQuestions,
+            incorrects: incorrectlyAnsweredQuestions,
+            currentIndex: currentQuestionIndex,
+            score: score
+        };
+        sessionStorage.setItem(sessionKey, JSON.stringify(state));
+    }
+
+    function clearState() {
+        sessionStorage.removeItem(sessionKey);
+    }
+
+    function restoreState() {
+        const saved = sessionStorage.getItem(sessionKey);
+        if (saved) {
+            try {
+                const state = JSON.parse(saved);
+                selectedQuestions = state.questions;
+                incorrectlyAnsweredQuestions = state.incorrects;
+                currentQuestionIndex = state.currentIndex;
+                score = state.score;
+
+                if (selectedQuestions && selectedQuestions.length > 0) {
+                    // Wenn wir schon alle durch haben, Speicher leeren (Restart erzwingen)
+                    if (currentQuestionIndex >= selectedQuestions.length) {
+                        clearState();
+                        return false;
+                    }
+
+                    // Zen-Modus anwenden
+                    if(selectionScreen) selectionScreen.style.display = 'none';
+                    if(resultScreen) resultScreen.style.display = 'none';
+                    if(introHeader) introHeader.style.display = 'none';
+                    if(breadcrumb) breadcrumb.style.display = 'none';
+                    
+                    quizScreen.style.display = 'flex';
+                    displayQuestion();
+                    return true;
+                }
+            } catch(e) {
+                clearState();
+            }
+        }
+        return false;
+    }
+
+    // 1. Initialisierung
     const chapterCards = document.querySelectorAll('.chapter-card');
     chapterCards.forEach(card => {
         card.addEventListener('click', () => {
@@ -54,7 +107,7 @@ export function initQuizEngine() {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const selectedChapters = Array.from(form.querySelectorAll('input[name="chapters"]:checked'))
-                                       .map(cb => parseInt(cb.value) || cb.value); // Fallback für string IDs
+                                       .map(cb => parseInt(cb.value) || cb.value); 
             
             if (selectedChapters.length === 0) {
                 showFeedback('Bitte wähle mindestens ein Kapitel aus.', 'fail');
@@ -74,19 +127,18 @@ export function initQuizEngine() {
 
     function startQuiz(questions) {
         incorrectlyAnsweredQuestions = [];
-        // Fragen mischen
         selectedQuestions = [...questions].sort(() => Math.random() - 0.5);
         currentQuestionIndex = 0;
         score = 0;
         
-        // ZEN-MODUS AKTIVIEREN: Alles Unnötige ausblenden
+        saveState(); // Speicher initialisieren
+        
         if(selectionScreen) selectionScreen.style.display = 'none';
         if(resultScreen) resultScreen.style.display = 'none';
         if(introHeader) introHeader.style.display = 'none';
         if(breadcrumb) breadcrumb.style.display = 'none';
         
         quizScreen.style.display = 'flex';
-        
         displayQuestion();
     }
 
@@ -97,7 +149,6 @@ export function initQuizEngine() {
         checkBtn.disabled = false;
         updateProgress();
 
-        // UX-BOOST: Automatisch nach ganz oben scrollen für die nächste Frage
         window.scrollTo(0, 0);
 
         const question = selectedQuestions[currentQuestionIndex];
@@ -190,7 +241,6 @@ export function initQuizEngine() {
         addOrderingDragDropListeners();
     }
 
-    // --- Drag & Drop Core Logik ---
     function addDragDropListeners() {
         const draggables = document.querySelectorAll('.draggable-option');
         const dropZones = document.querySelectorAll('.drop-zone');
@@ -268,7 +318,6 @@ export function initQuizEngine() {
         }, { offset: Number.NEGATIVE_INFINITY }).element;
     }
 
-    // --- Auswertung ---
     function checkAnswer() {
         checkBtn.disabled = true;
         const question = selectedQuestions[currentQuestionIndex];
@@ -359,18 +408,25 @@ export function initQuizEngine() {
         
         nextBtn.style.display = 'block';
         checkBtn.style.display = 'none';
+        
+        // Nach Check nicht zwingend den State speichern, da wir bei Reload einfach
+        // am Anfang der aktuellen (noch ungelösten) Frage neu ansetzen wollen.
     }
 
     function showFeedback(message, type) {
-        feedbackArea.innerHTML = `<div class="result-box ${type}"><h2>${message}</h2></div>`;
+        // H2 gegen eine DIV-Klasse "result-title" getauscht (platzsparender)
+        feedbackArea.innerHTML = `<div class="result-box ${type}"><div class="result-title">${message}</div></div>`;
     }
 
     function nextQuestion() {
         currentQuestionIndex++;
+        
         if (currentQuestionIndex < selectedQuestions.length) {
+            saveState(); // Speicher updaten, wenn die nächste Frage erreicht ist
             displayQuestion();
         } else {
             progressBar.style.width = `100%`;
+            clearState(); // Fertig -> Speicher leeren
             showResults();
         }
     }
@@ -378,8 +434,6 @@ export function initQuizEngine() {
     function showResults() {
         quizScreen.style.display = 'none';
         resultScreen.style.display = 'block';
-        
-        // Auch auf dem Result-Screen brauchen wir Intro/Breadcrumbs nicht zwingend
         
         const total = selectedQuestions.length;
         const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
@@ -391,7 +445,6 @@ export function initQuizEngine() {
         resultHeadline.classList.remove('result-pass', 'result-fail');
         resultText.classList.remove('result-pass', 'result-fail');
 
-        // Automatisches Hochscrollen, damit man sein Ergebnis direkt sieht
         window.scrollTo(0, 0);
 
         if (percentage >= 60) {
@@ -416,18 +469,16 @@ export function initQuizEngine() {
     }
 
     function restartQuiz() {
+        clearState();
         if (resultScreen) resultScreen.style.display = 'none';
         if (selectionScreen) {
             selectionScreen.style.display = 'block';
             
-            // ZEN-MODUS DEAKTIVIEREN: Alles wieder einblenden für den Auswahlbildschirm
             if(introHeader) introHeader.style.display = 'block';
             if(breadcrumb) breadcrumb.style.display = '';
             
-            // Zurück nach oben springen
             window.scrollTo(0, 0);
             
-            // Checkboxen zurücksetzen
             const chapterCards = document.querySelectorAll('.chapter-card');
             chapterCards.forEach(card => {
                 const checkbox = card.querySelector('input[type="checkbox"]');
@@ -448,4 +499,7 @@ export function initQuizEngine() {
             }
         });
     }
+
+    // Beim Start der App versuchen, den Zustand aus dem Storage wiederherzustellen
+    restoreState();
 }

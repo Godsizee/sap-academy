@@ -71,7 +71,7 @@ COMPONENTS (Buttons, Cards, Forms, Quiz, etc.)
 }
 
 .dropdown-content a:hover {
-    background-color: rgba(158, 0, 89, 0.08); /* Sanftes Brand-Secondary */
+    background-color: rgba(158, 0, 89, 0.08);
     color: var(--brand-secondary);
     padding-left: 25px;
 }
@@ -135,7 +135,7 @@ COMPONENTS (Buttons, Cards, Forms, Quiz, etc.)
 #siteSearchInput:focus {
     outline: none;
     border-color: var(--brand-primary);
-    box-shadow: 0 0 0 4px rgba(57, 0, 153, 0.15); /* Weicher Glow */
+    box-shadow: 0 0 0 4px rgba(57, 0, 153, 0.15);
 }
 
 .search-controls {
@@ -216,7 +216,6 @@ COMPONENTS (Buttons, Cards, Forms, Quiz, etc.)
 .submit-btn {
     display: inline-block;
     width: 100%;
-    /* Dynamisches Padding, damit der Button auf schmalen Monitoren nicht zu hoch ist */
     padding: clamp(0.7rem, 2vh, 0.9rem) var(--space-l);
     background: var(--primary-color);
     border: 2px solid var(--primary-color);
@@ -345,11 +344,10 @@ COMPONENTS (Buttons, Cards, Forms, Quiz, etc.)
     border-top: 1px solid var(--border-color);
 }
 
-/* --- QUIZ (Responsive & Viewport-Optimized) --- */
+/* --- QUIZ --- */
 .quiz-container {
     width: 95%;
     max-width: 867px; 
-    /* Dynamischer Abstand: Schrumpft auf flachen Bildschirmen/Laptops vertikal zusammen */
     margin: clamp(1rem, 3vh, 3rem) auto; 
     padding: clamp(1.2rem, 4vh, 3rem) clamp(1.2rem, 4vw, 3rem); 
     background: var(--bg-light);
@@ -357,15 +355,12 @@ COMPONENTS (Buttons, Cards, Forms, Quiz, etc.)
     border-radius: 20px;
     box-shadow: 0 12px 30px var(--shadow-color);
     font-size: 0.85rem; 
-    
-    /* USABILITY-FIX: Begrenzt die Höhe exakt auf den Sichtbereich und ermöglicht internes Scrollen */
     max-height: calc(100vh - 120px); 
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: var(--brand-secondary) rgba(0,0,0,0.05);
 }
 
-/* Scrollbar-Styling für Webkit (Chrome, Edge, Safari) */
 .quiz-container::-webkit-scrollbar { width: 6px; }
 .quiz-container::-webkit-scrollbar-track { background: rgba(0,0,0,0.03); border-radius: 10px; }
 .quiz-container::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 10px; }
@@ -388,7 +383,6 @@ COMPONENTS (Buttons, Cards, Forms, Quiz, etc.)
 
 .chapter-selection-grid {
     display: grid;
-    /* Kompakteres Grid: Erlaubt 2 Spalten auch auf den meisten Smartphones */
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: clamp(0.8rem, 2vh, 1.7rem); 
     margin-bottom: clamp(1.5rem, 4vh, 2.5rem); 
@@ -438,7 +432,6 @@ COMPONENTS (Buttons, Cards, Forms, Quiz, etc.)
 
 .chapter-card.selected .chapter-icon { transform: scale(1.1); }
 
-/* Überschreibt das hartcodierte inline-margin aus dem PHP-Template dynamisch */
 #chapter-select-form .submit-btn {
     margin-top: clamp(1rem, 3vh, 2.5rem) !important;
 }
@@ -485,9 +478,10 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
+/* --- OPTIMIERTE RESULT BOX --- */
 .result-box {
-    padding: clamp(0.8rem, 2vh, 1.2rem);
-    margin-bottom: clamp(1rem, 3vh, 2rem);
+    padding: clamp(0.6rem, 1.5vh, 1rem); /* Reduziertes Padding */
+    margin-bottom: clamp(0.6rem, 2vh, 1.2rem); /* Reduzierter Abstand */
     border: 2px solid;
     border-radius: 10px;
     text-align: center;
@@ -496,29 +490,33 @@ input[type="checkbox"] {
 .result-box.success { border-color: var(--brand-success); }
 .result-box.fail { border-color: var(--brand-danger); }
 
-.result-box h2 {
-    margin-top: 0;
-    color: var(--brand-success);
-    font-size: clamp(1.2rem, 3vh, 1.8rem);
+.result-title {
+    margin: 0;
+    font-size: clamp(1.1rem, 2.5vh, 1.3rem); /* Flachere Überschrift */
+    font-weight: 700;
 }
 
-.result-box.fail h2 { color: var(--brand-danger); }
+.result-box.success .result-title { color: var(--brand-success); }
+.result-box.fail .result-title { color: var(--brand-danger); }
 
 .correct-answer {
-    background-color: rgba(40, 167, 69, 0.1);
+    background-color: rgba(40, 167, 69, 0.1) !important;
     border-left: 4px solid var(--brand-success) !important;
 }
 
 .wrong-answer {
-    background-color: rgba(255, 0, 84, 0.1);
+    background-color: rgba(255, 0, 84, 0.1) !important;
     border-left: 4px solid var(--brand-danger) !important;
 }
 
+/* Reduzierte Box für die Lösung */
 .solution-wrapper {
-    margin-top: 12px;
-    padding: 0.85rem;
+    margin-top: 8px;
+    padding: 0.6rem;
     background: rgba(40, 167, 69, 0.08);
     border-radius: 6px;
+    font-size: 0.95rem; /* Etwas kleinere Schrift */
+    text-align: left; /* Linksbündig für bessere Lesbarkeit von Listen */
 }
 
 .solution {

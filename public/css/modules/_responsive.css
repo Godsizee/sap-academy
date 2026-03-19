@@ -24,7 +24,6 @@
 
 /* --- FABULOUS MOBILE NAVBAR & LAYOUT --- */
 @media screen and (max-width: 768px) {
-    /* Verhindert horizontales Scrollen radikal und zuverlässig */
     html, body {
         overflow-x: hidden;
         width: 100%;
@@ -35,12 +34,10 @@
         font-size: 16px;
     }
     
-    /* --- HELPER CLASSES --- */
     .hide-on-mobile {
         display: none !important;
     }
 
-    /* --- HERO MOBILE FIXES --- */
     .hero {
         min-height: 60vh;
         padding: 6rem 5% 3rem;
@@ -50,7 +47,6 @@
         font-size: 1.1rem;
     }
 
-    /* --- MOBILE MENU (BURGER & OVERLAY) --- */
     body.nav-active {
         overflow: hidden;
     }
@@ -244,12 +240,10 @@
         border-right: none;
         border-bottom: none;
         min-height: calc(100vh - 80px);
-        /* Padding unten wieder auf Normalmaß gesetzt */
         padding: 2rem 1.2rem 2rem 1.2rem; 
         overflow-x: hidden;
     }
 
-    /* Reguläre Positionierung im Textfluss wie auf dem Desktop */
     .sticky-mobile-action {
         width: 100%;
         display: flex;
@@ -258,7 +252,6 @@
         margin-top: 1.5rem !important;
     }
 
-    /* Sicherheitsmaßnahme für Buttons in der Action Bar */
     .sticky-mobile-action .submit-btn,
     .sticky-mobile-action .cta-button {
         width: 100% !important;
@@ -267,11 +260,12 @@
         margin: 0 !important;
     }
 
+    /* WICHTIG: Kompaktere Option-Buttons für das Handy */
     .options label {
-        padding: 1.2rem;
-        font-size: 1.1rem;
+        padding: 0.8rem 1rem; /* Vorher 1.2rem - spart enorm Platz! */
+        font-size: 1rem; /* Vorher 1.1rem */
         background: rgba(0,0,0,0.03);
-        border-radius: 16px;
+        border-radius: 12px; /* Etwas flacher passend zum Padding */
         margin-bottom: 0;
         border: 2px solid transparent;
         box-shadow: 0 4px 10px rgba(0,0,0,0.02);
