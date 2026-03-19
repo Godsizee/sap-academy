@@ -25,17 +25,17 @@ sort($chapters);
 ?>
 
 <main>
-    <!-- Breadcrumb: Auf dem Desktop sichtbar, auf dem Smartphone ausgeblendet -->
-    <div class="breadcrumb hide-on-mobile" style="max-width: 867px; margin: 2rem auto 0; padding: 0 1.5rem;">
+    <!-- Breadcrumb: ID hinzugefügt, um es während des Quiz per JS auszublenden -->
+    <div id="quiz-breadcrumb" class="breadcrumb hide-on-mobile" style="max-width: 867px; margin: 2rem auto 0; padding: 0 1.5rem;">
         <a href="/">Startseite</a> <span style="opacity: 0.5;">/</span> 
         <a href="/module?id=<?= htmlspecialchars($moduleId) ?>">Modul <?= htmlspecialchars(strtoupper($moduleId)) ?></a> <span style="opacity: 0.5;">/</span> 
         <span style="color: var(--primary-color); font-weight: 600;">Wissenstest</span>
     </div>
 
-    <div class="quiz-container">
+    <div class="quiz-container searchable-block">
         
-        <!-- App-ähnlicher, cleaner Header -->
-        <div style="text-align: center; margin-bottom: 2.5rem; position: relative;">
+        <!-- App-ähnlicher, cleaner Header: ID hinzugefügt für den "Zen Mode" -->
+        <div id="quiz-intro-header" style="text-align: center; margin-bottom: 2.5rem; position: relative;">
             <span class="hero-badge" style="border-color: var(--brand-primary); color: var(--brand-primary); background: transparent; margin-bottom: 1rem;">
                 🎓 Prüfungs-Modus
             </span>
@@ -66,7 +66,7 @@ sort($chapters);
                         <?php endforeach; ?>
                     </div>
                     
-                    <!-- Sticky Action Bar (Am Handy unten fixiert, am Desktop normaler Block) -->
+                    <!-- Sticky Action Bar -->
                     <div class="sticky-mobile-action">
                         <button type="submit" class="submit-btn" style="width: 100%;">Quiz starten 🚀</button>
                     </div>

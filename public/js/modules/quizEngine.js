@@ -20,6 +20,8 @@ export function initQuizEngine() {
     // DOM Elements
     const selectionScreen = document.getElementById('chapter-selection-screen');
     const resultScreen = document.getElementById('quiz-result-screen');
+    const introHeader = document.getElementById('quiz-intro-header'); // NEU: Header-Modus
+    const breadcrumb = document.getElementById('quiz-breadcrumb');   // NEU: Breadcrumb-Modus
     const form = document.getElementById('chapter-select-form');
     
     const progressBar = document.getElementById('quiz-progress-bar-inner');
@@ -77,8 +79,12 @@ export function initQuizEngine() {
         currentQuestionIndex = 0;
         score = 0;
         
+        // ZEN-MODUS AKTIVIEREN: Alles Unnötige ausblenden
         if(selectionScreen) selectionScreen.style.display = 'none';
         if(resultScreen) resultScreen.style.display = 'none';
+        if(introHeader) introHeader.style.display = 'none';
+        if(breadcrumb) breadcrumb.style.display = 'none';
+        
         quizScreen.style.display = 'flex';
         
         displayQuestion();
@@ -90,6 +96,9 @@ export function initQuizEngine() {
         checkBtn.style.display = 'block';
         checkBtn.disabled = false;
         updateProgress();
+
+        // UX-BOOST: Automatisch nach ganz oben scrollen für die nächste Frage
+        window.scrollTo(0, 0);
 
         const question = selectedQuestions[currentQuestionIndex];
         questionText.textContent = question.question;
@@ -370,6 +379,8 @@ export function initQuizEngine() {
         quizScreen.style.display = 'none';
         resultScreen.style.display = 'block';
         
+        // Auch auf dem Result-Screen brauchen wir Intro/Breadcrumbs nicht zwingend
+        
         const total = selectedQuestions.length;
         const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
         
@@ -379,6 +390,9 @@ export function initQuizEngine() {
         
         resultHeadline.classList.remove('result-pass', 'result-fail');
         resultText.classList.remove('result-pass', 'result-fail');
+
+        // Automatisches Hochscrollen, damit man sein Ergebnis direkt sieht
+        window.scrollTo(0, 0);
 
         if (percentage >= 60) {
             resultHeadline.textContent = "Glückwunsch! Quiz bestanden.";
@@ -405,6 +419,14 @@ export function initQuizEngine() {
         if (resultScreen) resultScreen.style.display = 'none';
         if (selectionScreen) {
             selectionScreen.style.display = 'block';
+            
+            // ZEN-MODUS DEAKTIVIEREN: Alles wieder einblenden für den Auswahlbildschirm
+            if(introHeader) introHeader.style.display = 'block';
+            if(breadcrumb) breadcrumb.style.display = '';
+            
+            // Zurück nach oben springen
+            window.scrollTo(0, 0);
+            
             // Checkboxen zurücksetzen
             const chapterCards = document.querySelectorAll('.chapter-card');
             chapterCards.forEach(card => {
