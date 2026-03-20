@@ -5,86 +5,202 @@
     "chapters": [
         {
             "id": "kapitel-1",
-            "title": "Kapitel 1: Die Unternehmensstruktur im Customizing",
+            "title": "Kapitel 1: Allgemeine Einstellungen",
             "lessons": [
                 {
                     "id": "l1-1",
-                    "title": "Lektion 1: Die Unternehmensstruktur",
+                    "title": "Lektion: Länder und Währungen prüfen",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l1-2",
+                    "title": "Lektion: Maßeinheiten definieren",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l1-3",
+                    "title": "Lektion: Fabrikkalender einrichten",
                     "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
                 }
             ]
         },
         {
             "id": "kapitel-2",
-            "title": "Kapitel 2: Stammdaten im Customizing",
+            "title": "Kapitel 2: Organisationseinheiten",
             "lessons": [
                 {
                     "id": "l2-1",
-                    "title": "Lektion 1: Systemmeldungen und Materialstammsätze",
+                    "title": "Lektion: Organisationseinheiten der Materialwirtschaft definieren",
                     "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
                 },
                 {
                     "id": "l2-2",
-                    "title": "Lektion 2: Geschäftspartner",
+                    "title": "Lektion: Werke definieren und zuordnen",
                     "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
                 }
             ]
         },
         {
             "id": "kapitel-3",
-            "title": "Kapitel 3: Bewertung und Kontenfindung",
+            "title": "Kapitel 3: Stammdaten",
             "lessons": [
                 {
                     "id": "l3-1",
-                    "title": "Lektion 1: Bewertung und Kontenfindung konfigurieren",
+                    "title": "Lektion: Materialstammsätze einrichten",
                     "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
                 },
                 {
                     "id": "l3-2",
-                    "title": "Lektion 2: Kontenfindung aufteilen",
+                    "title": "Lektion: Materialarten anlegen",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l3-3",
+                    "title": "Lektion: Feldauswahl für Materialstammsätze einrichten",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l3-4",
+                    "title": "Lektion: Feldreferenzen für Materialstammsätze definieren",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l3-5",
+                    "title": "Lektion: Einstellungen zur Feldauswahl anpassen",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l3-6",
+                    "title": "Lektion: Materialstamm konfigurieren",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l3-7",
+                    "title": "Lektion: Einstellungen für Geschäftspartner definieren",
                     "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
                 }
             ]
         },
         {
             "id": "kapitel-4",
-            "title": "Kapitel 4: Customizing für den Einkauf",
+            "title": "Kapitel 4: Bewertung und Kontierung",
             "lessons": [
                 {
                     "id": "l4-1",
-                    "title": "Lektion 1: Belegarten pflegen",
+                    "title": "Lektion: Automatische Kontenfindung erläutern",
                     "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
                 },
                 {
                     "id": "l4-2",
-                    "title": "Lektion 2: Die Feldauswahl für Belege festlegen",
+                    "title": "Lektion: Relevanz von Buchungs- und Bewertungskreisen ermitteln",
                     "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
                 },
                 {
                     "id": "l4-3",
-                    "title": "Lektion 3: Bestelldruck und Textarten anpassen",
+                    "title": "Lektion: Bewertungsklassen und Kontoklassenreferenzen anlegen",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l4-4",
+                    "title": "Lektion: Kontenfindung für konkrete Vorgänge einrichten",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l4-5",
+                    "title": "Lektion: Unterteilen von Vorgängen mit der Kontomodifikation",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l4-6",
+                    "title": "Lektion: Kontenfindung für Spezialfälle anpassen",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l4-7",
+                    "title": "Lektion: Einstellungen zur getrennten Bewertung anpassen",
                     "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
                 }
             ]
         },
         {
             "id": "kapitel-5",
-            "title": "Kapitel 5: Bestandsführung",
+            "title": "Kapitel 5: Einkauf",
             "lessons": [
                 {
                     "id": "l5-1",
-                    "title": "Lektion 1: Systemeinstellungen in der Bestandsführung",
+                    "title": "Lektion: Belegarten im Einkauf anlegen",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l5-2",
+                    "title": "Lektion: Belegarten im Einkauf verwenden",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l5-3",
+                    "title": "Lektion: Bildaufbau von Einkaufsbelegen anpassen",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l5-4",
+                    "title": "Lektion: Kontierungstypen anlegen",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l5-5",
+                    "title": "Lektion: Textarten und Textübernahme definieren",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l5-6",
+                    "title": "Lektion: Texte für die Nachrichtenverarbeitung festlegen",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l5-7",
+                    "title": "Lektion: Nachrichtenschema und Nachrichtenarten pflegen",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l5-8",
+                    "title": "Lektion: Konditionssätze und Nachrichtenarten anlegen",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l5-9",
+                    "title": "Lektion: Die SAP S/4HANA-Ausgabeverwaltung erläutern",
                     "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
                 }
             ]
         },
         {
             "id": "kapitel-6",
-            "title": "Kapitel 6: Anpassungen über das SAP Fiori Launchpad",
+            "title": "Kapitel 6: Bestandsführung",
             "lessons": [
                 {
                     "id": "l6-1",
-                    "title": "Lektion 1: Systemanpassungen überprüfen",
+                    "title": "Lektion: Anpassen der Einstellungen für Material- und Buchhaltungsbelege",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l6-2",
+                    "title": "Lektion: Anpassen von Einstellungen für Warenbewegungen",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                },
+                {
+                    "id": "l6-3",
+                    "title": "Lektion: Anpassen der Nachrichtenausgabe in der Bestandsführung",
+                    "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
+                }
+            ]
+        },
+        {
+            "id": "kapitel-7",
+            "title": "Kapitel 7: Zusätzliche Informationen: Einführungsleitfaden und Customizing-Projekte",
+            "lessons": [
+                {
+                    "id": "l7-1",
+                    "title": "Lektion: Customizing-Projekte definieren",
                     "content": "<div class=\"takeaway-box\"><strong>💡 Info</strong><p>Die Inhalte für diese Lektion werden in Kürze hinzugefügt...</p></div>"
                 }
             ]

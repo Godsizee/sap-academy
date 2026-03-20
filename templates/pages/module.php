@@ -14,79 +14,29 @@ if (!file_exists($jsonPath)) {
 
 // JSON decodieren
 $moduleData = json_decode(file_get_contents($jsonPath), true);
-
-// --- STRUKTUR-OVERRIDE AUS DEN BILDERN (NUR FÜR S4550) ---
-// Überschreibt die JSON-Daten dynamisch mit der exakten Struktur aus dem Inhaltsverzeichnis.
-// Übungen und Seitenzahlen wurden absichtlich weggelassen.
-if (strtolower($moduleId) === 's4550') {
-    $moduleData['chapters'] = [
-        [
-            'id' => 'kapitel-1',
-            'title' => '1 Die Unternehmensstruktur im Customizing',
-            'lessons' => [
-                ['id' => 'l1-1', 'title' => 'Lektion 1: Die Unternehmensstruktur', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>']
-            ]
-        ],
-        [
-            'id' => 'kapitel-2',
-            'title' => '2 Stammdaten im Customizing',
-            'lessons' => [
-                ['id' => 'l2-1', 'title' => 'Lektion 1: Systemmeldungen und Materialstammsätze', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>'],
-                ['id' => 'l2-2', 'title' => 'Lektion 2: Geschäftspartner', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>']
-            ]
-        ],
-        [
-            'id' => 'kapitel-3',
-            'title' => '3 Bewertung und Kontenfindung',
-            'lessons' => [
-                ['id' => 'l3-1', 'title' => 'Lektion 1: Bewertung und Kontenfindung konfigurieren', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>'],
-                ['id' => 'l3-2', 'title' => 'Lektion 2: Kontenfindung aufteilen', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>']
-            ]
-        ],
-        [
-            'id' => 'kapitel-4',
-            'title' => '4 Customizing für den Einkauf',
-            'lessons' => [
-                ['id' => 'l4-1', 'title' => 'Lektion 1: Belegarten pflegen', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>'],
-                ['id' => 'l4-2', 'title' => 'Lektion 2: Die Feldauswahl für Belege festlegen', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>'],
-                ['id' => 'l4-3', 'title' => 'Lektion 3: Bestelldruck und Textarten anpassen', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>']
-            ]
-        ],
-        [
-            'id' => 'kapitel-5',
-            'title' => '5 Bestandsführung',
-            'lessons' => [
-                ['id' => 'l5-1', 'title' => 'Lektion 1: Systemeinstellungen in der Bestandsführung', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>']
-            ]
-        ],
-        [
-            'id' => 'kapitel-6',
-            'title' => '6 Anpassungen über das SAP Fiori Launchpad',
-            'lessons' => [
-                ['id' => 'l6-1', 'title' => 'Lektion 1: Systemanpassungen überprüfen', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>']
-            ]
-        ]
-    ];
-}
-// ---------------------------------------------------------
 ?>
 
-<main class="page-with-sidebar content-section" style="padding-top: 2rem;">
+<!-- Modernes 2-Spalten-Layout mit CSS Grid -->
+<main style="display: grid; grid-template-columns: minmax(280px, 320px) minmax(0, 1fr); gap: 3rem; max-width: 1600px; margin: 0 auto; padding: 3rem 5%; align-items: start;">
     
-    <!-- Sidebar-Navigation (Inhaltsverzeichnis) -->
-    <aside class="sidebar-nav" style="position: sticky; top: 100px; height: max-content; max-height: calc(100vh - 120px); overflow-y: auto; padding-right: 1rem;">
-        <div style="background: var(--bg-light); border: 1px solid var(--border-color); border-radius: 20px; padding: 1.5rem; box-shadow: 0 10px 30px var(--shadow-color);">
-            <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--primary-color);">Inhaltsverzeichnis</h3>
-            <ul style="list-style: none; padding: 0;">
+    <!-- Sidebar-Navigation (Inhaltsverzeichnis) - Links, Sticky -->
+    <aside class="sidebar-nav hide-on-mobile" style="position: sticky; top: 100px; height: max-content; max-height: calc(100vh - 120px); overflow-y: auto; padding-right: 0.5rem;">
+        <div style="background: var(--bg-light); border: 1px solid var(--border-color); border-radius: 24px; padding: 2rem 1.5rem; box-shadow: 0 15px 35px var(--shadow-color);">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--primary-color); display: flex; align-items: center; gap: 0.5rem;">
+                <span>📑</span> Inhaltsverzeichnis
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
                 <?php foreach ($moduleData['chapters'] as $chapter): ?>
                     <li style="margin-bottom: 1.5rem;">
-                        <div class="chapter-title" style="font-weight: 700; color: var(--text-color); margin-bottom: 0.5rem; font-size: 1.05rem;">
+                        <div class="chapter-title" style="font-weight: 700; color: var(--text-color); margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.3;">
                             <?= htmlspecialchars($chapter['title']) ?>
                         </div>
-                        <ul class="lektion-list" style="list-style: none; padding-left: 1rem; border-left: 2px solid var(--border-color);">
+                        <ul class="lektion-list" style="list-style: none; padding-left: 1rem; border-left: 2px solid var(--border-color); margin: 0;">
                             <?php foreach ($chapter['lessons'] as $lesson): ?>
-                                <li style="margin-bottom: 0.5rem;">
-                                    <a href="#<?= htmlspecialchars($lesson['id']) ?>" style="font-size: 0.95rem; opacity: 0.8; transition: opacity 0.3s, color 0.3s;">
+                                <li style="margin-bottom: 0.6rem; position: relative;">
+                                    <!-- Kleiner Indikator-Punkt für die Ästhetik -->
+                                    <span style="position: absolute; left: -1.25rem; top: 0.5rem; width: 6px; height: 6px; border-radius: 50%; background: var(--border-color); transition: background 0.3s, transform 0.3s;"></span>
+                                    <a href="#<?= htmlspecialchars($lesson['id']) ?>" style="font-size: 0.95rem; color: var(--text-color); opacity: 0.7; text-decoration: none; display: block; line-height: 1.4; transition: all 0.3s ease;" onmouseover="this.style.opacity='1'; this.style.color='var(--brand-secondary)';" onmouseout="if(!this.classList.contains('active')){ this.style.opacity='0.7'; this.style.color='var(--text-color)'; }">
                                         <?= htmlspecialchars($lesson['title']) ?>
                                     </a>
                                 </li>
@@ -95,69 +45,73 @@ if (strtolower($moduleId) === 's4550') {
                     </li>
                 <?php endforeach; ?>
                 
-                <li style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
-                    <div class="chapter-title" style="font-weight: 700; color: var(--primary-color); margin-bottom: 0.8rem;">Wissenstest</div>
-                    <ul class="lektion-list" style="list-style: none; padding: 0;">
-                        <li>
-                            <a href="/quiz?id=<?= htmlspecialchars($moduleId) ?>" class="cta-button" style="display: block; text-align: center; padding: 0.6rem 1rem; font-size: 0.95rem;">
-                                🎯 Zum Quiz wechseln
-                            </a>
-                        </li>
-                    </ul>
+                <li style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                    <div class="chapter-title" style="font-weight: 700; color: var(--primary-color); margin-bottom: 1rem; font-size: 1.1rem;">Wissenstest</div>
+                    <a href="/quiz?id=<?= htmlspecialchars($moduleId) ?>" class="cta-button" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-align: center; padding: 0.8rem 1rem; font-size: 1rem; width: 100%; border-radius: 12px;">
+                        <span>🎯</span> Zum Quiz wechseln
+                    </a>
                 </li>
             </ul>
         </div>
     </aside>
 
-    <!-- Hauptinhalt (Lektionen) -->
-    <section class="main-column">
-        <div class="content-page learning-content searchable-block">
+    <!-- Hauptinhalt (Lektionen) - Rechts -->
+    <section class="main-column" style="min-width: 0;">
+        <div class="content-page learning-content searchable-block" style="padding: 0;">
             
-            <div class="breadcrumb hide-on-mobile" style="margin-bottom: 2rem;">
-                <a href="/">Startseite</a> <span style="opacity: 0.5;">/</span> 
-                <a href="#">Module</a> <span style="opacity: 0.5;">/</span> 
-                <span style="color: var(--primary-color); font-weight: 600;"><?= htmlspecialchars(strtoupper($moduleId)) ?></span>
+            <div class="breadcrumb hide-on-mobile" style="margin-bottom: 2rem; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">
+                <a href="/" style="color: var(--text-color); opacity: 0.6;">Startseite</a> 
+                <span style="opacity: 0.3; margin: 0 0.5rem;">/</span> 
+                <a href="#" style="color: var(--text-color); opacity: 0.6;">Module</a> 
+                <span style="opacity: 0.3; margin: 0 0.5rem;">/</span> 
+                <span style="color: var(--brand-primary);"><?= htmlspecialchars(strtoupper($moduleId)) ?></span>
             </div>
 
             <!-- Fabulous Hero Header für das Modul -->
-            <div class="overview-hero-block animated-element is-visible" style="text-align: center; margin-bottom: 4rem; padding: 3rem 1.5rem; background: rgba(0,0,0,0.02); border-radius: 24px; border: 1px solid var(--border-color); position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 100%; height: 100%; background: radial-gradient(circle, var(--brand-primary) 0%, transparent 70%); opacity: 0.05; pointer-events: none;"></div>
+            <div class="overview-hero-block animated-element is-visible" style="text-align: left; margin-bottom: 4rem; padding: 4rem 3rem; background: var(--bg-light); border-radius: 30px; border: 1px solid var(--border-color); box-shadow: 0 20px 40px var(--shadow-color); position: relative; overflow: hidden;">
+                <!-- Dekorativer Background Blob -->
+                <div style="position: absolute; top: -20%; right: -10%; width: 50%; height: 150%; background: radial-gradient(circle, var(--brand-primary) 0%, transparent 70%); opacity: 0.05; pointer-events: none;"></div>
                 
-                <span class="hero-badge" style="border-color: var(--brand-primary); color: var(--brand-primary); background: transparent; margin-bottom: 1.5rem;">
+                <span class="hero-badge" style="display: inline-block; padding: 8px 16px; border-radius: 50px; background: rgba(57, 0, 153, 0.1); color: var(--brand-primary); font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; border: none;">
                     📖 Lernmodul
                 </span>
                 
-                <h1 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1rem; color: var(--primary-color); line-height: 1.2;">
+                <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1.5rem; color: var(--primary-color); line-height: 1.1; font-family: var(--font-display);">
                     <?= htmlspecialchars($moduleData['headline']) ?>
                 </h1>
                 
-                <p class="lead" style="font-size: 1.15rem; opacity: 0.85; max-width: 700px; margin: 0 auto; line-height: 1.6; color: var(--text-color);">
+                <p class="lead" style="font-size: 1.2rem; opacity: 0.8; max-width: 800px; line-height: 1.7; color: var(--text-color); margin: 0;">
                     <?= htmlspecialchars($moduleData['description']) ?>
                 </p>
             </div>
 
             <!-- Kapitel & Lektionen Iteration -->
             <?php foreach ($moduleData['chapters'] as $chapter): ?>
-                <div class="chapter-block" style="margin-bottom: 4rem;">
+                <div class="chapter-block" style="margin-bottom: 5rem;">
                     
-                    <!-- Kapitel Überschrift -->
-                    <h2 id="<?= htmlspecialchars($chapter['id']) ?>" style="color: var(--brand-primary); margin-bottom: 2rem; font-size: var(--fs-800); display: flex; align-items: center; gap: 1rem;">
-                        <span style="display: inline-block; width: 40px; height: 4px; background: var(--brand-secondary); border-radius: 2px;"></span>
-                        <?= htmlspecialchars($chapter['title']) ?>
+                    <!-- Stylische Kapitel Überschrift (Extrahiert automatisch die Nummer) -->
+                    <h2 id="<?= htmlspecialchars($chapter['id']) ?>" style="color: var(--text-color); margin-bottom: 2.5rem; font-size: var(--fs-800); display: flex; align-items: center; gap: 1rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(0,0,0,0.05);">
+                        <span style="display: flex; align-items: center; justify-content: center; width: 55px; height: 55px; background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary)); color: #fff; border-radius: 16px; font-size: 1.6rem; font-weight: bold; flex-shrink: 0; box-shadow: 0 10px 20px rgba(57,0,153,0.2);">
+                            <?= preg_replace('/[^0-9]/', '', htmlspecialchars($chapter['title'])) ?: '📄' ?>
+                        </span>
+                        <span style="line-height: 1.2;"><?= preg_replace('/Kapitel \d+:\s*/', '', htmlspecialchars($chapter['title'])) ?></span>
                     </h2>
                     
                     <!-- Lektionen als Fabulous Cards -->
-                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div style="display: flex; flex-direction: column; gap: 2.5rem;">
                         <?php foreach ($chapter['lessons'] as $lesson): ?>
-                            <div class="lesson-block fabulous-card animated-element" id="<?= htmlspecialchars($lesson['id']) ?>" style="text-align: left; padding: 2.5rem; border-radius: 20px;">
-                                <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--brand-secondary); border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                            <div class="lesson-block fabulous-card animated-element" id="<?= htmlspecialchars($lesson['id']) ?>" style="text-align: left; padding: 3.5rem 3rem; border-radius: 24px; background: var(--bg-light); border: 1px solid var(--border-color); box-shadow: 0 10px 30px var(--shadow-color); position: relative; transition: transform 0.4s ease, box-shadow 0.4s ease;">
+                                
+                                <h3 style="font-size: 1.6rem; margin-bottom: 2rem; color: var(--brand-secondary); display: flex; align-items: center; gap: 0.8rem;">
+                                    <span style="color: var(--brand-primary); opacity: 0.5; font-size: 1.8rem;">#</span> 
                                     <?= htmlspecialchars($lesson['title']) ?>
                                 </h3>
                                 
-                                <div class="lesson-content" style="font-size: 1.05rem; line-height: 1.7;">
-                                    <!-- Inhalt wird als HTML ausgegeben, da das JSON formatiertes HTML enthält -->
+                                <div class="lesson-content" style="font-size: 1.1rem; line-height: 1.8; color: var(--text-color); opacity: 0.9;">
+                                    <!-- Inhalt wird als HTML ausgegeben -->
                                     <?= $lesson['content'] ?>
                                 </div>
+                                
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -165,14 +119,14 @@ if (strtolower($moduleId) === 's4550') {
             <?php endforeach; ?>
             
             <!-- Quiz Call-to-Action -->
-            <div class="fabulous-card animated-element" style="text-align: center; margin-top: 5rem; padding: 4rem 2rem; background: linear-gradient(135deg, rgba(57,0,153,0.05), rgba(158,0,89,0.05)); border: 2px dashed var(--brand-primary);">
-                <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
-                <h3 style="font-size: 2rem; margin-bottom: 1rem; color: var(--brand-primary);">Bereit, dein Wissen zu testen?</h3>
-                <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem; max-width: 500px; margin-inline: auto;">
-                    Überprüfe das Gelernte in unserem interaktiven Quiz und festige dein Wissen für die Zertifizierung.
+            <div class="fabulous-card animated-element" style="text-align: center; margin-top: 6rem; padding: 5rem 3rem; background: linear-gradient(135deg, rgba(57,0,153,0.05), rgba(158,0,89,0.05)); border: 2px dashed var(--brand-primary); border-radius: 30px;">
+                <div style="font-size: 4.5rem; margin-bottom: 1.5rem; animation: pulse-arrow 2s infinite;">🚀</div>
+                <h3 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--brand-primary); font-family: var(--font-display);">Wissen überprüfen?</h3>
+                <p style="font-size: 1.2rem; opacity: 0.8; margin-bottom: 3rem; max-width: 600px; margin-inline: auto; line-height: 1.6;">
+                    Bereit für den nächsten Schritt? Teste dein erlerntes Wissen im interaktiven Quiz und bereite dich optimal auf die Zertifizierung vor.
                 </p>
-                <a href="/quiz?id=<?= htmlspecialchars($moduleId) ?>" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
-                    Quiz zu <?= htmlspecialchars(strtoupper($moduleId)) ?> starten
+                <a href="/quiz?id=<?= htmlspecialchars($moduleId) ?>" class="cta-button" style="font-size: 1.2rem; padding: 1.2rem 3rem; border-radius: 50px; box-shadow: 0 15px 30px rgba(57, 0, 153, 0.3);">
+                    Quiz starten
                 </a>
             </div>
 
@@ -180,3 +134,42 @@ if (strtolower($moduleId) === 's4550') {
     </section>
 
 </main>
+
+<!-- JS für intelligentes Scrollverhalten des Inhaltsverzeichnisses (Active States) -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Scroll-Spy Logik
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // 1. Alle Links zurücksetzen
+                document.querySelectorAll('.lektion-list a').forEach(link => {
+                    link.classList.remove('active');
+                    link.style.color = 'var(--text-color)';
+                    link.style.opacity = '0.7';
+                    link.style.fontWeight = '400';
+                    link.previousElementSibling.style.background = 'var(--border-color)';
+                    link.previousElementSibling.style.transform = 'scale(1)';
+                });
+                
+                // 2. Aktiven Link hervorheben
+                const id = entry.target.getAttribute('id');
+                const activeLink = document.querySelector(`.lektion-list a[href="#${id}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                    activeLink.style.color = 'var(--brand-primary)';
+                    activeLink.style.opacity = '1';
+                    activeLink.style.fontWeight = '700';
+                    activeLink.previousElementSibling.style.background = 'var(--brand-primary)';
+                    activeLink.previousElementSibling.style.transform = 'scale(1.5)';
+                }
+            }
+        });
+    }, { rootMargin: '-20% 0px -70% 0px' }); // Trigger in der oberen Bildschirmhälfte
+
+    // Alle Lektionen überwachen
+    document.querySelectorAll('.lesson-block').forEach(block => {
+        observer.observe(block);
+    });
+});
+</script>
