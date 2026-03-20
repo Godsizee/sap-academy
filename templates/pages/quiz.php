@@ -8,8 +8,6 @@ $baseId = strtolower($moduleId);
 $quizJsonPath = BASE_PATH . "/data/modules/" . $baseId . "_quiz.json";
 $mainJsonPath = BASE_PATH . "/data/modules/" . $baseId . ".json";
 
-// 1. Priorität: Dedizierte Quiz-Datei (z.B. s4550_quiz.json)
-// 2. Priorität: Fallback auf alte Struktur (z.B. s4f10.json)
 if (file_exists($quizJsonPath)) {
     $jsonPath = $quizJsonPath;
 } elseif (file_exists($mainJsonPath)) {
@@ -104,6 +102,17 @@ sort($chapters);
                 <div class="sticky-mobile-action" style="margin-top: 2rem;">
                     <button id="check-answer-btn" class="submit-btn">Antwort prüfen</button>
                     <button id="next-question-btn" class="submit-btn" style="display: none; background: var(--brand-success); border-color: var(--brand-success);">Nächste Frage ➡️</button>
+                </div>
+
+                <!-- NEUER ABBRUCH-BUTTON (Dezent) -->
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <button type="button" 
+                            onclick="sessionStorage.removeItem('quizState_' + (new URLSearchParams(window.location.search).get('id') || 'default')); window.location.reload();" 
+                            style="background: transparent; border: none; color: var(--text-color); opacity: 0.5; font-size: 0.9rem; font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; transition: all 0.3s ease;" 
+                            onmouseover="this.style.opacity='1'; this.style.color='var(--brand-danger)';" 
+                            onmouseout="this.style.opacity='0.5'; this.style.color='var(--text-color)';">
+                        Quiz abbrechen & Fortschritt verwerfen
+                    </button>
                 </div>
             </div>
             
