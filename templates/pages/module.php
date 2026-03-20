@@ -14,6 +14,61 @@ if (!file_exists($jsonPath)) {
 
 // JSON decodieren
 $moduleData = json_decode(file_get_contents($jsonPath), true);
+
+// --- STRUKTUR-OVERRIDE AUS DEN BILDERN (NUR FÜR S4550) ---
+// Überschreibt die JSON-Daten dynamisch mit der exakten Struktur aus dem Inhaltsverzeichnis.
+// Übungen und Seitenzahlen wurden absichtlich weggelassen.
+if (strtolower($moduleId) === 's4550') {
+    $moduleData['chapters'] = [
+        [
+            'id' => 'kapitel-1',
+            'title' => '1 Die Unternehmensstruktur im Customizing',
+            'lessons' => [
+                ['id' => 'l1-1', 'title' => 'Lektion 1: Die Unternehmensstruktur', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>']
+            ]
+        ],
+        [
+            'id' => 'kapitel-2',
+            'title' => '2 Stammdaten im Customizing',
+            'lessons' => [
+                ['id' => 'l2-1', 'title' => 'Lektion 1: Systemmeldungen und Materialstammsätze', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>'],
+                ['id' => 'l2-2', 'title' => 'Lektion 2: Geschäftspartner', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>']
+            ]
+        ],
+        [
+            'id' => 'kapitel-3',
+            'title' => '3 Bewertung und Kontenfindung',
+            'lessons' => [
+                ['id' => 'l3-1', 'title' => 'Lektion 1: Bewertung und Kontenfindung konfigurieren', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>'],
+                ['id' => 'l3-2', 'title' => 'Lektion 2: Kontenfindung aufteilen', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>']
+            ]
+        ],
+        [
+            'id' => 'kapitel-4',
+            'title' => '4 Customizing für den Einkauf',
+            'lessons' => [
+                ['id' => 'l4-1', 'title' => 'Lektion 1: Belegarten pflegen', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>'],
+                ['id' => 'l4-2', 'title' => 'Lektion 2: Die Feldauswahl für Belege festlegen', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>'],
+                ['id' => 'l4-3', 'title' => 'Lektion 3: Bestelldruck und Textarten anpassen', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>']
+            ]
+        ],
+        [
+            'id' => 'kapitel-5',
+            'title' => '5 Bestandsführung',
+            'lessons' => [
+                ['id' => 'l5-1', 'title' => 'Lektion 1: Systemeinstellungen in der Bestandsführung', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>']
+            ]
+        ],
+        [
+            'id' => 'kapitel-6',
+            'title' => '6 Anpassungen über das SAP Fiori Launchpad',
+            'lessons' => [
+                ['id' => 'l6-1', 'title' => 'Lektion 1: Systemanpassungen überprüfen', 'content' => '<p><em>Inhalt für diese Lektion folgt noch...</em></p>']
+            ]
+        ]
+    ];
+}
+// ---------------------------------------------------------
 ?>
 
 <main class="page-with-sidebar content-section" style="padding-top: 2rem;">

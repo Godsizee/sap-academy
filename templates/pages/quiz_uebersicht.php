@@ -1,12 +1,18 @@
 <?php
 /**
  * Quiz Übersicht View
- * Läd die Quiz-Daten aus dem JSON und stellt sie sortiert und aufbereitet als Referenz dar.
+ * Lädt die Quiz-Daten aus dem JSON und stellt sie sortiert und aufbereitet als Referenz dar.
  */
 
-$jsonPath = BASE_PATH . "/data/modules/" . strtolower($moduleId) . ".json";
+$baseId = strtolower($moduleId);
+$quizJsonPath = BASE_PATH . "/data/modules/" . $baseId . "_quiz.json";
+$mainJsonPath = BASE_PATH . "/data/modules/" . $baseId . ".json";
 
-if (!file_exists($jsonPath)) {
+if (file_exists($quizJsonPath)) {
+    $jsonPath = $quizJsonPath;
+} elseif (file_exists($mainJsonPath)) {
+    $jsonPath = $mainJsonPath;
+} else {
     echo "<main><section class='content-section'><div class='content-page'><h2>Fehler 404</h2><p>Die Inhalte für das Modul <strong>" . htmlspecialchars(strtoupper($moduleId)) . "</strong> konnten nicht gefunden werden.</p></div></section></main>";
     return;
 }

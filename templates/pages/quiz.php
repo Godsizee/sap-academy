@@ -1,12 +1,20 @@
 <?php
 /**
  * Quiz View
- * Lädt die Quiz-Daten aus der JSON-Datei und baut das HTML-Gerüst für die JS-Engine.
+ * Lädt die Quiz-Daten aus der dedizierten _quiz.json oder als Fallback aus der Haupt-JSON.
  */
 
-$jsonPath = BASE_PATH . "/data/modules/" . strtolower($moduleId) . ".json";
+$baseId = strtolower($moduleId);
+$quizJsonPath = BASE_PATH . "/data/modules/" . $baseId . "_quiz.json";
+$mainJsonPath = BASE_PATH . "/data/modules/" . $baseId . ".json";
 
-if (!file_exists($jsonPath)) {
+// 1. Priorität: Dedizierte Quiz-Datei (z.B. s4550_quiz.json)
+// 2. Priorität: Fallback auf alte Struktur (z.B. s4f10.json)
+if (file_exists($quizJsonPath)) {
+    $jsonPath = $quizJsonPath;
+} elseif (file_exists($mainJsonPath)) {
+    $jsonPath = $mainJsonPath;
+} else {
     echo "<main><section class='content-section'><div class='content-page'><h2>Fehler 404</h2><p>Die Quizdaten konnten nicht gefunden werden.</p></div></section></main>";
     return;
 }
