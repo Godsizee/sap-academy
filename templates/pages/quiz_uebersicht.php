@@ -63,91 +63,103 @@ ksort($chapters);
                 </div>
             <?php else: ?>
 
-                <?php foreach ($chapters as $chapterName => $questions): ?>
-                    <h2 style="color: var(--primary-color); margin-top: 3rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border-color);">
-                        <?= htmlspecialchars($chapterName) ?>
-                    </h2>
-                    
-                    <div class="card-container" style="display: flex; flex-direction: column; gap: 2rem;">
-                        <?php foreach ($questions as $index => $q): ?>
-                            <div class="fabulous-card animated-element" style="text-align: left; padding: 2rem;">
-                                
-                                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; line-height: 1.4; color: var(--text-color);">
-                                    <span style="color: var(--primary-color); margin-right: 0.5rem;">Frage <?= $index + 1 ?>:</span> 
-                                    <?= htmlspecialchars($q['question']) ?>
-                                </h3>
+                <div class="principles-accordion" style="margin-top: 3rem;">
+                    <?php foreach ($chapters as $chapterName => $questions): ?>
+                        <div class="accordion-item">
+                            
+                            <button class="accordion-header" type="button">
+                                <h2 style="margin: 0; color: var(--primary-color); border: none; padding: 0; font-size: 1.5rem;">
+                                    <?= htmlspecialchars($chapterName) ?>
+                                </h2>
+                                <span class="accordion-icon">+</span>
+                            </button>
+                            
+                            <div class="accordion-content">
+                                <div class="content-inner">
+                                    <div class="card-container" style="display: flex; flex-direction: column; gap: 2rem; margin-top: 1.5rem;">
+                                        <?php foreach ($questions as $index => $q): ?>
+                                            <div class="fabulous-card animated-element" style="text-align: left; padding: 2rem;">
+                                                
+                                                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; line-height: 1.4; color: var(--text-color);">
+                                                    <span style="color: var(--primary-color); margin-right: 0.5rem;">Frage <?= $index + 1 ?>:</span> 
+                                                    <?= htmlspecialchars($q['question']) ?>
+                                                </h3>
 
-                                <div class="options" style="display: flex; flex-direction: column; gap: 0.8rem;">
-                                    
-                                    <?php if ($q['type'] === 'radio' || $q['type'] === 'checkbox'): ?>
-                                        <?php
-                                        // Antworten extrahieren und garantieren, dass es ein Array ist
-                                        $correctAnswers = is_array($q['correct']) ? $q['correct'] : [$q['correct']];
-                                        
-                                        foreach ($q['options'] as $key => $text):
-                                            $isCorrect = in_array($key, $correctAnswers);
-                                            $bgColor = $isCorrect ? 'rgba(40, 167, 69, 0.1)' : 'rgba(0, 0, 0, 0.03)';
-                                            $borderColor = $isCorrect ? 'var(--brand-success)' : 'transparent';
-                                            $opacity = $isCorrect ? '1' : '0.5';
-                                        ?>
-                                            <div class="quiz-overview-option" style="padding: 1rem; border-radius: 8px; border-left: 4px solid <?= $borderColor ?>; background-color: <?= $bgColor ?>; opacity: <?= $opacity ?>; transition: opacity 0.3s; color: var(--text-color);">
-                                                <strong style="margin-right: 0.5rem;"><?= htmlspecialchars($key) ?>:</strong> 
-                                                <?= htmlspecialchars($text) ?>
-                                                <?php if($isCorrect): ?>
-                                                    <span style="float: right; font-weight: bold; color: var(--brand-success);">✅ Richtig</span>
-                                                <?php endif; ?>
+                                                <div class="options" style="display: flex; flex-direction: column; gap: 0.8rem;">
+                                                    
+                                                    <?php if ($q['type'] === 'radio' || $q['type'] === 'checkbox'): ?>
+                                                        <?php
+                                                        // Antworten extrahieren und garantieren, dass es ein Array ist
+                                                        $correctAnswers = is_array($q['correct']) ? $q['correct'] : [$q['correct']];
+                                                        
+                                                        foreach ($q['options'] as $key => $text):
+                                                            $isCorrect = in_array($key, $correctAnswers);
+                                                            $bgColor = $isCorrect ? 'rgba(40, 167, 69, 0.1)' : 'rgba(0, 0, 0, 0.03)';
+                                                            $borderColor = $isCorrect ? 'var(--brand-success)' : 'transparent';
+                                                            $opacity = $isCorrect ? '1' : '0.5';
+                                                        ?>
+                                                            <div class="quiz-overview-option" style="padding: 1rem; border-radius: 8px; border-left: 4px solid <?= $borderColor ?>; background-color: <?= $bgColor ?>; opacity: <?= $opacity ?>; transition: opacity 0.3s; color: var(--text-color);">
+                                                                <strong style="margin-right: 0.5rem;"><?= htmlspecialchars($key) ?>:</strong> 
+                                                                <?= htmlspecialchars($text) ?>
+                                                                <?php if($isCorrect): ?>
+                                                                    <span style="float: right; font-weight: bold; color: var(--brand-success);">✅ Richtig</span>
+                                                                <?php endif; ?>
+                                                            </div>
+                                                        <?php endforeach; ?>
+
+                                                    <?php elseif ($q['type'] === 'matching'): ?>
+                                                        <div class="quiz-overview-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                                                            <?php foreach ($q['options']['responses'] as $response): 
+                                                                $correctStemId = $q['correct'][$response['id']];
+                                                                $correctStemText = '';
+                                                                foreach ($q['options']['stems'] as $stem) {
+                                                                    if ($stem['id'] === $correctStemId) {
+                                                                        $correctStemText = $stem['text'];
+                                                                        break;
+                                                                    }
+                                                                }
+                                                            ?>
+                                                                <div class="quiz-overview-option" style="padding: 1rem; background: rgba(40, 167, 69, 0.1); border-left: 4px solid var(--brand-success); border-radius: 8px;">
+                                                                    <strong style="display: block; margin-bottom: 0.5rem; color: var(--text-color);"><?= htmlspecialchars($response['text']) ?></strong>
+                                                                    <span style="color: var(--brand-success); font-weight: 600;">
+                                                                        ➡️ <?= htmlspecialchars($correctStemText) ?>
+                                                                    </span>
+                                                                </div>
+                                                            <?php endforeach; ?>
+                                                        </div>
+
+                                                    <?php elseif ($q['type'] === 'ordering'): ?>
+                                                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                                            <?php foreach ($q['correct'] as $stepIndex => $correctId):
+                                                                $correctText = '';
+                                                                foreach ($q['options'] as $opt) {
+                                                                    if ($opt['id'] === $correctId) {
+                                                                        $correctText = $opt['text'];
+                                                                        break;
+                                                                    }
+                                                                }
+                                                            ?>
+                                                                <div class="quiz-overview-option" style="padding: 1rem; background: rgba(40, 167, 69, 0.1); border-left: 4px solid var(--brand-success); border-radius: 8px; display: flex; align-items: center; gap: 1rem;">
+                                                                    <span style="background: var(--brand-success); color: #fff; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; font-size: 0.8rem; flex-shrink: 0;">
+                                                                        <?= $stepIndex + 1 ?>
+                                                                    </span>
+                                                                    <span style="font-weight: 600; color: var(--brand-success);">
+                                                                        <?= htmlspecialchars($correctText) ?>
+                                                                    </span>
+                                                                </div>
+                                                            <?php endforeach; ?>
+                                                        </div>
+                                                    <?php endif; ?>
+
+                                                </div>
                                             </div>
                                         <?php endforeach; ?>
-
-                                    <?php elseif ($q['type'] === 'matching'): ?>
-                                        <div class="quiz-overview-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-                                            <?php foreach ($q['options']['responses'] as $response): 
-                                                $correctStemId = $q['correct'][$response['id']];
-                                                $correctStemText = '';
-                                                foreach ($q['options']['stems'] as $stem) {
-                                                    if ($stem['id'] === $correctStemId) {
-                                                        $correctStemText = $stem['text'];
-                                                        break;
-                                                    }
-                                                }
-                                            ?>
-                                                <div class="quiz-overview-option" style="padding: 1rem; background: rgba(40, 167, 69, 0.1); border-left: 4px solid var(--brand-success); border-radius: 8px;">
-                                                    <strong style="display: block; margin-bottom: 0.5rem; color: var(--text-color);"><?= htmlspecialchars($response['text']) ?></strong>
-                                                    <span style="color: var(--brand-success); font-weight: 600;">
-                                                        ➡️ <?= htmlspecialchars($correctStemText) ?>
-                                                    </span>
-                                                </div>
-                                            <?php endforeach; ?>
-                                        </div>
-
-                                    <?php elseif ($q['type'] === 'ordering'): ?>
-                                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                                            <?php foreach ($q['correct'] as $stepIndex => $correctId):
-                                                $correctText = '';
-                                                foreach ($q['options'] as $opt) {
-                                                    if ($opt['id'] === $correctId) {
-                                                        $correctText = $opt['text'];
-                                                        break;
-                                                    }
-                                                }
-                                            ?>
-                                                <div class="quiz-overview-option" style="padding: 1rem; background: rgba(40, 167, 69, 0.1); border-left: 4px solid var(--brand-success); border-radius: 8px; display: flex; align-items: center; gap: 1rem;">
-                                                    <span style="background: var(--brand-success); color: #fff; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; font-size: 0.8rem; flex-shrink: 0;">
-                                                        <?= $stepIndex + 1 ?>
-                                                    </span>
-                                                    <span style="font-weight: 600; color: var(--brand-success);">
-                                                        <?= htmlspecialchars($correctText) ?>
-                                                    </span>
-                                                </div>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    <?php endif; ?>
-
+                                    </div>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endforeach; ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
 
             <?php endif; ?>
         </div>
